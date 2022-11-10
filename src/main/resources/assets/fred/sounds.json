@@ -1,0 +1,6 @@
+{
+    "item.trumpet.use": {
+        "subtitle": "Trumpet",
+        "sounds": ["fred:items/trumpet"]
+    }
+}
