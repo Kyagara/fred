@@ -9,9 +9,9 @@ public class ModSounds {
     public static final SoundEvent TRUMPET_USE = registerSoundEvent("item.trumpet.use");
 
     private static SoundEvent registerSoundEvent(String name) {
-        Identifier id = new Identifier(Main.MOD_ID, name);
+        Identifier identifier = new Identifier(Main.MOD_ID, name);
 
-        return Registry.register(Registry.SOUND_EVENT, id, new SoundEvent(id));
+        return Registry.register(Registry.SOUND_EVENT, identifier, new SoundEvent(identifier));
     }
 
     public static void registerModSounds() {

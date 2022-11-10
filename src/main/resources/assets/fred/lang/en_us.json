@@ -1,5 +1,8 @@
 {
+    "itemGroup.fred.general": "Fred :)",
+
     "item.fred.trumpet": "Trumpet",
     "item.fred.trumpet.tooltip": "Doot until it is done.",
-    "itemGroup.fred.general": "Fred :)"
+
+    "stat.fred.doot_count": "Doot count"
 }
