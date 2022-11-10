@@ -18,7 +18,7 @@ public class ModItems {
     // Trumpet
     public static final Item TRUMPET_ITEM = registerItem("trumpet",
             new TrumpetItem(
-                    new FabricItemSettings().group(FRED_GROUP).maxCount(1).rarity(Rarity.UNCOMMON)));
+                    new FabricItemSettings().group(FRED_GROUP).rarity(Rarity.UNCOMMON).maxDamage(200)));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registry.ITEM, new Identifier(Main.MOD_ID, name), item);
