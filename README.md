@@ -9,6 +9,15 @@ The main goal with this mod is just to practice some Java with minecraft modding
 -   The texture, model and sound effect are also part of [trumpet-skeleton-fabric](https://github.com/JamiesWhiteShirt/trumpet-skeleton-fabric/).
 -   The name was the first thing a friend said after I asked for a project name.
 
+## Items
+
+-   **Trumpet** - Doot until it is done. Repaired with gold nuggets.
+    ![Trumpet Recipe](./.github/assets/trumpet.png)
+
+## SFX
+
+-   Press `o` [to](https://www.youtube.com/watch?v=TFwXbp9bLlY).
+
 ## Commands
 
 > All commands are a .broadcast() to the server.
