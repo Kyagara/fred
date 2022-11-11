@@ -2,28 +2,24 @@
     "schemaVersion": 1,
     "id": "fred",
     "version": "${version}",
-
     "name": "Fred",
-    "description": "poggers",
+    "description": ":)",
     "authors": ["Kyagara"],
     "contact": {
         "homepage": "https://github.com/Kyagara/fred",
         "sources": "https://github.com/Kyagara/fred"
     },
-
     "license": "MIT",
     "icon": "assets/fred/icon.png",
-
     "environment": "*",
     "entrypoints": {
         "main": ["net.kyagara.fred.Main"]
     },
-    "mixins": ["fred.mixins.json"],
-
     "depends": {
         "fabricloader": ">=0.14.9",
         "fabric-api": "*",
         "minecraft": "~1.19",
-        "java": ">=17"
+        "java": ">=17",
+        "midnightlib": ">=0.6.0"
     }
 }

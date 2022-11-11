@@ -1,6 +1,12 @@
 {
     "item.trumpet.use": {
+        "category": "players",
         "subtitle": "Trumpet",
         "sounds": ["fred:items/trumpet"]
+    },
+    "sfx.my_movie": {
+        "category": "players",
+        "subtitle": "My Movie",
+        "sounds": ["fred:sfx/my_movie"]
     }
 }

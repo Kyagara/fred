@@ -1,6 +1,6 @@
 # Fred :)
 
-Mod developed for a modpack for some friends. I don't plan on doing any backports for now.
+Mod developed for a modpack for some friends. I don't plan on doing any backports.
 
 The main goal with this mod is just to practice some Java with minecraft modding and add some things we find funny as items.
 
@@ -8,6 +8,14 @@ The main goal with this mod is just to practice some Java with minecraft modding
 -   Most of the Trumpet code came from [trumpet-skeleton-fabric](https://github.com/JamiesWhiteShirt/trumpet-skeleton-fabric/).
 -   The texture, model and sound effect are also part of [trumpet-skeleton-fabric](https://github.com/JamiesWhiteShirt/trumpet-skeleton-fabric/).
 -   The name was the first thing a friend said after I asked for a project name.
+
+## Commands
+
+> All commands are a .broadcast() to the server.
+
+-   **roll** - random number from 1 to the number provided as argument.
+-   **8ball** - it can answer your every question, as long as your question can be answered with yes or no.
+-   **quotes** - gives a random quote from a config file, defaults to some random stuff about ULTRAKILL for the lack of a better idea for default quotes.
 
 ## Setup
 

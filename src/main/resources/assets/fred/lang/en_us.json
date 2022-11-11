@@ -1,8 +1,14 @@
 {
     "itemGroup.fred.general": "Fred :)",
 
+    "key.category.fred": "Fred Keybinds",
+    "key.fred.my_movie": "My Movie SFX",
+
     "item.fred.trumpet": "Trumpet",
     "item.fred.trumpet.tooltip": "Doot until it is done.",
 
-    "stat.fred.doot_count": "Doot count"
+    "stat.fred.doot_count": "Doot SFX count",
+    "stat.fred.my_movie_count": "My Movie SFX count",
+
+    "fred.midnightconfig.title": "Fred Configuration"
 }
