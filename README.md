@@ -15,9 +15,9 @@ The main goal with this mod is just to practice some Java with minecraft modding
 
 ![Trumpet Recipe](./.github/assets/trumpet.png)
 
-## SFX
+-   **The Rock Block** - Him.
 
--   Press `o` [to](https://www.youtube.com/watch?v=TFwXbp9bLlY).
+![The Rock Block Recipe](./.github/assets/the_rock_block.png)
 
 ## Commands
 

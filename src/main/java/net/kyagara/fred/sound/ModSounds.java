@@ -8,7 +8,8 @@ import net.minecraft.util.registry.Registry;
 public class ModSounds {
     public static final SoundEvent TRUMPET_USE = registerSoundEvent(new Identifier(Main.MOD_ID, "item.trumpet.use"));
 
-    public static final SoundEvent MY_MOVIE_SFX = registerSoundEvent(new Identifier(Main.MOD_ID, "sfx.my_movie"));
+    public static final SoundEvent THE_ROCK_BLOCK_SCARE = registerSoundEvent(
+            new Identifier(Main.MOD_ID, "sfx.the_rock_block"));
 
     private static SoundEvent registerSoundEvent(Identifier identifier) {
         return Registry.register(Registry.SOUND_EVENT, identifier, new SoundEvent(identifier));

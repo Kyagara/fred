@@ -10,8 +10,7 @@ import net.minecraft.util.math.random.Random;
 
 public class QuotesCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
-        dispatcher.register(
-                CommandManager.literal("quotes").executes(ctx -> run(ctx.getSource())));
+        dispatcher.register(CommandManager.literal("quotes").executes(ctx -> run(ctx.getSource())));
     }
 
     private static int run(ServerCommandSource context) throws CommandSyntaxException {
