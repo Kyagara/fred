@@ -1,6 +1,6 @@
 {
     "variants": {
-        "lit=true": { "model": "fred:block/the_rock_block" },
-        "lit=false": { "model": "minecraft:block/stone" }
+        "powered=false": { "model": "minecraft:block/stone" },
+        "powered=true": { "model": "fred:block/the_rock_block" }
     }
 }
