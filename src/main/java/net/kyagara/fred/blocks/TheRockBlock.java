@@ -16,15 +16,18 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
 public class TheRockBlock extends Block {
-    public static final BooleanProperty SCARE = BooleanProperty.of("lit");
-
     public TheRockBlock(Settings settings) {
         super(settings);
+
+        this.setDefaultState((BlockState) ((BlockState) this.stateManager.getDefaultState()).with(SCARE, false));
     }
+
+    private static final BooleanProperty SCARE = BooleanProperty.of("powered");
 
     @Override
     public void appendTooltip(ItemStack stack, BlockView world, List<Text> tooltip, TooltipContext options) {
@@ -34,12 +37,28 @@ public class TheRockBlock extends Block {
     }
 
     @Override
+    public boolean emitsRedstonePower(BlockState state) {
+        return state.get(SCARE);
+    }
+
+    @Override
+    public int getWeakRedstonePower(BlockState state, BlockView world, BlockPos pos, Direction direction) {
+        if (state.get(SCARE)) {
+            return 32;
+        }
+
+        return 0;
+    }
+
+    @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand,
             BlockHitResult hit) {
         if (!world.isClient()) {
             world.setBlockState(pos, state.cycle(SCARE));
 
-            world.playSound(null, pos, ModSounds.THE_ROCK_BLOCK_SCARE, SoundCategory.PLAYERS, 0.8F, 1F);
+            if (state.get(SCARE) == false) {
+                world.playSound(null, pos, ModSounds.THE_ROCK_BLOCK_SCARE, SoundCategory.PLAYERS, 0.7F, 1F);
+            }
         }
 
         return ActionResult.SUCCESS;
