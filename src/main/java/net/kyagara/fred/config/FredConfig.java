@@ -1,7 +1,6 @@
 package net.kyagara.fred.config;
 
 import java.util.List;
-
 import eu.midnightdust.lib.config.MidnightConfig;
 
 public class FredConfig extends MidnightConfig {

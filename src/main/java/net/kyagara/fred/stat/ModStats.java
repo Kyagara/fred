@@ -1,4 +1,4 @@
-package net.kyagara.fred.stats;
+package net.kyagara.fred.stat;
 
 import net.kyagara.fred.Main;
 import net.minecraft.stat.StatFormatter;

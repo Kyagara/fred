@@ -27,6 +27,13 @@ The main goal with this mod is just to practice some Java with minecraft modding
 -   **8ball** - it can answer your every question, as long as your question can be answered with yes or no.
 -   **quotes** - gives a random quote from a config file, defaults to some random stuff about ULTRAKILL for the lack of a better idea for default quotes.
 
+## Keybinds
+
+> Music keybinds are from [music_control](https://github.com/sf-inc/music_control).
+
+-   **P** - Pause/Resume the music currently playing.
+-   **Right Control** - Shows the name of the current music playing.
+
 ## Setup
 
 For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.

@@ -1,6 +1,13 @@
 {
     "itemGroup.fred.general": "Fred :)",
 
+    "key.category.fred": "Fred keybinds",
+    "key.fred.print_music": "Print music",
+    "key.fred.pause_music": "Pause/Resume music",
+
+    "music.playing": "Playing",
+    "music.pause": "Paused",
+
     "item.fred.trumpet": "Trumpet",
     "item.fred.trumpet.tooltip": "Doot until it is done.",
 

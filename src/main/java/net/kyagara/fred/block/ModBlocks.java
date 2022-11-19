@@ -1,9 +1,9 @@
-package net.kyagara.fred.blocks;
+package net.kyagara.fred.block;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.kyagara.fred.Main;
-import net.kyagara.fred.items.ModItems;
+import net.kyagara.fred.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
 import net.minecraft.item.BlockItem;
