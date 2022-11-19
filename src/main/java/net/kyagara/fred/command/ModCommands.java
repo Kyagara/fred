@@ -1,4 +1,4 @@
-package net.kyagara.fred.commands;
+package net.kyagara.fred.command;
 
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.kyagara.fred.Main;

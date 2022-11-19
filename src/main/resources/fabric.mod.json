@@ -9,6 +9,7 @@
         "homepage": "https://github.com/Kyagara/fred",
         "sources": "https://github.com/Kyagara/fred"
     },
+    "mixins": ["fred.mixins.json"],
     "license": "MIT",
     "icon": "assets/fred/icon.png",
     "environment": "*",
@@ -20,6 +21,6 @@
         "fabric-api": "*",
         "minecraft": "~1.19",
         "java": ">=17",
-        "midnightlib": ">=0.6.0"
+        "midnightlib": ">=1.0.0"
     }
 }

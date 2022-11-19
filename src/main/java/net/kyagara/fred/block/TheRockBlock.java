@@ -1,6 +1,7 @@
-package net.kyagara.fred.blocks;
+package net.kyagara.fred.block;
 
 import java.util.List;
+
 import net.kyagara.fred.sound.ModSounds;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

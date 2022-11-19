@@ -1,4 +1,4 @@
-package net.kyagara.fred.commands;
+package net.kyagara.fred.command;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.CommandDispatcher;

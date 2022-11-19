@@ -1,4 +1,4 @@
-package net.kyagara.fred.items;
+package net.kyagara.fred.item;
 
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;

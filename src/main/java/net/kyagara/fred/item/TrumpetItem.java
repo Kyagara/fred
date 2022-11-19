@@ -1,8 +1,9 @@
-package net.kyagara.fred.items;
+package net.kyagara.fred.item;
 
 import java.util.List;
+
 import net.kyagara.fred.sound.ModSounds;
-import net.kyagara.fred.stats.ModStats;
+import net.kyagara.fred.stat.ModStats;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
