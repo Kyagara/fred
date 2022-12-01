@@ -14,7 +14,8 @@
     "block.fred.the_rock_block": "The Rock Block",
     "block.fred.the_rock_block.tooltip": "?",
 
-    "stat.fred.doot_count": "Doot SFX count",
-
+    "stat.fred.doot_count": "Doot count",
+    "stat.fred.rock_count": "The Rock scare count",
+    
     "fred.midnightconfig.title": "Fred Configuration"
 }
