@@ -8,6 +8,7 @@ import net.minecraft.util.registry.Registry;
 
 public class ModStats {
     public static final Identifier DOOT_COUNT = registerStats("doot_count");
+    public static final Identifier ROCK_COUNT = registerStats("rock_count");
 
     private static Identifier registerStats(String name) {
         Identifier identifier = new Identifier(Main.MOD_ID, name);

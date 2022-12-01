@@ -1,7 +1,6 @@
 package net.kyagara.fred.item;
 
 import java.util.List;
-
 import net.kyagara.fred.sound.ModSounds;
 import net.kyagara.fred.stat.ModStats;
 import net.minecraft.client.item.TooltipContext;
@@ -46,16 +45,16 @@ public class TrumpetItem extends Item {
 
         // Pushing entities - from trumpet-skeleton-fabric
         if (!world.isClient) {
-            world.playSoundFromEntity(null, player, ModSounds.TRUMPET_USE,
-                    SoundCategory.PLAYERS, 0.8F,
+            world.playSoundFromEntity(null, player, ModSounds.TRUMPET_USE, SoundCategory.PLAYERS, 0.8F,
                     0.9F + world.random.nextFloat() * 0.2F);
 
             List<LivingEntity> entities = world.getEntitiesByClass(LivingEntity.class,
                     player.getBoundingBox().expand(5.0D), EntityPredicates.VALID_ENTITY);
 
             for (LivingEntity spookedEntity : entities) {
-                if (spookedEntity == player)
+                if (spookedEntity == player) {
                     continue;
+                }
 
                 double deltaX = spookedEntity.getX() - player.getX() + world.random.nextDouble()
                         - world.random.nextDouble();

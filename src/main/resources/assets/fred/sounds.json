@@ -4,7 +4,7 @@
         "subtitle": "Trumpet",
         "sounds": ["fred:items/trumpet"]
     },
-    "sfx.the_rock_block": {
+    "block.the_rock_block": {
         "category": "players",
         "subtitle": "The Rock",
         "sounds": ["fred:blocks/the_rock_block"]

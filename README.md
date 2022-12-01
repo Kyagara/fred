@@ -12,12 +12,7 @@ The main goal with this mod is just to practice some Java with minecraft modding
 ## Items
 
 -   **Trumpet** - Doot until it is done. Repaired with gold nuggets.
-
-![Trumpet Recipe](./.github/assets/trumpet.png)
-
 -   **The Rock Block** - Him.
-
-![The Rock Block Recipe](./.github/assets/the_rock_block.png)
 
 ## Commands
 
