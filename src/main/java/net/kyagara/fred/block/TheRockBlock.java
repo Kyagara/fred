@@ -1,8 +1,8 @@
 package net.kyagara.fred.block;
 
 import java.util.List;
-
 import net.kyagara.fred.sound.ModSounds;
+import net.kyagara.fred.stat.ModStats;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.item.TooltipContext;
@@ -20,15 +20,16 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.state.property.Properties;
 
 public class TheRockBlock extends Block {
+    private static final BooleanProperty SCARE = Properties.POWERED;
+
     public TheRockBlock(Settings settings) {
         super(settings);
 
-        this.setDefaultState((BlockState) ((BlockState) this.stateManager.getDefaultState()).with(SCARE, false));
+        this.setDefaultState(this.getDefaultState().with(SCARE, false));
     }
-
-    private static final BooleanProperty SCARE = BooleanProperty.of("powered");
 
     @Override
     public void appendTooltip(ItemStack stack, BlockView world, List<Text> tooltip, TooltipContext options) {
@@ -43,7 +44,7 @@ public class TheRockBlock extends Block {
     }
 
     @Override
-    public int getWeakRedstonePower(BlockState state, BlockView world, BlockPos pos, Direction direction) {
+    public int getStrongRedstonePower(BlockState state, BlockView world, BlockPos pos, Direction direction) {
         if (state.get(SCARE)) {
             return 32;
         }
@@ -57,8 +58,10 @@ public class TheRockBlock extends Block {
         if (!world.isClient()) {
             world.setBlockState(pos, state.cycle(SCARE));
 
-            if (state.get(SCARE) == false) {
+            if (!state.get(SCARE)) {
                 world.playSound(null, pos, ModSounds.THE_ROCK_BLOCK_SCARE, SoundCategory.PLAYERS, 0.7F, 1F);
+
+                player.incrementStat(ModStats.ROCK_COUNT);
             }
         }
 

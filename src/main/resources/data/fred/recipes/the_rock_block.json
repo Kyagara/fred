@@ -1,12 +1,15 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [" # ", "###", " # "],
-    "key": {
-        "#": {
-            "item": "minecraft:stone"
-        }
-    },
+    "type": "minecraft:crafting_shapeless",
+    "group": "mineable/pickaxe",
+    "ingredients": [
+      {
+        "item": "minecraft:stone"
+      },
+      {
+        "item": "minecraft:cobblestone"
+      }
+    ],
     "result": {
-        "item": "fred:the_rock_block"
+      "item": "fred:the_rock_block"
     }
 }
