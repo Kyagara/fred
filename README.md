@@ -1,33 +1,53 @@
 # Fred :)
 
-Mod developed for a modpack for some friends. I don't plan on doing any backports.
+Mod developed for a private modpack for some friends. I don't plan on doing any backports.
 
-The main goal with this mod is just to practice some Java with minecraft modding and add some things we find funny as items.
+The main goal with this mod is just to practice some Java with minecraft modding and add some things we find funny as items and features that would need another mod to be installed.
 
 -   Followed tutorials from [Kaupenjoe](https://www.youtube.com/playlist?list=PLKGarocXCE1EeLZggaXPJaARxnAbUD8Y_).
 -   Most of the Trumpet code came from [trumpet-skeleton-fabric](https://github.com/JamiesWhiteShirt/trumpet-skeleton-fabric/).
--   The texture, model and sound effect are also part of [trumpet-skeleton-fabric](https://github.com/JamiesWhiteShirt/trumpet-skeleton-fabric/).
 -   The name was the first thing a friend said after I asked for a project name.
+-   Yes, that's Tyler1 in the mod icon.
+-   :)
 
-## Items
+> Most features are configurable.
 
--   **Trumpet** - Doot until it is done. Repaired with gold nuggets.
--   **The Rock Block** - Him.
+## Keybinds
+
+-   **Up Arrow** - Increases music volume.
+-   **Down Arrow** - Decreases music volume.
+-   **Right Arrow** - Skip music.
+-   **Right Control** - Shows the name of the current music playing.
+-   **Period** - Plays My Movie SFX.
 
 ## Commands
 
 > All commands are a .broadcast() to the server.
 
--   **roll** - random number from 1 to the number provided as argument.
--   **8ball** - it can answer your every question, as long as your question can be answered with yes or no.
--   **quotes** - gives a random quote from a config file, defaults to some random stuff about ULTRAKILL for the lack of a better idea for default quotes.
+-   **roll** - Random number from 1 to the number provided as argument.
+-   **8ball** - It can answer your every question, as long as your question can be answered with yes or no.
+-   **quotes** - Gives a random quote from a config file, defaults to some random stuff about ULTRAKILL for the lack of a better idea for default quotes.
 
-## Keybinds
+## Recipes
 
-> Music keybinds are from [music_control](https://github.com/sf-inc/music_control).
+-   Name Tag
+-   Rotten Flesh to Leather
+-   Horse Armor
+-   Saddle
 
--   **P** - Pause/Resume the music currently playing.
--   **Right Control** - Shows the name of the current music playing.
+## Misc
+
+-   Disable Tutorial, Recipe, System and/or Advancement Toasts.
+-   Play a sound when a new player message appears on chat.
+-   Don't clear the current session chat history.
+-   Show basic world info on chat when joining a world.
+
+## Items
+
+> All items have recipes.
+
+-   **Trumpet** - Doot until it is done. Repaired with gold nuggets.
+-   **The Rock Block** - Him.
 
 ## Setup
 

@@ -4,6 +4,45 @@ import java.util.List;
 import eu.midnightdust.lib.config.MidnightConfig;
 
 public class FredConfig extends MidnightConfig {
+        @Comment(centered = true)
+        public static Comment miscCategory;
+
+        @Entry(name = "Get basic world info on join")
+        public static boolean joinMessage = true;
+
+        @Entry(name = "Clear chat on leave")
+        public static boolean clearChat = false;
+
+        @Entry(name = "Disable all advancement toasts")
+        public static boolean disableAdvancementToasts = false;
+
+        @Entry(name = "Disable all recipe toasts")
+        public static boolean disableRecipeToasts = true;
+
+        @Entry(name = "Disable all tutorial toasts")
+        public static boolean disableTutorialToasts = true;
+
+        @Entry(name = "Disable all system toasts")
+        public static boolean disableSystemToasts = true;
+
+        @Comment(centered = true)
+        public static Comment audioCategory;
+
+        @Entry(name = "Player message volume")
+        public static float chatMessageVolume = 0.15F;
+
+        @Entry(name = "Player message pitch")
+        public static float chatMessagePitch = 3.0F;
+
+        @Entry(name = "Music mininum delay")
+        public static int musicMinDelay = 7000;
+
+        @Entry(name = "Music maximum delay")
+        public static int musicMaxDelay = 10000;
+
+        @Comment(centered = true)
+        public static Comment commandCategory;
+
         @Entry(name = "8Ball answers")
         public static List<String> magicBallAnswersList = List.of(
                         "It is certain.",
