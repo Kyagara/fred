@@ -8,5 +8,10 @@
         "category": "players",
         "subtitle": "The Rock",
         "sounds": ["fred:blocks/the_rock_block"]
+    },
+    "sfx.my_movie": {
+        "category": "players",
+        "subtitle": "My Movie",
+        "sounds": ["fred:sfx/my_movie"]
     }
 }

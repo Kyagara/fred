@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": ["  G", "GWG", "GGG"],
+    "key": {
+        "W": {
+            "tag": "minecraft:wool"
+        },
+        "G": {
+            "tag": "minecraft:gold_ingot"
+        }
+    },
+    "result": {
+        "item": "minecraft:golden_horse_armor"
+    }
+}

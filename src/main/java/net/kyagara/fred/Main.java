@@ -7,7 +7,7 @@ import net.kyagara.fred.block.ModBlocks;
 import net.kyagara.fred.command.ModCommands;
 import net.kyagara.fred.config.FredConfig;
 import net.kyagara.fred.item.ModItems;
-import net.kyagara.fred.keybind.ModKeybinds;
+import net.kyagara.fred.packets.ModPackets;
 import net.kyagara.fred.sound.ModSounds;
 import net.kyagara.fred.stat.ModStats;
 
@@ -23,8 +23,8 @@ public class Main implements ModInitializer {
 		ModBlocks.registerModBlocks();
 		ModItems.registerModItems();
 		ModStats.registerModStats();
-		ModKeybinds.registerModKeybinds();
 		ModSounds.registerModSounds();
 		ModCommands.registerModCommands();
+		ModPackets.registerC2SPackets();
 	}
 }
