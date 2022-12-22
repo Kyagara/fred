@@ -6,7 +6,7 @@
             "tag": "minecraft:wool"
         },
         "D": {
-            "tag": "minecraft:diamond"
+            "item": "minecraft:diamond"
         }
     },
     "result": {

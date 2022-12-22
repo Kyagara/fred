@@ -1,16 +1,32 @@
-# Fred :)
+# Fred
 
-Mod developed for a private modpack for some friends. I don't plan on doing any backports.
+Mod developed for a private modpack for some friends. I don't plan on doing backports to any version for now.
 
-The main goal with this mod is just to practice some Java with minecraft modding and add some things we find funny as items and features that would need another mod to be installed.
+The main goal with this mod is to add some QoL features that would normally need another mod to be installed, things we find funny as items/commands and to practice some java along the way.
 
--   Followed tutorials from [Kaupenjoe](https://www.youtube.com/playlist?list=PLKGarocXCE1EeLZggaXPJaARxnAbUD8Y_).
--   Most of the Trumpet code came from [trumpet-skeleton-fabric](https://github.com/JamiesWhiteShirt/trumpet-skeleton-fabric/).
 -   The name was the first thing a friend said after I asked for a project name.
 -   Yes, that's Tyler1 in the mod icon.
 -   :)
 
 > Most features are configurable.
+
+## Features
+
+-   Movement with Inventory open
+-   Link items in chat
+-   Play sound on a new player message.
+-   More control over the Minecraft Music (control music delay, keybinds to skip, change volume, show what is playing)
+-   Disable any Toasts (tutorial, recipe, advancement).
+-   Keep the current session chat history.
+-   Show basic world info on chat when joining a world.
+-   Total blocks broken statistic.
+
+## New recipes
+
+-   Name Tag
+-   Rotten Flesh to Leather
+-   Horse Armor (diamond, gold, iron)
+-   Saddle
 
 ## Keybinds
 
@@ -18,37 +34,35 @@ The main goal with this mod is just to practice some Java with minecraft modding
 -   **Down Arrow** - Decreases music volume.
 -   **Right Arrow** - Skip music.
 -   **Right Control** - Shows the name of the current music playing.
--   **Period** - Plays My Movie SFX.
 
 ## Commands
 
-> All commands are a .broadcast() to the server.
+> Server side commands that broadcast() to the server.
 
 -   **roll** - Random number from 1 to the number provided as argument.
 -   **8ball** - It can answer your every question, as long as your question can be answered with yes or no.
 -   **quotes** - Gives a random quote from a config file, defaults to some random stuff about ULTRAKILL for the lack of a better idea for default quotes.
 
-## Recipes
+> Client side commands.
 
--   Name Tag
--   Rotten Flesh to Leather
--   Horse Armor
--   Saddle
+-   **shrug** - Shrugs.
+-   **flip** - Flips a table.
+-   **unflip** - Unflips said table.
 
-## Misc
-
--   Disable Tutorial, Recipe, System and/or Advancement Toasts.
--   Play a sound when a new player message appears on chat.
--   Don't clear the current session chat history.
--   Show basic world info on chat when joining a world.
-
-## Items
+## Joke features
 
 > All items have recipes.
 
--   **Trumpet** - Doot until it is done. Repaired with gold nuggets.
--   **The Rock Block** - Him.
+-   (Item) **Trumpet** - Doot until it is done. Repaired with gold nuggets.
+-   (Item) **The Rock Block** - Him.
+-   (Keybind) **Period** - Plays My Movie SFX.
 
 ## Setup
 
 For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
+
+## License
+
+Fred is licensed under the MIT license.
+
+It contains code from [trumpet-skeleton-fabric](https://github.com/JamiesWhiteShirt/trumpet-skeleton-fabric/), [Kaupenjoe's Fabric Tutorial](https://www.youtube.com/playlist?list=PLKGarocXCE1EeLZggaXPJaARxnAbUD8Y_) and [show-me-what-you-got](https://github.com/apace100/show-me-what-you-got).

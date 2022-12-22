@@ -16,9 +16,9 @@ public class RollCommand {
     }
 
     private static int run(ServerCommandSource context, int number) throws CommandSyntaxException {
-        final int random = Random.create().nextBetween(1, number);
+        int random = Random.create().nextBetween(1, number);
 
-        final String message = context.getDisplayName().getString() + " rolls " + random;
+        String message = context.getDisplayName().getString() + " rolls " + random;
 
         context.getServer().getPlayerManager().broadcast(ModCommands.CreateCommandText(message), false);
 

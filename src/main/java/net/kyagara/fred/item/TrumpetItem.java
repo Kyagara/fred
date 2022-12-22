@@ -2,7 +2,7 @@ package net.kyagara.fred.item;
 
 import java.util.List;
 import net.kyagara.fred.sound.ModSounds;
-import net.kyagara.fred.stat.ModStats;
+import net.kyagara.fred.stat.ModStatistics;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -72,7 +72,7 @@ public class TrumpetItem extends Item {
 
             player.getStackInHand(hand).damage(1, player, p -> p.sendToolBreakStatus(hand));
 
-            player.incrementStat(ModStats.DOOT_COUNT);
+            player.incrementStat(ModStatistics.DOOT_COUNT);
         }
 
         return super.use(world, player, hand);

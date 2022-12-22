@@ -7,9 +7,9 @@ import net.kyagara.fred.block.ModBlocks;
 import net.kyagara.fred.command.ModCommands;
 import net.kyagara.fred.config.FredConfig;
 import net.kyagara.fred.item.ModItems;
-import net.kyagara.fred.packets.ModPackets;
+import net.kyagara.fred.packet.ModPackets;
 import net.kyagara.fred.sound.ModSounds;
-import net.kyagara.fred.stat.ModStats;
+import net.kyagara.fred.stat.ModStatistics;
 
 public class Main implements ModInitializer {
 	public static final String MOD_ID = "fred";
@@ -22,9 +22,9 @@ public class Main implements ModInitializer {
 
 		ModBlocks.registerModBlocks();
 		ModItems.registerModItems();
-		ModStats.registerModStats();
+		ModStatistics.registerModStatistics();
 		ModSounds.registerModSounds();
 		ModCommands.registerModCommands();
-		ModPackets.registerC2SPackets();
+		ModPackets.registerModPackets();
 	}
 }

@@ -6,7 +6,7 @@
             "tag": "minecraft:wool"
         },
         "G": {
-            "tag": "minecraft:gold_ingot"
+            "item": "minecraft:gold_ingot"
         }
     },
     "result": {
