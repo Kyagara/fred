@@ -6,7 +6,7 @@
             "item": "minecraft:leather"
         },
         "I": {
-            "tag": "minecraft:iron_ingot"
+            "item": "minecraft:iron_ingot"
         },
         "S": {
             "item": "minecraft:string"

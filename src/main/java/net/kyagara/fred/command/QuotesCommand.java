@@ -14,7 +14,7 @@ public class QuotesCommand {
     }
 
     private static int run(ServerCommandSource context) throws CommandSyntaxException {
-        final int random = Random.create().nextBetween(0, FredConfig.quotesList.size() - 1);
+        int random = Random.create().nextBetween(0, FredConfig.quotesList.size() - 1);
 
         context.getServer().getPlayerManager()
                 .broadcast(ModCommands.CreateCommandText(FredConfig.quotesList.get(random)), false);

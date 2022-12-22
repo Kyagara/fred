@@ -7,6 +7,9 @@ public class FredConfig extends MidnightConfig {
         @Comment(centered = true)
         public static Comment miscCategory;
 
+        @Entry(name = "Enable inventory movement")
+        public static boolean inventoryMovement = true;
+
         @Entry(name = "Get basic world info on join")
         public static boolean joinMessage = true;
 
@@ -26,7 +29,19 @@ public class FredConfig extends MidnightConfig {
         public static boolean disableSystemToasts = true;
 
         @Comment(centered = true)
+        public static Comment itemCategory;
+
+        @Entry(name = "Enable The Rock Block")
+        public static boolean enableTheRockBlock = true;
+
+        @Entry(name = "Enable Trumpet")
+        public static boolean enableTrumpet = true;
+
+        @Comment(centered = true)
         public static Comment audioCategory;
+
+        @Entry(name = "Enable chat message sound")
+        public static boolean chatMessageSound = true;
 
         @Entry(name = "Player message volume")
         public static float chatMessageVolume = 0.15F;

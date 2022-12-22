@@ -1,6 +1,6 @@
-package net.kyagara.fred.music;
+package net.kyagara.fred.sound;
 
-import net.kyagara.fred.mixin.MusicTrackerAccessor;
+import net.kyagara.fred.mixin.client.accessor.MusicTrackerAccessor;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.sound.MusicTracker;
 import net.minecraft.client.sound.SoundInstance;
@@ -14,14 +14,14 @@ public class MusicControl {
         SoundInstance current = ((MusicTrackerAccessor) client.getMusicTracker()).getCurrent();
 
         if (muted || current == null || current.getSound() == null) {
-            client.inGameHud.setOverlayMessage(Text.translatable("music.no_music"), false);
+            client.inGameHud.setOverlayMessage(Text.translatable("music.fred.no_music"), false);
 
             return;
         }
 
-        final Text music = Text.translatable(current.getSound().getIdentifier().toString());
+        Text music = Text.translatable(current.getSound().getIdentifier().toString());
 
-        client.inGameHud.setOverlayMessage(Text.translatable("music.now_playing", music), false);
+        client.inGameHud.setOverlayMessage(Text.translatable("music.fred.now_playing", music), false);
     }
 
     public static void Skip(MinecraftClient client) {
@@ -33,8 +33,8 @@ public class MusicControl {
 
             current = ((MusicTrackerAccessor) tracker).getCurrent();
 
-            final Text music = Text.translatable(current.getSound().getIdentifier().toString());
-            client.inGameHud.setOverlayMessage(Text.translatable("music.now_playing", music), false);
+            Text music = Text.translatable(current.getSound().getIdentifier().toString());
+            client.inGameHud.setOverlayMessage(Text.translatable("music.fred.now_playing", music), false);
 
             return;
         }
@@ -44,8 +44,8 @@ public class MusicControl {
 
         current = ((MusicTrackerAccessor) tracker).getCurrent();
 
-        final Text music = Text.translatable(current.getSound().getIdentifier().toString());
-        client.inGameHud.setOverlayMessage(Text.translatable("music.now_playing", music), false);
+        Text music = Text.translatable(current.getSound().getIdentifier().toString());
+        client.inGameHud.setOverlayMessage(Text.translatable("music.fred.now_playing", music), false);
     }
 
     public static void IncreaseVolume(MinecraftClient client) {
@@ -62,7 +62,7 @@ public class MusicControl {
             muted = false;
         }
 
-        client.inGameHud.setOverlayMessage(Text.translatable("music.volume", Math.round(100.0F * volume)), false);
+        client.inGameHud.setOverlayMessage(Text.translatable("music.fred.volume", Math.round(100.0F * volume)), false);
     }
 
     public static void DecreaseVolume(MinecraftClient client) {
@@ -76,6 +76,6 @@ public class MusicControl {
             muted = true;
         }
 
-        client.inGameHud.setOverlayMessage(Text.translatable("music.volume", Math.round(100.0F * volume)), false);
+        client.inGameHud.setOverlayMessage(Text.translatable("music.fred.volume", Math.round(100.0F * volume)), false);
     }
 }

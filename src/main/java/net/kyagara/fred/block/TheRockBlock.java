@@ -2,9 +2,10 @@ package net.kyagara.fred.block;
 
 import java.util.List;
 import net.kyagara.fred.sound.ModSounds;
-import net.kyagara.fred.stat.ModStats;
+import net.kyagara.fred.stat.ModStatistics;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.RedstoneBlock;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -22,20 +23,23 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.state.property.Properties;
 
-public class TheRockBlock extends Block {
+public class TheRockBlock extends RedstoneBlock {
     private static final BooleanProperty SCARE = Properties.POWERED;
 
     public TheRockBlock(Settings settings) {
         super(settings);
-
         this.setDefaultState(this.getDefaultState().with(SCARE, false));
     }
 
     @Override
     public void appendTooltip(ItemStack stack, BlockView world, List<Text> tooltip, TooltipContext options) {
         tooltip.add(Text.translatable("block.fred.the_rock_block.tooltip").formatted(Formatting.AQUA));
-
         super.appendTooltip(stack, world, tooltip, options);
+    }
+
+    @Override
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        builder.add(SCARE);
     }
 
     @Override
@@ -44,32 +48,27 @@ public class TheRockBlock extends Block {
     }
 
     @Override
-    public int getStrongRedstonePower(BlockState state, BlockView world, BlockPos pos, Direction direction) {
+    public int getWeakRedstonePower(BlockState state, BlockView world, BlockPos pos, Direction direction) {
         if (state.get(SCARE)) {
-            return 32;
+            return 15;
         }
 
         return 0;
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand,
-            BlockHitResult hit) {
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player,
+            Hand hand, BlockHitResult hit) {
+
         if (!world.isClient()) {
             world.setBlockState(pos, state.cycle(SCARE));
 
             if (!state.get(SCARE)) {
                 world.playSound(null, pos, ModSounds.THE_ROCK_BLOCK_SCARE, SoundCategory.PLAYERS, 0.7F, 1F);
-
-                player.incrementStat(ModStats.ROCK_COUNT);
+                player.incrementStat(ModStatistics.ROCK_COUNT);
             }
         }
 
         return ActionResult.SUCCESS;
-    }
-
-    @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(SCARE);
     }
 }

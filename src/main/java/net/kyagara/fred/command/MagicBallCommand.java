@@ -14,9 +14,9 @@ public class MagicBallCommand {
     }
 
     private static int run(ServerCommandSource context) throws CommandSyntaxException {
-        final int random = Random.create().nextBetween(0, FredConfig.magicBallAnswersList.size() - 1);
+        int random = Random.create().nextBetween(0, FredConfig.magicBallAnswersList.size() - 1);
 
-        final String answer = "The Magic 8 Ball has decided: " + FredConfig.magicBallAnswersList.get(random);
+        String answer = "The Magic 8 Ball has decided: " + FredConfig.magicBallAnswersList.get(random);
 
         context.getServer().getPlayerManager().broadcast(ModCommands.CreateCommandText(answer), false);
 

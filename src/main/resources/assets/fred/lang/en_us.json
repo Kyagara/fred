@@ -1,5 +1,15 @@
 {
-    "itemGroup.fred.general": "Fred :)",
+    "fred.midnightconfig.title": "Fred Configuration",
+    "fred.midnightconfig.miscCategory": "Misc",
+    "fred.midnightconfig.itemCategory": "Items",
+    "fred.midnightconfig.audioCategory": "Audio",
+    "fred.midnightconfig.commandCategory": "Commands",
+
+    "misc.fred.link_item": "[%s] %s",
+
+    "stats.fred.my_movie_count": "My movie SFX count",
+    "stats.fred.doot_count": "Doot count",
+    "stats.fred.rock_count": "The Rock scare count",
 
     "key.category.fred": "Fred keybinds",
     "key.fred.print_music": "Print music",
@@ -7,24 +17,17 @@
     "key.fred.increase_volume": "Increase music volume",
     "key.fred.decrease_volume": "Decrease music volume",
     "key.fred.my_movie": "My Movie SFX",
+    "key.fred.link_item": "Link item in chat",
 
-    "fred.midnightconfig.title": "Fred Configuration",
-    "fred.midnightconfig.miscCategory": "Misc",
-    "fred.midnightconfig.audioCategory": "Audio",
-    "fred.midnightconfig.commandCategory": "Commands",
+    "music.fred.no_music": "No music playing",
+    "music.fred.skipped": "Skipped",
+    "music.fred.now_playing": "Playing: %s",
+    "music.fred.volume": "Volume: %d%%",
 
-    "music.no_music": "No music playing",
-    "music.skipped": "Skipped",
-    "music.now_playing": "Playing: %s",
-    "music.volume": "Volume: %d%%",
+    "itemGroup.fred.general": "Fred :)",
 
     "item.fred.trumpet": "Trumpet",
     "item.fred.trumpet.tooltip": "Doot until it is done.",
-
     "block.fred.the_rock_block": "The Rock Block",
-    "block.fred.the_rock_block.tooltip": "Him.",
-
-    "stat.fred.my_movie_count": "My movie SFX count",
-    "stat.fred.doot_count": "Doot count",
-    "stat.fred.rock_count": "The Rock scare count"
+    "block.fred.the_rock_block.tooltip": "Him."
 }
