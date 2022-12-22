@@ -10,22 +10,22 @@ public class FredConfig extends MidnightConfig {
         @Entry(name = "Enable inventory movement")
         public static boolean inventoryMovement = true;
 
-        @Entry(name = "Get basic world info on join")
+        @Entry(name = "Show basic world info on join")
         public static boolean joinMessage = true;
 
-        @Entry(name = "Clear chat on leave")
+        @Entry(name = "Clear chat when leaving world")
         public static boolean clearChat = false;
 
-        @Entry(name = "Disable all advancement toasts")
+        @Entry(name = "Disable advancement toasts")
         public static boolean disableAdvancementToasts = false;
 
-        @Entry(name = "Disable all recipe toasts")
+        @Entry(name = "Disable recipe toasts")
         public static boolean disableRecipeToasts = true;
 
-        @Entry(name = "Disable all tutorial toasts")
+        @Entry(name = "Disable tutorial toasts")
         public static boolean disableTutorialToasts = true;
 
-        @Entry(name = "Disable all system toasts")
+        @Entry(name = "Disable system toasts")
         public static boolean disableSystemToasts = true;
 
         @Comment(centered = true)
@@ -49,11 +49,11 @@ public class FredConfig extends MidnightConfig {
         @Entry(name = "Player message pitch")
         public static float chatMessagePitch = 3.0F;
 
-        @Entry(name = "Music mininum delay")
+        @Entry(name = "Mininum music delay")
         public static int musicMinDelay = 7000;
 
-        @Entry(name = "Music maximum delay")
-        public static int musicMaxDelay = 10000;
+        @Entry(name = "Maximum music delay")
+        public static int musicMaxDelay = 9000;
 
         @Comment(centered = true)
         public static Comment commandCategory;
