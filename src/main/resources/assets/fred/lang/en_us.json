@@ -7,9 +7,10 @@
 
     "misc.fred.link_item": "[%s] %s",
 
-    "stats.fred.my_movie_count": "My movie SFX count",
-    "stats.fred.doot_count": "Doot count",
-    "stats.fred.rock_count": "The Rock scare count",
+    "stat.fred.my_movie_count": "My movie SFX count",
+    "stat.fred.doot_count": "Doot count",
+    "stat.fred.rock_count": "The Rock scare count",
+    "stat.fred.block_break_count": "Total blocks broken",
 
     "key.category.fred": "Fred keybinds",
     "key.fred.print_music": "Print music",
