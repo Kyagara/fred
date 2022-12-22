@@ -3,11 +3,14 @@ package net.kyagara.fred.keybind;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents;
+import net.fabricmc.fabric.api.client.screen.v1.ScreenKeyboardEvents;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.kyagara.fred.Main;
-import net.kyagara.fred.hook.ClientEventsHooks;
+import net.kyagara.fred.config.FredConfig;
 import net.kyagara.fred.packet.ModPackets;
 import net.kyagara.fred.sound.MusicControl;
+import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import org.lwjgl.glfw.GLFW;
@@ -21,11 +24,18 @@ public class ModKeybinds {
     public static final KeyBinding LINK_ITEM_KEYBIND = register(GLFW.GLFW_KEY_LEFT_ALT, "key.fred.link_item");
 
     private static void registerKeybinds() {
-        ClientEventsHooks.KEY_PRESSED.register((client, keyCode, scanCode, modifiers) -> {
-            if (LINK_ITEM_KEYBIND.matchesKey(keyCode, scanCode)) {
-                LinkItemKeybind.SendLinkItemPacket(client);
-            }
-        });
+        ScreenEvents.BEFORE_INIT.register(((client, screen, scaledWidth, scaledHeight) -> {
+            ScreenKeyboardEvents.beforeKeyPress(screen).register((screen2, keyCode, scanCode, modifiers) -> {
+                // TODO: fix keybind being unpressed when opening any screen
+                if (FredConfig.inventoryMovement && screen2 instanceof HandledScreen) {
+                    ScreenMovementKeybind.CheckForMovementKeybind(client, keyCode, scanCode);
+                }
+
+                if (LINK_ITEM_KEYBIND.matchesKey(keyCode, scanCode)) {
+                    LinkItemKeybind.SendLinkItemPacket(client);
+                }
+            });
+        }));
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (PRINT_MUSIC_KEYBIND.wasPressed()) {

@@ -6,7 +6,6 @@
     "mixins": ["BlockMixin"],
     "client": [
         "client.ScreenMixin",
-        "client.KeyboardMixin",
         "client.ChatMessageMixin",
         "client.ChatHudMixin",
         "client.MusicSoundMixin",

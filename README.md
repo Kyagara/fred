@@ -12,10 +12,10 @@ The main goal with this mod is to add some QoL features that would normally need
 
 ## Features
 
--   Movement with Inventory open
--   Link items in chat
+-   Movement with Inventory open.
+-   Link items in chat.
 -   Play sound on a new player message.
--   More control over the Minecraft Music (control music delay, keybinds to skip, change volume, show what is playing)
+-   More control over the Minecraft Music (control music delay, keybinds to skip, change volume, show what is playing).
 -   Disable any Toasts (tutorial, recipe, advancement).
 -   Keep the current session chat history.
 -   Show basic world info on chat when joining a world.
