@@ -14,7 +14,7 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 @Mixin(GlassBottleItem.class)
-public class XPBottleItemMixin {
+public abstract class XPBottleItemMixin {
     @Inject(method = "use", at = @At("HEAD"), cancellable = true)
     public void use(World world, PlayerEntity player, Hand hand,
             CallbackInfoReturnable<TypedActionResult<ItemStack>> ci) {
