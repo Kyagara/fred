@@ -31,6 +31,12 @@ public class FredConfig extends MidnightConfig {
         @Comment(centered = true)
         public static Comment itemCategory;
 
+        @Entry(name = "Enable XP Bottle")
+        public static boolean enableXPBottle = true;
+
+        @Entry(name = "XP used for XPBottle", min = 0)
+        public static int xpForXPBottle = 10;
+
         @Entry(name = "Enable The Rock Block")
         public static boolean enableTheRockBlock = true;
 
@@ -43,16 +49,16 @@ public class FredConfig extends MidnightConfig {
         @Entry(name = "Enable chat message sound")
         public static boolean chatMessageSound = true;
 
-        @Entry(name = "Player message volume")
+        @Entry(name = "Player message volume", min = 0.0F)
         public static float chatMessageVolume = 0.15F;
 
         @Entry(name = "Player message pitch")
         public static float chatMessagePitch = 3.0F;
 
-        @Entry(name = "Mininum music delay")
+        @Entry(name = "Mininum music delay", min = 0)
         public static int musicMinDelay = 7000;
 
-        @Entry(name = "Maximum music delay")
+        @Entry(name = "Maximum music delay", min = 0)
         public static int musicMaxDelay = 9000;
 
         @Comment(centered = true)

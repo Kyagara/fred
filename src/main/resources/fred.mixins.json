@@ -3,9 +3,10 @@
     "minVersion": "0.8",
     "package": "net.kyagara.fred.mixin",
     "compatibilityLevel": "JAVA_17",
-    "mixins": ["BlockMixin"],
+    "mixins": ["BlockMixin", "XPBottleItemMixin"],
     "client": [
         "client.ScreenMixin",
+        "client.ClientPlayerEntityMixin",
         "client.ChatMessageMixin",
         "client.ChatHudMixin",
         "client.MusicSoundMixin",
