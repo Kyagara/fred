@@ -12,7 +12,9 @@ public class ScreenMovementKeybind {
             handle = client.getWindow().getHandle();
         }
 
-        // TODO: get the current key pressed, this is only getting the default keys
+        // TODO: get the actual input being pressed, currently this only loops movement
+        // keys and check if any of them are being pressed, this works well however this
+        // loops only takes into account default movement keybinds
         for (KeyBinding key : client.options.allKeys) {
             if (key.getCategory() == KeyBinding.MOVEMENT_CATEGORY) {
                 key.setPressed(InputUtil.isKeyPressed(handle, key.getDefaultKey().getCode()));

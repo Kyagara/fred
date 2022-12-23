@@ -17,6 +17,7 @@ The main goal with this mod is to add some QoL features that would normally need
 -   Play sound on a new player message.
 -   More control over the Minecraft Music (control music delay, keybinds to skip, change volume, show what is playing).
 -   Disable any Toasts (tutorial, recipe, advancement).
+-   Use XP to create Experience bottle.
 -   Keep the current session chat history.
 -   Show basic world info on chat when joining a world.
 -   Total blocks broken statistic.
