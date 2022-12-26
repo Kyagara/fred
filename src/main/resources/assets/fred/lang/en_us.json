@@ -5,7 +5,7 @@
     "fred.midnightconfig.audioCategory": "Audio",
     "fred.midnightconfig.commandCategory": "Commands",
 
-    "misc.fred.link_item": "[%s] %s",
+    "misc.fred.link_item": "<%s> %s",
 
     "stat.fred.my_movie_count": "My movie SFX count",
     "stat.fred.doot_count": "Doot count",
