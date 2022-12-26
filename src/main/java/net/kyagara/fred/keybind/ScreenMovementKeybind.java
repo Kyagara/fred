@@ -1,5 +1,6 @@
 package net.kyagara.fred.keybind;
 
+import net.fabricmc.fabric.mixin.client.keybinding.KeyBindingAccessor;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
@@ -12,12 +13,10 @@ public class ScreenMovementKeybind {
             handle = client.getWindow().getHandle();
         }
 
-        // TODO: get the actual input being pressed, currently this only loops movement
-        // keys and check if any of them are being pressed, this works well however this
-        // loops only takes into account default movement keybinds
         for (KeyBinding key : client.options.allKeys) {
             if (key.getCategory() == KeyBinding.MOVEMENT_CATEGORY) {
-                key.setPressed(InputUtil.isKeyPressed(handle, key.getDefaultKey().getCode()));
+                key.setPressed(
+                        InputUtil.isKeyPressed(handle, ((KeyBindingAccessor) key).fabric_getBoundKey().getCode()));
             }
         }
     }

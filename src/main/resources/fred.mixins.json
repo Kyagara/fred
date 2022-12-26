@@ -12,7 +12,8 @@
         "client.MusicSoundMixin",
         "client.ToastManagerMixin",
         "client.accessor.MusicTrackerAccessor",
-        "client.accessor.HandledScreenAccessor"
+        "client.accessor.HandledScreenAccessor",
+        "client.accessor.KeyBindingAccessor"
     ],
     "injectors": {
         "defaultRequire": 1

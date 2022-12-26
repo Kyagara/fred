@@ -5,10 +5,10 @@ Mod developed for a private modpack for some friends. I don't plan on doing back
 The main goal with this mod is to add some QoL features that would normally need another mod to be installed, things we find funny as items/commands and to practice some java along the way.
 
 -   The name was the first thing a friend said after I asked for a project name.
--   Yes, that's Tyler1 in the mod icon.
--   :)
+-   The icon is my friend's doggo :), its temporary, no idea of what to actually use.
 
 > Most features are configurable.
+
 > Check the most recent Github Action artifact for the mod jar.
 
 ## Features
