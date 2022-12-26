@@ -9,6 +9,7 @@ The main goal with this mod is to add some QoL features that would normally need
 -   :)
 
 > Most features are configurable.
+> Check the most recent Github Action artifact for the mod jar.
 
 ## Features
 
