@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "fred:block/rei_fumo_quaso_block"
+    }
+}

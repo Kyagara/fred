@@ -1,8 +1,6 @@
 package net.kyagara.fred;
 
 import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.kyagara.fred.command.ModCommands;
 import net.kyagara.fred.config.FredConfig;
@@ -10,7 +8,6 @@ import net.kyagara.fred.event.JoiningWorldEvent;
 import net.kyagara.fred.event.LeavingWorldEvent;
 import net.kyagara.fred.keybind.ModKeybinds;
 
-@Environment(EnvType.CLIENT)
 public class Client implements ClientModInitializer {
     @Override
     public void onInitializeClient() {

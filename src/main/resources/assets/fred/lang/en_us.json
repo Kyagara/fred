@@ -10,7 +10,9 @@
     "stat.fred.my_movie_count": "My movie SFX count",
     "stat.fred.doot_count": "Doot count",
     "stat.fred.rock_count": "The Rock scare count",
-    "stat.fred.block_break_count": "Total blocks broken",
+    "stat.fred.quaso_count": "Rei quaso count",
+    "stat.fred.block_placed_count": "Blocks placed",
+    "stat.fred.block_break_count": "Blocks broken",
 
     "key.category.fred": "Fred keybinds",
     "key.fred.print_music": "Print music",
@@ -30,5 +32,7 @@
     "item.fred.trumpet": "Trumpet",
     "item.fred.trumpet.tooltip": "Doot until it is done.",
     "block.fred.the_rock_block": "The Rock Block",
-    "block.fred.the_rock_block.tooltip": "Him."
+    "block.fred.the_rock_block.tooltip": "Him.",
+    "block.fred.rei_fumo_block": "Rei Fumo",
+    "block.fred.rei_fumo_block.tooltip": "Tumbling down."
 }

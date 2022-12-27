@@ -13,10 +13,15 @@ import net.minecraft.util.registry.Registry;
 
 public class ModBlocks {
     private static Block THE_ROCK_BLOCK = new TheRockBlock(FabricBlockSettings.of(Material.STONE));
+    private static Block REI_FUMO_BLOCK = new ReiFumoBlock(FabricBlockSettings.of(Material.WOOL));
 
     private static void registerBlocks() {
         if (FredConfig.enableTheRockBlock) {
             registerBlock("the_rock_block", THE_ROCK_BLOCK);
+        }
+
+        if (FredConfig.enableReiFumoBlock) {
+            registerBlock("rei_fumo_block", REI_FUMO_BLOCK);
         }
     }
 
