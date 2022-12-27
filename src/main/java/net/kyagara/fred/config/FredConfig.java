@@ -40,6 +40,9 @@ public class FredConfig extends MidnightConfig {
         @Entry(name = "Enable The Rock Block")
         public static boolean enableTheRockBlock = true;
 
+        @Entry(name = "Enable Rei Fumo Block")
+        public static boolean enableReiFumoBlock = true;
+
         @Entry(name = "Enable Trumpet")
         public static boolean enableTrumpet = true;
 

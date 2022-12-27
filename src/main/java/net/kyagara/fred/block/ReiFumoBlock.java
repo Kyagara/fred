@@ -23,17 +23,19 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.state.property.Properties;
 
-public class TheRockBlock extends RedstoneBlock {
+// Ideally this block should be something like an Item Frame,
+// something that mounts on the wall.
+public class ReiFumoBlock extends RedstoneBlock {
     private static final BooleanProperty POWERED = Properties.POWERED;
 
-    public TheRockBlock(Settings settings) {
+    public ReiFumoBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.getDefaultState().with(POWERED, false));
     }
 
     @Override
     public void appendTooltip(ItemStack stack, BlockView world, List<Text> tooltip, TooltipContext options) {
-        tooltip.add(Text.translatable("block.fred.the_rock_block.tooltip").formatted(Formatting.AQUA));
+        tooltip.add(Text.translatable("block.fred.rei_fumo_block.tooltip").formatted(Formatting.AQUA));
 
         super.appendTooltip(stack, world, tooltip, options);
     }
@@ -65,8 +67,10 @@ public class TheRockBlock extends RedstoneBlock {
             world.setBlockState(pos, state.cycle(POWERED));
 
             if (!state.get(POWERED)) {
-                world.playSound(null, pos, ModSounds.THE_ROCK_BLOCK_SCARE, SoundCategory.PLAYERS, 0.7F, 1F);
-                player.incrementStat(ModStatistics.ROCK_COUNT);
+                world.playSound(null, pos, ModSounds.REI_FUMO_QUASO, SoundCategory.PLAYERS, 0.5F,
+                        0.9F + world.random.nextFloat() * 0.15F);
+
+                player.incrementStat(ModStatistics.QUASO_COUNT);
             }
         }
 

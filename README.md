@@ -2,10 +2,10 @@
 
 Mod developed for a private modpack for some friends. I don't plan on doing backports to any version for now.
 
-The main goal with this mod is to add some QoL features that would normally need another mod to be installed, things we find funny as items/commands and to practice some java along the way.
+The main goal with this mod is to add some quality of life features that would normally need another mod to be installed, things we find funny as items/commands and to practice some java along the way.
 
 -   The name was the first thing a friend said after I asked for a project name.
--   The icon is my friend's doggo :), its temporary, no idea of what to actually use.
+-   The mod icon is my friend's doggo :), its temporary, no idea of what to actually use.
 
 > Most features are configurable.
 
@@ -13,15 +13,15 @@ The main goal with this mod is to add some QoL features that would normally need
 
 ## Features
 
--   Movement with Inventory open.
+-   Movement with screens open (inventory, crafting table and a lot more).
 -   Link items in chat.
--   Play sound on a new player message.
--   More control over the Minecraft Music (control music delay, keybinds to skip, change volume, show what is playing).
+-   Sound on chat message.
+-   More control over the Minecraft Music (delay between songs, skip, change volume, show what is playing).
 -   Disable any Toasts (tutorial, recipe, advancement).
--   Use XP to create Experience bottle.
 -   Keep the current session chat history.
 -   Show basic world info on chat when joining a world.
--   Total blocks broken statistic.
+-   Use XP to create Experience bottle.
+-   Total blocks broken and placed statistic.
 
 ## New recipes
 
@@ -53,10 +53,11 @@ The main goal with this mod is to add some QoL features that would normally need
 
 ## Joke features
 
-> All items have recipes.
+> All items/blocks have recipes, have their own statistics and can be disabled.
 
 -   (Item) **Trumpet** - Doot until it is done. Repaired with gold nuggets.
 -   (Item) **The Rock Block** - Him.
+-   (Item) **Rei Fumo Block** - Tumbling down.
 -   (Keybind) **Period** - Plays My Movie SFX.
 
 ## Setup
