@@ -7,6 +7,12 @@ public class FredConfig extends MidnightConfig {
         @Comment(centered = true)
         public static Comment miscCategory;
 
+        @Entry(name = "Enable custom window title")
+        public static boolean enableCustomTitle = true;
+
+        @Entry(name = "Custom window title")
+        public static String customTitle = "Minecraft";
+
         @Entry(name = "Enable inventory movement")
         public static boolean inventoryMovement = true;
 
