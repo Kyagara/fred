@@ -1,5 +1,7 @@
 package net.kyagara.fred.event;
 
+import java.util.List;
+
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
@@ -25,7 +27,9 @@ public class JoiningWorldEvent {
                 .addMessage(getRow(worldName, "Day: ", day, "Difficulty: ", difficulty));
 
         if (isServer) {
-            String count = Integer.toString(client.getCurrentServerEntry().playerListSummary.size());
+            List<Text> playerListSummary = client.getCurrentServerEntry().playerListSummary;
+
+            String count = Integer.toString(playerListSummary == null ? 0 : playerListSummary.size());
             String ping = Long.toString(client.getCurrentServerEntry().ping);
 
             client.inGameHud.getChatHud()
