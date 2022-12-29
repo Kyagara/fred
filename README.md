@@ -13,6 +13,7 @@ The main goal with this mod is to add some quality of life features that would n
 
 ## Features
 
+-   Custom window title.
 -   Movement with screens open (inventory, crafting table and a lot more).
 -   Link items in chat.
 -   Sound on chat message.
@@ -68,4 +69,4 @@ For setup instructions please see the [fabric wiki page](https://fabricmc.net/wi
 
 Fred is licensed under the MIT license.
 
-It contains code from [trumpet-skeleton-fabric](https://github.com/JamiesWhiteShirt/trumpet-skeleton-fabric/), [Kaupenjoe's Fabric Tutorial](https://www.youtube.com/playlist?list=PLKGarocXCE1EeLZggaXPJaARxnAbUD8Y_) and [show-me-what-you-got](https://github.com/apace100/show-me-what-you-got).
+This project contains code from [trumpet-skeleton-fabric](https://github.com/JamiesWhiteShirt/trumpet-skeleton-fabric/), [show-me-what-you-got](https://github.com/apace100/show-me-what-you-got) and is based on [Kaupenjoe's Fabric Tutorial](https://www.youtube.com/playlist?list=PLKGarocXCE1EeLZggaXPJaARxnAbUD8Y_).

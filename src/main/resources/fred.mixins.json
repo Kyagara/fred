@@ -6,6 +6,7 @@
     "mixins": ["BlockMixin", "XPBottleItemMixin"],
     "client": [
         "client.ScreenMixin",
+        "client.MinecraftClientMixin",
         "client.ClientPlayerEntityMixin",
         "client.ChatMessageMixin",
         "client.ChatHudMixin",
