@@ -9,7 +9,7 @@ public class JoiningWorldEvent {
     public static void SendJoinMessage(MinecraftClient client) {
         String worldName;
 
-        boolean isServer = client.world.getServer() != null;
+        boolean isServer = client.world.getServer() != null || client.getCurrentServerEntry() != null;
 
         if (isServer) {
             worldName = client.getCurrentServerEntry().name;
