@@ -8,7 +8,6 @@
         "client.ScreenMixin",
         "client.MinecraftClientMixin",
         "client.ClientPlayerEntityMixin",
-        "client.ChatMessageMixin",
         "client.ChatHudMixin",
         "client.MusicSoundMixin",
         "client.ToastManagerMixin",
