@@ -5,7 +5,9 @@
     "compatibilityLevel": "JAVA_17",
     "mixins": ["BlockMixin", "XPBottleItemMixin"],
     "client": [
+        "client.AbstractClientPlayerEntityMixin",
         "client.ScreenMixin",
+        "client.MouseMixin",
         "client.MinecraftClientMixin",
         "client.ClientPlayerEntityMixin",
         "client.ChatHudMixin",

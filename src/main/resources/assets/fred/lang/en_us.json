@@ -1,8 +1,11 @@
 {
     "fred.midnightconfig.title": "Fred Configuration",
-    "fred.midnightconfig.miscCategory": "Misc",
+    "fred.midnightconfig.miscellaneousCategory": "Miscellaneous",
+    "fred.midnightconfig.mechanicCategory": "Mechanics",
+    "fred.midnightconfig.chatCategory": "Chat",
+    "fred.midnightconfig.toastCategory": "Toasts",
     "fred.midnightconfig.itemCategory": "Items",
-    "fred.midnightconfig.audioCategory": "Audio",
+    "fred.midnightconfig.audioCategory": "Music",
     "fred.midnightconfig.commandCategory": "Commands",
 
     "misc.fred.link_item": "<%s> %s",
@@ -21,6 +24,7 @@
     "key.fred.decrease_volume": "Decrease music volume",
     "key.fred.my_movie": "My Movie SFX",
     "key.fred.link_item": "Link item in chat",
+    "key.fred.zoom": "Zoom",
 
     "music.fred.no_music": "No music playing",
     "music.fred.skipped": "Skipped",

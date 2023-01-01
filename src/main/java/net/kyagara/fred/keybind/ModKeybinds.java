@@ -5,10 +5,12 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents;
 import net.fabricmc.fabric.api.client.screen.v1.ScreenKeyboardEvents;
+import net.fabricmc.fabric.api.event.player.UseEntityCallback;
+import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.kyagara.fred.Main;
+import net.kyagara.fred.config.FredConfig;
 import net.kyagara.fred.packet.ModPackets;
-import net.kyagara.fred.sound.MusicControl;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import org.lwjgl.glfw.GLFW;
@@ -20,11 +22,12 @@ public class ModKeybinds {
     public static final KeyBinding DECREASE_VOLUME_KEYBIND = register(GLFW.GLFW_KEY_DOWN, "key.fred.decrease_volume");
     public static final KeyBinding MY_MOVIE_SFX_KEYBIND = register(GLFW.GLFW_KEY_PERIOD, "key.fred.my_movie");
     public static final KeyBinding LINK_ITEM_KEYBIND = register(GLFW.GLFW_KEY_LEFT_ALT, "key.fred.link_item");
+    public static final KeyBinding ZOOM_KEYBIND = register(GLFW.GLFW_KEY_C, "key.fred.zoom");
 
     private static void registerKeybinds() {
         ScreenEvents.BEFORE_INIT.register(((client, screen, scaledWidth, scaledHeight) -> {
             ScreenKeyboardEvents.beforeKeyPress(screen).register((screen2, keyCode, scanCode, modifiers) -> {
-                if (LINK_ITEM_KEYBIND.matchesKey(keyCode, scanCode)) {
+                if (LINK_ITEM_KEYBIND.matchesKey(keyCode, scanCode) && FredConfig.enableLinkItemInChat) {
                     LinkItemKeybind.SendLinkItemPacket(client);
                 }
             });
@@ -32,24 +35,32 @@ public class ModKeybinds {
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (PRINT_MUSIC_KEYBIND.wasPressed()) {
-                MusicControl.Print(client);
+                MusicControlKeybind.Print(client);
             }
 
             if (SKIP_KEYBIND.wasPressed()) {
-                MusicControl.Skip(client);
+                MusicControlKeybind.Skip(client);
             }
 
             if (INCREASE_VOLUME_KEYBIND.wasPressed()) {
-                MusicControl.IncreaseVolume(client);
+                MusicControlKeybind.IncreaseVolume(client);
             }
 
             if (DECREASE_VOLUME_KEYBIND.wasPressed()) {
-                MusicControl.DecreaseVolume(client);
+                MusicControlKeybind.DecreaseVolume(client);
             }
 
-            if (MY_MOVIE_SFX_KEYBIND.wasPressed()) {
+            if (MY_MOVIE_SFX_KEYBIND.wasPressed() && FredConfig.enableMyMovieSFX) {
                 ClientPlayNetworking.send(ModPackets.MY_MOVIE_SFX_PACKET, PacketByteBufs.create());
             }
+        });
+
+        UseItemCallback.EVENT.register((player, world, hand) -> {
+            return SpyglassZoomKeybind.onUse(player, world, hand);
+        });
+
+        UseEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
+            return SpyglassZoomKeybind.onEntityInteract(player, world, hand, entity, hitResult);
         });
     }
 

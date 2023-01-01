@@ -1,16 +1,16 @@
 package net.kyagara.fred.event;
 
+import net.kyagara.fred.config.FredConfig;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
 
 public class LeavingWorldEvent {
-    public static void ClearChat(MinecraftClient client) {
+    public static void SendChatSessionSeparator(MinecraftClient client) {
         client.inGameHud.getChatHud().addMessage(Text.empty());
 
         client.inGameHud.getChatHud()
-                .addMessage(Text.literal("------------------------------------")
-                        .styled(style -> style.withColor(Formatting.AQUA)));
+                .addMessage(Text.literal(FredConfig.chatSessionSeparator)
+                        .styled(style -> style.withColor(Integer.decode(FredConfig.chatSessionSeparatorColor))));
 
         client.inGameHud.getChatHud().addMessage(Text.empty());
     }

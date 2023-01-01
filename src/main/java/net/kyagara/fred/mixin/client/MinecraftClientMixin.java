@@ -14,8 +14,8 @@ import net.minecraft.client.MinecraftClient;
 public abstract class MinecraftClientMixin {
     @Inject(method = "getWindowTitle", at = @At("HEAD"), cancellable = true)
     private void getWindowTitle(CallbackInfoReturnable<String> ci) {
-        if (FredConfig.enableCustomTitle) {
-            ci.setReturnValue(FredConfig.customTitle);
+        if (FredConfig.enableCustomWindowTitle) {
+            ci.setReturnValue(FredConfig.customWindowTitle);
         }
     }
 }

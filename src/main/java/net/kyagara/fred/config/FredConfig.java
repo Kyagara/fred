@@ -5,22 +5,64 @@ import eu.midnightdust.lib.config.MidnightConfig;
 
 public class FredConfig extends MidnightConfig {
         @Comment(centered = true)
-        public static Comment miscCategory;
+        public static Comment miscellaneousCategory;
 
         @Entry(name = "Enable custom window title")
-        public static boolean enableCustomTitle = true;
+        public static boolean enableCustomWindowTitle = true;
 
         @Entry(name = "Custom window title")
-        public static String customTitle = "Minecraft";
+        public static String customWindowTitle = "Minecraft";
+
+        @Comment(centered = true)
+        public static Comment mechanicCategory;
 
         @Entry(name = "Enable inventory movement")
-        public static boolean inventoryMovement = true;
+        public static boolean enableInventoryMovement = true;
+
+        @Entry(name = "Enable zoom")
+        public static boolean enableZoom = true;
+
+        @Entry(name = "Enable changing spyglass FOV")
+        public static boolean enableChangingSpyglassFOV = true;
+
+        @Entry(name = "Enable XP Bottle")
+        public static boolean enableXPBottleMechanic = true;
+
+        @Entry(name = "XP used for XPBottle", min = 0)
+        public static int xpForXPBottle = 10;
+
+        @Comment(centered = true)
+        public static Comment chatCategory;
+
+        @Entry(name = "Enable linking item in chat")
+        public static boolean enableLinkItemInChat = true;
 
         @Entry(name = "Show basic world info on join")
-        public static boolean joinMessage = true;
+        public static boolean enableJoinChatMessage = true;
 
         @Entry(name = "Clear chat when leaving world")
-        public static boolean clearChat = false;
+        public static boolean clearChatOnLeave = false;
+
+        @Entry(name = "Enable chat session separator")
+        public static boolean enableChatSessionSeparator = true;
+
+        @Entry(name = "Chat session separator")
+        public static String chatSessionSeparator = "------------------------------------";
+
+        @Entry(name = "Chat session separator color", isColor = true)
+        public static String chatSessionSeparatorColor = "#55FFFF";
+
+        @Entry(name = "Enable chat message sound")
+        public static boolean enableChatMessageSound = true;
+
+        @Entry(name = "Player message volume", min = 0.0F)
+        public static float chatMessageVolume = 0.15F;
+
+        @Entry(name = "Player message pitch")
+        public static float chatMessagePitch = 3.0F;
+
+        @Comment(centered = true)
+        public static Comment toastCategory;
 
         @Entry(name = "Disable advancement toasts")
         public static boolean disableAdvancementToasts = false;
@@ -37,12 +79,6 @@ public class FredConfig extends MidnightConfig {
         @Comment(centered = true)
         public static Comment itemCategory;
 
-        @Entry(name = "Enable XP Bottle")
-        public static boolean enableXPBottle = true;
-
-        @Entry(name = "XP used for XPBottle", min = 0)
-        public static int xpForXPBottle = 10;
-
         @Entry(name = "Enable The Rock Block")
         public static boolean enableTheRockBlock = true;
 
@@ -55,14 +91,8 @@ public class FredConfig extends MidnightConfig {
         @Comment(centered = true)
         public static Comment audioCategory;
 
-        @Entry(name = "Enable chat message sound")
-        public static boolean chatMessageSound = true;
-
-        @Entry(name = "Player message volume", min = 0.0F)
-        public static float chatMessageVolume = 0.15F;
-
-        @Entry(name = "Player message pitch")
-        public static float chatMessagePitch = 3.0F;
+        @Entry(name = "Enable My Movie SFX")
+        public static boolean enableMyMovieSFX = true;
 
         @Entry(name = "Mininum music delay", min = 0)
         public static int musicMinDelay = 7000;
@@ -72,6 +102,15 @@ public class FredConfig extends MidnightConfig {
 
         @Comment(centered = true)
         public static Comment commandCategory;
+
+        @Entry(name = "Enable Roll command")
+        public static boolean enableRollCommand = true;
+
+        @Entry(name = "Enable Quotes command")
+        public static boolean enableQuotesCommand = true;
+
+        @Entry(name = "Enable Magic Ball command")
+        public static boolean enableMagicBallCommand = true;
 
         @Entry(name = "8Ball answers")
         public static List<String> magicBallAnswersList = List.of(

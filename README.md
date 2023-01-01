@@ -15,7 +15,8 @@ The main goal with this mod is to add some quality of life features that would n
 
 -   Custom window title.
 -   Movement with screens open (inventory, crafting table and a lot more).
--   Link items in chat.
+-   Zoom based on [VanillaZoom](<https://github.com/ricksouth/serilum-mc-mods/tree/master/sources-fabric/Vanilla%20Zoom%20(Fabric)>) and changing zoom distance.
+-   Link items in chat based on [Show Me What You Got](https://github.com/apace100/show-me-what-you-got).
 -   Sound on chat message.
 -   More control over the Minecraft Music (delay between songs, skip, change volume, show what is playing).
 -   Disable any Toasts (tutorial, recipe, advancement).
@@ -37,6 +38,8 @@ The main goal with this mod is to add some quality of life features that would n
 -   **Down Arrow** - Decreases music volume.
 -   **Right Arrow** - Skip music.
 -   **Right Control** - Shows the name of the current music playing.
+-   **Left Alt** - Press while hovering an item to link it in chat.
+-   **C** - Zoom (conflicts with a creative mode keybind, you can change this).
 
 ## Commands
 
@@ -69,4 +72,4 @@ For setup instructions please see the [fabric wiki page](https://fabricmc.net/wi
 
 Fred is licensed under the MIT license.
 
-This project contains code from [trumpet-skeleton-fabric](https://github.com/JamiesWhiteShirt/trumpet-skeleton-fabric/), [show-me-what-you-got](https://github.com/apace100/show-me-what-you-got) and is based on [Kaupenjoe's Fabric Tutorial](https://www.youtube.com/playlist?list=PLKGarocXCE1EeLZggaXPJaARxnAbUD8Y_).
+This project contains code from [trumpet-skeleton-fabric](https://github.com/JamiesWhiteShirt/trumpet-skeleton-fabric/), [show-me-what-you-got](https://github.com/apace100/show-me-what-you-got), [VanillaZoom](<https://github.com/ricksouth/serilum-mc-mods/tree/master/sources-fabric/Vanilla%20Zoom%20(Fabric)>) and is based on [Kaupenjoe's Fabric Tutorial](https://www.youtube.com/playlist?list=PLKGarocXCE1EeLZggaXPJaARxnAbUD8Y_).
