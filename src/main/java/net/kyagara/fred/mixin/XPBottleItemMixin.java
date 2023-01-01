@@ -22,7 +22,7 @@ public abstract class XPBottleItemMixin {
 
         ItemStack stack = player.getStackInHand(hand);
 
-        if (!world.isClient && FredConfig.enableXPBottle) {
+        if (!world.isClient && FredConfig.enableXPBottleMechanic) {
             if (player.isSneaking() && ExperienceUtil.CanCreateXPBottle(player)) {
                 player.addExperience(-FredConfig.xpForXPBottle);
 

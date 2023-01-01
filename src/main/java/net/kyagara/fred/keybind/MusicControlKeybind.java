@@ -1,4 +1,4 @@
-package net.kyagara.fred.sound;
+package net.kyagara.fred.keybind;
 
 import net.kyagara.fred.mixin.client.accessor.MusicTrackerAccessor;
 import net.minecraft.client.MinecraftClient;
@@ -7,7 +7,7 @@ import net.minecraft.client.sound.SoundInstance;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
 
-public class MusicControl {
+public class MusicControlKeybind {
     private static boolean muted = false;
 
     public static void Print(MinecraftClient client) {

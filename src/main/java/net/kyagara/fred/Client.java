@@ -20,11 +20,11 @@ public class Client implements ClientModInitializer {
 
     private static void connectionEvents() {
         ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
-            if (!FredConfig.clearChat) {
-                LeavingWorldEvent.ClearChat(client);
+            if (!FredConfig.clearChatOnLeave && FredConfig.enableChatSessionSeparator) {
+                LeavingWorldEvent.SendChatSessionSeparator(client);
             }
 
-            if (FredConfig.joinMessage) {
+            if (FredConfig.enableJoinChatMessage) {
                 JoiningWorldEvent.SendJoinMessage(client);
             }
         });
