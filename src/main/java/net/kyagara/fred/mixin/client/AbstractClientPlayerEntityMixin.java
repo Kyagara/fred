@@ -14,15 +14,12 @@ import net.minecraft.client.network.AbstractClientPlayerEntity;
 @Environment(EnvType.CLIENT)
 @Mixin(AbstractClientPlayerEntity.class)
 public abstract class AbstractClientPlayerEntityMixin {
-    private static MinecraftClient client = null;
+    private static final MinecraftClient client = MinecraftClient.getInstance();
 
     @Inject(method = "getFovMultiplier", at = @At("INVOKE"), cancellable = true)
     public void getFovMultiplier(CallbackInfoReturnable<Float> ci) {
-        if (client == null) {
-            client = MinecraftClient.getInstance();
-        }
-
-        if (FredConfig.enableChangingSpyglassFOV && client.options.getPerspective().isFirstPerson()
+        if (FredConfig.enableChangingSpyglassFOV
+                && client.options.getPerspective().isFirstPerson()
                 && client.player.isUsingSpyglass()) {
 
             ci.setReturnValue(SpyglassZoomKeybind.spyglassFOV);

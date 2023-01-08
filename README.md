@@ -15,6 +15,7 @@ The main goal with this mod is to add some quality of life features that would n
 
 -   Custom window title.
 -   Movement with screens open (inventory, crafting table and a lot more).
+-   Auto walk.
 -   Zoom based on [VanillaZoom](<https://github.com/ricksouth/serilum-mc-mods/tree/master/sources-fabric/Vanilla%20Zoom%20(Fabric)>) and changing zoom distance.
 -   Link items in chat based on [Show Me What You Got](https://github.com/apace100/show-me-what-you-got).
 -   Sound on chat message.
@@ -40,6 +41,7 @@ The main goal with this mod is to add some quality of life features that would n
 -   **Right Control** - Shows the name of the current music playing.
 -   **Left Alt** - Press while hovering an item to link it in chat.
 -   **C** - Zoom (conflicts with a creative mode keybind, you can change this).
+-   **G** - Auto walk.
 
 ## Commands
 

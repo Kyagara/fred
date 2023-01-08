@@ -23,17 +23,17 @@ public abstract class MouseMixin {
 
     @Inject(method = "onMouseScroll", at = @At("INVOKE"), cancellable = true)
     private void onMouseScroll(long window, double horizontal, double vertical, CallbackInfo ci) {
-        if (this.client.player == null) {
+        if (client.player == null) {
             return;
         }
 
-        if (this.client.options.getPerspective().isFirstPerson() && this.client.player.isUsingSpyglass()) {
+        if (client.options.getPerspective().isFirstPerson() && client.player.isUsingSpyglass()) {
             float newValue = MathHelper.clamp(SpyglassZoomKeybind.spyglassFOV - ((float) vertical * 0.1F), 0.1F, 0.8F);
 
             if (SpyglassZoomKeybind.spyglassFOV != newValue) {
                 SpyglassZoomKeybind.spyglassFOV = newValue;
 
-                this.client.player.playSound(SoundEvents.ITEM_SPYGLASS_STOP_USING, 1.0F,
+                client.player.playSound(SoundEvents.ITEM_SPYGLASS_STOP_USING, 1.0F,
                         1.0F + SpyglassZoomKeybind.spyglassFOV);
             }
 
