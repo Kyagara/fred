@@ -15,7 +15,6 @@ public class MusicControlKeybind {
 
         if (muted || current == null || current.getSound() == null) {
             client.inGameHud.setOverlayMessage(Text.translatable("music.fred.no_music"), false);
-
             return;
         }
 
@@ -33,7 +32,14 @@ public class MusicControlKeybind {
 
             current = ((MusicTrackerAccessor) tracker).getCurrent();
 
-            Text music = Text.translatable(current.getSound().getIdentifier().toString());
+            String song = current.getSound().getIdentifier().toString();
+
+            if (song.startsWith("meta:", 0)) {
+                client.inGameHud.setOverlayMessage(Text.translatable("music.fred.no_music"), false);
+                return;
+            }
+
+            Text music = Text.translatable(song);
             client.inGameHud.setOverlayMessage(Text.translatable("music.fred.now_playing", music), false);
 
             return;

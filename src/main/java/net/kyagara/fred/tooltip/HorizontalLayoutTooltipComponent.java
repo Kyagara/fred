@@ -32,7 +32,7 @@ public class HorizontalLayoutTooltipComponent implements TooltipComponent {
 
     @Override
     public int getHeight() {
-        return this.height;
+        return height;
     }
 
     @Override

@@ -19,6 +19,9 @@ public class FredConfig extends MidnightConfig {
         @Entry(name = "Enable inventory movement")
         public static boolean enableInventoryMovement = true;
 
+        @Entry(name = "Disable inventory background")
+        public static boolean disableInventoryBackground = false;
+
         @Entry(name = "Enable zoom")
         public static boolean enableZoom = true;
 

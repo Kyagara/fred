@@ -39,7 +39,7 @@ public abstract class ChatHudMixin {
             @Nullable MessageIndicator indicator, boolean refresh, CallbackInfo ci) {
 
         if (FredConfig.enableChatMessageSound) {
-            this.client.player.playSound(SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.PLAYERS,
+            client.player.playSound(SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.PLAYERS,
                     FredConfig.chatMessageVolume, FredConfig.chatMessagePitch);
         }
     }
