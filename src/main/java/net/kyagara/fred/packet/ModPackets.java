@@ -1,26 +1,25 @@
 package net.kyagara.fred.packet;
 
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-import net.kyagara.fred.Main;
-import net.kyagara.fred.config.FredConfig;
+import net.kyagara.fred.Fred;
 import net.minecraft.util.Identifier;
 
 public class ModPackets {
-    public static final Identifier MY_MOVIE_SFX_PACKET = new Identifier(Main.MOD_ID, "my_movie_packet");
-    public static final Identifier LINK_ITEM_PACKET = new Identifier(Main.MOD_ID, "link_item_packet");
+    public static final Identifier MY_MOVIE_SFX_PACKET = new Identifier(Fred.MOD_ID, "my_movie_packet");
+    public static final Identifier LINK_ITEM_PACKET = new Identifier(Fred.MOD_ID, "link_item_packet");
 
     public static void registerC2SPackets() {
-        if (FredConfig.enableMyMovieSFX) {
+        if (Fred.CONFIG.enableMyMovieSFX()) {
             ServerPlayNetworking.registerGlobalReceiver(MY_MOVIE_SFX_PACKET, MyMovieSFXPacket::receive);
         }
 
-        if (FredConfig.enableLinkItemInChat) {
+        if (Fred.CONFIG.enableLinkItemInChat()) {
             ServerPlayNetworking.registerGlobalReceiver(LINK_ITEM_PACKET, LinkItemPacket::receive);
         }
     }
 
     public static void registerModPackets() {
-        Main.LOGGER.debug("Registering packets from " + Main.MOD_ID);
+        Fred.LOGGER.debug("Registering packets from " + Fred.MOD_ID);
         registerC2SPackets();
     }
 }

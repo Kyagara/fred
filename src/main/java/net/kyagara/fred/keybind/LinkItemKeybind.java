@@ -10,18 +10,18 @@ import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.slot.Slot;
 
 public class LinkItemKeybind {
-    public static void SendLinkItemPacket(MinecraftClient client) {
-        if (client.currentScreen == null || !(client.currentScreen instanceof HandledScreen)) {
-            return;
-        }
+	public static void SendLinkItemPacket(MinecraftClient client) {
+		if (!(client.currentScreen instanceof HandledScreen)) {
+			return;
+		}
 
-        Slot focusedSlot = ((HandledScreenAccessor) client.currentScreen).getFocusedSlot();
+		Slot focusedSlot = ((HandledScreenAccessor) client.currentScreen).getFocusedSlot();
 
-        if (focusedSlot != null && focusedSlot.hasStack()) {
-            PacketByteBuf buf = PacketByteBufs.create();
-            buf.writeText(focusedSlot.getStack().toHoverableText());
+		if (focusedSlot != null && focusedSlot.hasStack()) {
+			PacketByteBuf buf = PacketByteBufs.create();
+			buf.writeText(focusedSlot.getStack().toHoverableText());
 
-            ClientPlayNetworking.send(ModPackets.LINK_ITEM_PACKET, buf);
-        }
-    }
+			ClientPlayNetworking.send(ModPackets.LINK_ITEM_PACKET, buf);
+		}
+	}
 }

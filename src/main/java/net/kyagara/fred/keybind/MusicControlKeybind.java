@@ -1,87 +1,130 @@
 package net.kyagara.fred.keybind;
 
 import net.kyagara.fred.mixin.client.accessor.MusicTrackerAccessor;
+import net.kyagara.fred.screen.MusicPlayerScreen;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.sound.MusicTracker;
 import net.minecraft.client.sound.SoundInstance;
+import net.minecraft.sound.MusicSound;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
+
+import java.util.ArrayList;
 
 public class MusicControlKeybind {
-    private static boolean muted = false;
+	private static boolean muted = false;
 
-    public static void Print(MinecraftClient client) {
-        SoundInstance current = ((MusicTrackerAccessor) client.getMusicTracker()).getCurrent();
+	public static void PlayMusic(MinecraftClient client, Identifier song) {
+		if (client == null) {
+			return;
+		}
 
-        if (muted || current == null || current.getSound() == null) {
-            client.inGameHud.setOverlayMessage(Text.translatable("music.fred.no_music"), false);
-            return;
-        }
+		if (song.toString().equals("meta:missing_sound")) {
+			client.inGameHud.setOverlayMessage(Text.translatable("music.fred.no_music"), false);
+			return;
+		}
 
-        Text music = Text.translatable(current.getSound().getIdentifier().toString());
+		MusicTracker tracker = client.getMusicTracker();
 
-        client.inGameHud.setOverlayMessage(Text.translatable("music.fred.now_playing", music), false);
-    }
+		tracker.stop();
+		tracker.play(new MusicSound(new SoundEvent(song), 0, 0, true));
 
-    public static void Skip(MinecraftClient client) {
-        MusicTracker tracker = client.getMusicTracker();
-        SoundInstance current = ((MusicTrackerAccessor) tracker).getCurrent();
+		Print(client);
+	}
 
-        if (current == null || current.getSound() == null) {
-            tracker.play(client.getMusicType());
+	public static void Print(MinecraftClient client) {
+		SoundInstance current = ((MusicTrackerAccessor) client.getMusicTracker()).getCurrent();
 
-            current = ((MusicTrackerAccessor) tracker).getCurrent();
+		if (muted || current == null || current.getSound() == null || current.getId().toString().equals("meta:missing_sound")) {
+			client.inGameHud.setOverlayMessage(Text.translatable("music.fred.no_music"), false);
+			return;
+		}
 
-            String song = current.getSound().getIdentifier().toString();
+		Text music = Text.translatable(current.getSound().getIdentifier().toString());
+		client.inGameHud.setOverlayMessage(Text.translatable("music.fred.now_playing", music), false);
+	}
 
-            if (song.startsWith("meta:", 0)) {
-                client.inGameHud.setOverlayMessage(Text.translatable("music.fred.no_music"), false);
-                return;
-            }
+	public static void ShowMusicPlayerScreen(MinecraftClient client) {
+		ArrayList<Identifier> musics = new ArrayList<>();
+		ArrayList<Identifier> discs = new ArrayList<>();
 
-            Text music = Text.translatable(song);
-            client.inGameHud.setOverlayMessage(Text.translatable("music.fred.now_playing", music), false);
+		for (Identifier key : client.getSoundManager().getKeys()) {
+			if (key.getPath().contains("music")) {
+				if (key.getPath().contains("music_disc")) {
+					discs.add(key);
+					continue;
+				}
 
-            return;
-        }
+				if (key.toString().equals("meta:missing_sound")) {
+					continue;
+				}
 
-        client.getSoundManager().stop(current);
-        tracker.play(client.getMusicType());
+				musics.add(key);
+			}
+		}
 
-        current = ((MusicTrackerAccessor) tracker).getCurrent();
+		musics.addAll(discs);
+		client.setScreen(new MusicPlayerScreen(musics));
+	}
 
-        Text music = Text.translatable(current.getSound().getIdentifier().toString());
-        client.inGameHud.setOverlayMessage(Text.translatable("music.fred.now_playing", music), false);
-    }
+	public static void Skip(MinecraftClient client) {
+		MusicTracker tracker = client.getMusicTracker();
+		SoundInstance current = ((MusicTrackerAccessor) tracker).getCurrent();
 
-    public static void IncreaseVolume(MinecraftClient client) {
-        float volume = client.options.getSoundVolume(SoundCategory.MUSIC);
+		if (current == null || current.getSound() == null) {
+			tracker.play(client.getMusicType());
 
-        volume = Math.min(volume + 0.05F, 1.0F);
+			current = ((MusicTrackerAccessor) tracker).getCurrent();
 
-        client.options.setSoundVolume(SoundCategory.MUSIC, volume);
-        client.options.write();
+			String song = current.getSound().getIdentifier().toString();
 
-        // Start playing music after unmuting.
-        if (muted) {
-            client.getMusicTracker().play(client.getMusicType());
-            muted = false;
-        }
+			if (song.startsWith("meta:")) {
+				client.inGameHud.setOverlayMessage(Text.translatable("music.fred.no_music"), false);
+				return;
+			}
 
-        client.inGameHud.setOverlayMessage(Text.translatable("music.fred.volume", Math.round(100.0F * volume)), false);
-    }
+			Text music = Text.translatable(song);
+			client.inGameHud.setOverlayMessage(Text.translatable("music.fred.now_playing", music), false);
 
-    public static void DecreaseVolume(MinecraftClient client) {
-        float volume = client.options.getSoundVolume(SoundCategory.MUSIC);
-        volume = Math.max(volume - 0.05F, 0.0F);
+			return;
+		}
 
-        client.options.setSoundVolume(SoundCategory.MUSIC, volume);
-        client.options.write();
+		tracker.stop();
+		tracker.play(client.getMusicType());
 
-        if (volume == 0.00F) {
-            muted = true;
-        }
+		current = ((MusicTrackerAccessor) tracker).getCurrent();
 
-        client.inGameHud.setOverlayMessage(Text.translatable("music.fred.volume", Math.round(100.0F * volume)), false);
-    }
+		Text music = Text.translatable(current.getSound().getIdentifier().toString());
+		client.inGameHud.setOverlayMessage(Text.translatable("music.fred.now_playing", music), false);
+	}
+
+	public static void IncreaseVolume(MinecraftClient client) {
+		float volume = Math.min(client.options.getSoundVolume(SoundCategory.MUSIC) + 0.05F, 1.0F);
+
+		client.options.setSoundVolume(SoundCategory.MUSIC, volume);
+		client.options.write();
+
+		// Start playing music after unmuting.
+		if (muted) {
+			client.getMusicTracker().play(client.getMusicType());
+			muted = false;
+		}
+
+		client.inGameHud.setOverlayMessage(Text.translatable("music.fred.volume", Math.round(100.0F * volume)), false);
+	}
+
+	public static void DecreaseVolume(MinecraftClient client) {
+		float volume = Math.max(client.options.getSoundVolume(SoundCategory.MUSIC) - 0.05F, 0.0F);
+
+		client.options.setSoundVolume(SoundCategory.MUSIC, volume);
+		client.options.write();
+
+		if (volume == 0.00F) {
+			muted = true;
+		}
+
+		client.inGameHud.setOverlayMessage(Text.translatable("music.fred.volume", Math.round(100.0F * volume)), false);
+	}
 }

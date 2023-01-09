@@ -11,13 +11,11 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 
 public class MyMovieSFXPacket {
-    public static void receive(MinecraftServer server, ServerPlayerEntity player,
-            ServerPlayNetworkHandler handler, PacketByteBuf buf, PacketSender responseSender) {
+	public static void receive(MinecraftServer ignoredServer, ServerPlayerEntity player, ServerPlayNetworkHandler ignoredHandler, PacketByteBuf ignoredBuf, PacketSender ignoredResponseSender) {
+		ServerWorld world = player.getWorld();
 
-        ServerWorld world = player.getWorld();
+		world.playSoundFromEntity(null, player, ModSounds.MY_MOVIE_SFX, SoundCategory.PLAYERS, 0.7F, 1F);
 
-        world.playSoundFromEntity(null, player, ModSounds.MY_MOVIE_SFX, SoundCategory.PLAYERS, 0.7F, 1F);
-
-        player.incrementStat(ModStatistics.MY_MOVIE_COUNT);
-    }
+		player.incrementStat(ModStatistics.MY_MOVIE_COUNT);
+	}
 }

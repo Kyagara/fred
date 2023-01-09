@@ -15,62 +15,59 @@ import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.world.World;
 
 public class SpyglassZoomKeybind {
-    private static boolean zoom = false;
-    private static ItemStack previousStack = null;
+	public static float spyglassFOV = 0.1F;
+	private static boolean zoom = false;
+	private static ItemStack previousStack = null;
 
-    public static float spyglassFOV = 0.1F;
+	public static void CheckForZoomKeybind(MinecraftClient client) {
+		boolean forceRelease = false;
 
-    public static void CheckForZoomKeybind(MinecraftClient client) {
-        boolean forceRelease = false;
+		if (zoom) {
+			client.options.useKey.setPressed(true);
 
-        if (zoom) {
-            client.options.useKey.setPressed(true);
+			if (client.player != null && !(client.player.getStackInHand(Hand.OFF_HAND).getItem() instanceof SpyglassItem)) {
+				forceRelease = true;
+			}
+		}
 
-            if (!(client.player.getStackInHand(Hand.OFF_HAND).getItem() instanceof SpyglassItem)) {
-                forceRelease = true;
-            }
-        }
+		if (ModKeybinds.ZOOM_KEYBIND.isPressed() && !forceRelease) {
+			if (!zoom && client.player != null) {
+				zoom = true;
+				previousStack = client.player.getStackInHand(Hand.OFF_HAND).copy();
 
-        if (ModKeybinds.ZOOM_KEYBIND.isPressed() && !forceRelease) {
-            if (!zoom) {
-                zoom = true;
-                previousStack = client.player.getStackInHand(Hand.OFF_HAND).copy();
+				ItemStack stack = new ItemStack(Items.SPYGLASS);
+				client.player.setStackInHand(Hand.OFF_HAND, stack);
+			}
+		} else {
+			if (zoom) {
+				zoom = false;
+				client.options.useKey.setPressed(false);
 
-                ItemStack stack = new ItemStack(Items.SPYGLASS);
-                client.player.setStackInHand(Hand.OFF_HAND, stack);
-            }
-        } else {
-            if (zoom) {
-                zoom = false;
-                client.options.useKey.setPressed(false);
+				if (previousStack != null && client.player != null) {
+					client.player.setStackInHand(Hand.OFF_HAND, previousStack.copy());
+					previousStack = null;
+				}
+			}
+		}
+	}
 
-                if (previousStack != null) {
-                    client.player.setStackInHand(Hand.OFF_HAND, previousStack.copy());
-                    previousStack = null;
-                }
-            }
-        }
-    }
+	public static TypedActionResult<ItemStack> onUse(PlayerEntity player, World ignoredWorld, Hand hand) {
+		ItemStack stack = player.getStackInHand(hand);
 
-    public static TypedActionResult<ItemStack> onUse(PlayerEntity player, World world, Hand hand) {
-        ItemStack stack = player.getStackInHand(hand);
+		if (zoom) {
+			if (!(stack.getItem() instanceof SpyglassItem)) {
+				return TypedActionResult.fail(stack);
+			}
+		}
 
-        if (zoom) {
-            if (!(stack.getItem() instanceof SpyglassItem)) {
-                return TypedActionResult.fail(stack);
-            }
-        }
+		return TypedActionResult.pass(stack);
+	}
 
-        return TypedActionResult.pass(stack);
-    }
+	public static ActionResult onEntityInteract(PlayerEntity ignoredPlayer, Hand ignoredHand, Entity ignoredEntity, EntityHitResult ignoredHitResult) {
+		if (zoom) {
+			return ActionResult.FAIL;
+		}
 
-    public static ActionResult onEntityInteract(PlayerEntity player, World world, Hand hand,
-            Entity entity, EntityHitResult hitResult) {
-
-        if (zoom) {
-            return ActionResult.FAIL;
-        }
-
-        return ActionResult.PASS;
-    }
+		return ActionResult.PASS;
+	}
 }

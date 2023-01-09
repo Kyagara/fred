@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.kyagara.fred.config.FredConfig;
+import net.kyagara.fred.Fred;
 import net.minecraft.client.toast.AdvancementToast;
 import net.minecraft.client.toast.RecipeToast;
 import net.minecraft.client.toast.Toast;
@@ -19,13 +19,13 @@ import net.minecraft.client.toast.SystemToast;
 public abstract class ToastManagerMixin {
 	@Inject(method = "add", at = @At("HEAD"), cancellable = true)
 	public void add(Toast toast, CallbackInfo ci) {
-		if (toast instanceof AdvancementToast && FredConfig.disableAdvancementToasts) {
+		if (toast instanceof AdvancementToast && Fred.CONFIG.disableAdvancementToasts()) {
 			ci.cancel();
-		} else if (toast instanceof RecipeToast && FredConfig.disableRecipeToasts) {
+		} else if (toast instanceof RecipeToast && Fred.CONFIG.disableRecipeToasts()) {
 			ci.cancel();
-		} else if (toast instanceof TutorialToast && FredConfig.disableTutorialToasts) {
+		} else if (toast instanceof TutorialToast && Fred.CONFIG.disableTutorialToasts()) {
 			ci.cancel();
-		} else if (toast instanceof SystemToast && FredConfig.disableSystemToasts) {
+		} else if (toast instanceof SystemToast && Fred.CONFIG.disableSystemToasts()) {
 			ci.cancel();
 		}
 	}

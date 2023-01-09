@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.kyagara.fred.config.FredConfig;
+import net.kyagara.fred.Fred;
 import net.kyagara.fred.keybind.ModKeybinds;
 import net.kyagara.fred.keybind.ScreenMovementKeybind;
 import net.kyagara.fred.keybind.SpyglassZoomKeybind;
@@ -23,7 +23,7 @@ public abstract class ClientPlayerEntityMixin {
     @Final
     protected MinecraftClient client;
 
-    @Inject(method = "tickMovement", at = @At("INVOKE"), cancellable = true)
+    @Inject(method = "tickMovement", at = @At("HEAD"))
     public void tickMovement(CallbackInfo ci) {
         if (client.currentScreen instanceof HandledScreen) {
             if (ModKeybinds.isAutoWalking) {
@@ -34,7 +34,7 @@ public abstract class ClientPlayerEntityMixin {
         }
 
         if (client.world != null) {
-            if (FredConfig.enableZoom && client.currentScreen == null) {
+            if (Fred.CONFIG.enableZoom() && client.currentScreen == null) {
                 SpyglassZoomKeybind.CheckForZoomKeybind(client);
             }
 

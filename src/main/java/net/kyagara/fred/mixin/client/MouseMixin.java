@@ -21,7 +21,7 @@ public abstract class MouseMixin {
     @Final
     private MinecraftClient client;
 
-    @Inject(method = "onMouseScroll", at = @At("INVOKE"), cancellable = true)
+    @Inject(method = "onMouseScroll", at = @At("HEAD"), cancellable = true)
     private void onMouseScroll(long window, double horizontal, double vertical, CallbackInfo ci) {
         if (client.player == null) {
             return;

@@ -1,23 +1,26 @@
 {
-    "required": true,
-    "minVersion": "0.8",
-    "package": "net.kyagara.fred.mixin",
-    "compatibilityLevel": "JAVA_17",
-    "mixins": ["BlockMixin", "XPBottleItemMixin"],
-    "client": [
-        "client.AbstractClientPlayerEntityMixin",
-        "client.ScreenMixin",
-        "client.MouseMixin",
-        "client.MinecraftClientMixin",
-        "client.ClientPlayerEntityMixin",
-        "client.ChatHudMixin",
-        "client.MusicSoundMixin",
-        "client.ToastManagerMixin",
-        "client.accessor.MusicTrackerAccessor",
-        "client.accessor.HandledScreenAccessor",
-        "client.accessor.KeyBindingAccessor"
-    ],
-    "injectors": {
-        "defaultRequire": 1
-    }
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.kyagara.fred.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "BlockMixin",
+    "XPBottleItemMixin"
+  ],
+  "client": [
+    "client.AbstractClientPlayerEntityMixin",
+    "client.ChatHudMixin",
+    "client.ClientPlayerEntityMixin",
+    "client.MinecraftClientMixin",
+    "client.MouseMixin",
+    "client.MusicSoundMixin",
+    "client.ScreenMixin",
+    "client.ToastManagerMixin",
+    "client.accessor.HandledScreenAccessor",
+    "client.accessor.KeyBindingAccessor",
+    "client.accessor.MusicTrackerAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
 }
