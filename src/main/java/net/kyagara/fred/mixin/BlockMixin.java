@@ -17,19 +17,15 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Block.class)
 public abstract class BlockMixin {
-    @Inject(method = "onPlaced", at = @At("HEAD"), cancellable = true)
-    public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer,
-            ItemStack itemStack, CallbackInfo ci) {
+	@Inject(method = "onPlaced", at = @At("HEAD"))
+	public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack, CallbackInfo ci) {
+		if (placer != null && placer.isPlayer()) {
+			((PlayerEntity) placer).incrementStat(ModStatistics.BLOCK_PLACED_COUNT);
+		}
+	}
 
-        if (placer != null && placer.isPlayer()) {
-            ((PlayerEntity) placer).incrementStat(ModStatistics.BLOCK_PLACED_COUNT);
-        }
-    }
-
-    @Inject(method = "afterBreak", at = @At("HEAD"), cancellable = true)
-    public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state,
-            BlockEntity blockEntity, ItemStack stack, CallbackInfo ci) {
-
-        player.incrementStat(ModStatistics.BLOCK_BREAK_COUNT);
-    }
+	@Inject(method = "afterBreak", at = @At("HEAD"))
+	public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, BlockEntity blockEntity, ItemStack stack, CallbackInfo ci) {
+		player.incrementStat(ModStatistics.BLOCK_BREAK_COUNT);
+	}
 }

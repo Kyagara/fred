@@ -1,18 +1,18 @@
 package net.kyagara.fred.util;
 
-import net.kyagara.fred.config.FredConfig;
+import net.kyagara.fred.Fred;
 import net.minecraft.entity.player.PlayerEntity;
 
 public class ExperienceUtil {
     public static boolean CanCreateXPBottle(PlayerEntity player) {
-        if (player.isCreative() || FredConfig.xpForXPBottle <= 0) {
+        if (player.isCreative() || Fred.CONFIG.xpForXPBottle() <= 0) {
             return true;
         }
 
         int currentXP = (int) (GetTotalExperienceForLevel(player.experienceLevel)
                 + player.experienceProgress * player.getNextLevelExperience());
 
-        return currentXP >= FredConfig.xpForXPBottle;
+        return currentXP >= Fred.CONFIG.xpForXPBottle();
     }
 
     public static double GetTotalExperienceForLevel(int level) {

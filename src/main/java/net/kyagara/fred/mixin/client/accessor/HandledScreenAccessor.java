@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 
 @Environment(EnvType.CLIENT)
 @Mixin(HandledScreen.class)
-public abstract interface HandledScreenAccessor {
-    @Accessor("focusedSlot")
-    public Slot getFocusedSlot();
+public interface HandledScreenAccessor {
+	@Accessor("focusedSlot")
+	Slot getFocusedSlot();
 }

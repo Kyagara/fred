@@ -8,11 +8,9 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 
 public class LinkItemPacket {
-    public static void receive(MinecraftServer server, ServerPlayerEntity player,
-            ServerPlayNetworkHandler handler, PacketByteBuf buf, PacketSender responseSender) {
+	public static void receive(MinecraftServer server, ServerPlayerEntity player, ServerPlayNetworkHandler ignoredHandler, PacketByteBuf buf, PacketSender ignoredResponseSender) {
+		Text text = Text.translatable("misc.fred.link_item", player.getDisplayName(), buf.readText());
 
-        Text text = Text.translatable("misc.fred.link_item", player.getDisplayName(), buf.readText());
-
-        server.getPlayerManager().broadcast(text, false);
-    }
+		server.getPlayerManager().broadcast(text, false);
+	}
 }

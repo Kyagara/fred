@@ -9,30 +9,28 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 
 public class ItemStackTooltipComponent implements TooltipComponent {
-    private final ItemStack stack;
+	private final ItemStack stack;
 
-    public ItemStackTooltipComponent(ItemStack stack) {
-        this.stack = stack;
-    }
+	public ItemStackTooltipComponent(ItemStack stack) {
+		this.stack = stack;
+	}
 
-    @Override
-    public int getWidth(TextRenderer textRenderer) {
-        return 18;
-    }
+	@Override
+	public int getWidth(TextRenderer textRenderer) {
+		return 18;
+	}
 
-    @Override
-    public int getHeight() {
-        return 18;
-    }
+	@Override
+	public int getHeight() {
+		return 18;
+	}
 
-    @Override
-    public void drawItems(TextRenderer textRenderer, int x, int y, MatrixStack matrices,
-            ItemRenderer itemRenderer, int z) {
+	@Override
+	public void drawItems(TextRenderer textRenderer, int x, int y, MatrixStack matrices, ItemRenderer itemRenderer, int z) {
+		itemRenderer.renderInGui(stack, x, y);
 
-        itemRenderer.renderInGui(stack, x, y);
+		String countLabel = stack.getCount() == 1 ? "" : Integer.toString(stack.getCount());
 
-        String countLabel = stack.getCount() == 1 ? "" : Integer.toString(stack.getCount());
-
-        itemRenderer.renderGuiItemOverlay(textRenderer, stack, x, y, countLabel);
-    }
+		itemRenderer.renderGuiItemOverlay(textRenderer, stack, x, y, countLabel);
+	}
 }

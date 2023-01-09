@@ -4,7 +4,7 @@ package net.kyagara.fred.mixin.client;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.kyagara.fred.config.FredConfig;
+import net.kyagara.fred.Fred;
 import net.kyagara.fred.tooltip.HorizontalLayoutTooltipComponent;
 import net.kyagara.fred.tooltip.ItemStackTooltipComponent;
 import net.minecraft.client.MinecraftClient;
@@ -15,8 +15,8 @@ import net.minecraft.client.gui.tooltip.TooltipComponent;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.HoverEvent;
-import net.minecraft.text.Style;
 import net.minecraft.text.HoverEvent.ItemStackContent;
+import net.minecraft.text.Style;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -24,63 +24,60 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
 import java.util.List;
 
 @Environment(EnvType.CLIENT)
 @Mixin(Screen.class)
 public abstract class ScreenMixin {
-    @Shadow
-    protected TextRenderer textRenderer;
+	@Shadow
+	protected TextRenderer textRenderer;
+	@Shadow
+	@Nullable
+	protected MinecraftClient client;
+	@Unique
+	private ItemStack stackToRender;
 
-    @Unique
-    private ItemStack stackToRender;
+	@Inject(method = "renderBackground*", at = @At("HEAD"), cancellable = true)
+	public void renderBackground(MatrixStack matrices, CallbackInfo ci) {
+		if (Fred.CONFIG.disableInventoryBackground()) {
+			if (client != null && client.currentScreen != null && client.currentScreen instanceof AbstractInventoryScreen) {
 
-    @Shadow
-    @Nullable
-    protected MinecraftClient client;
+				ci.cancel();
+			}
+		}
+	}
 
-    @Inject(method = "renderBackground", at = @At("INVOKE"), cancellable = true)
-    public void renderBackground(MatrixStack matrices, CallbackInfo ci) {
-        if (FredConfig.disableInventoryBackground) {
-            if (client != null
-                    && client.currentScreen != null
-                    && client.currentScreen instanceof AbstractInventoryScreen) {
+	@Inject(method = "renderTextHoverEffect", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screen/Screen;renderTooltip(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/item/ItemStack;II)V"))
+	private void renderTextHoverEffect(MatrixStack matrices, Style style, int x, int y, CallbackInfo ci) {
+		HoverEvent hoverEvent = style.getHoverEvent();
 
-                ci.cancel();
-            }
-        }
-    }
+		if (hoverEvent != null) {
+			ItemStackContent itemStackContent = hoverEvent.getValue(HoverEvent.Action.SHOW_ITEM);
 
-    @Inject(method = "renderTextHoverEffect", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screen/Screen;renderTooltip(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/item/ItemStack;II)V"))
-    private void renderTextHoverEffect(MatrixStack matrices, Style style, int x, int y, CallbackInfo ci) {
-        HoverEvent hoverEvent = style.getHoverEvent();
-        ItemStackContent itemStackContent = hoverEvent.getValue(HoverEvent.Action.SHOW_ITEM);
+			if (itemStackContent != null) {
+				stackToRender = itemStackContent.asStack();
+			}
+		}
+	}
 
-        if (itemStackContent != null) {
-            ItemStack stack = itemStackContent.asStack();
-            stackToRender = stack;
-        }
-    }
+	@Inject(method = "renderTooltipFromComponents", at = @At("HEAD"))
+	private void renderTooltipFromComponents(MatrixStack matrices, List<TooltipComponent> components, int x, int y, CallbackInfo ci) {
+		if (stackToRender == null || stackToRender.isEmpty() || components.size() == 0) {
+			return;
+		}
 
-    @Inject(method = "renderTooltipFromComponents", at = @At("HEAD"))
-    private void renderTooltipFromComponents(MatrixStack matrices, List<TooltipComponent> components,
-            int x, int y, CallbackInfo ci) {
+		TooltipComponent originalComponent = components.get(0);
+		TooltipComponent stackComponent = new ItemStackTooltipComponent(stackToRender);
+		TooltipComponent combinedComponent;
 
-        if (stackToRender == null || stackToRender.isEmpty() || components.size() == 0) {
-            return;
-        }
+		if (textRenderer.isRightToLeft()) {
+			combinedComponent = new HorizontalLayoutTooltipComponent(List.of(originalComponent, stackComponent), 3);
+		} else {
+			combinedComponent = new HorizontalLayoutTooltipComponent(List.of(stackComponent, originalComponent), 3);
+		}
 
-        TooltipComponent originalComponent = components.get(0);
-        TooltipComponent stackComponent = new ItemStackTooltipComponent(stackToRender);
-        TooltipComponent combinedComponent;
-
-        if (textRenderer.isRightToLeft()) {
-            combinedComponent = new HorizontalLayoutTooltipComponent(List.of(originalComponent, stackComponent), 3);
-        } else {
-            combinedComponent = new HorizontalLayoutTooltipComponent(List.of(stackComponent, originalComponent), 3);
-        }
-
-        components.set(0, combinedComponent);
-        stackToRender = null;
-    }
+		components.set(0, combinedComponent);
+		stackToRender = null;
+	}
 }
