@@ -67,7 +67,7 @@ public class ModKeybinds {
 			}
 		});
 
-		UseItemCallback.EVENT.register((player, world, hand) -> SpyglassZoomKeybind.onUse(player, world, hand));
+		UseItemCallback.EVENT.register(SpyglassZoomKeybind::onUse);
 
 		UseEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> SpyglassZoomKeybind.onEntityInteract(player, hand, entity, hitResult));
 	}

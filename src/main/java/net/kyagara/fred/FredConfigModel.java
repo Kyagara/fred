@@ -4,6 +4,7 @@ import io.wispforest.owo.config.annotation.*;
 
 import java.util.List;
 
+@SuppressWarnings("unused")
 @Modmenu(modId = "fred")
 @Config(name = "fred", wrapperName = "FredConfig")
 public class FredConfigModel {

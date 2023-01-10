@@ -32,7 +32,7 @@
   "text.config.fred.option.enableTrumpet": "Enable Trumpet",
   "text.config.fred.section.audioCategory": "Music",
   "text.config.fred.option.enableMyMovieSFX": "Enable My Movie SFX",
-  "text.config.fred.option.musicMinDelay": "Mininum music delay",
+  "text.config.fred.option.musicMinDelay": "Minimum music delay",
   "text.config.fred.option.musicMaxDelay": "Maximum music delay",
   "text.config.fred.section.commandCategory": "Commands",
   "text.config.fred.option.enableRollCommand": "Enable Roll command",
@@ -40,6 +40,7 @@
   "text.config.fred.option.enableMagicBallCommand": "Enable Magic Ball command",
   "text.config.fred.option.magicBallAnswersList": "8Ball answers",
   "text.config.fred.option.quotesList": "Quotes list",
+
   "misc.fred.link_item": "<%s> %s",
   "stat.fred.my_movie_count": "My movie SFX count",
   "stat.fred.doot_count": "Doot count",
@@ -47,8 +48,10 @@
   "stat.fred.quaso_count": "Rei quaso count",
   "stat.fred.block_placed_count": "Blocks placed",
   "stat.fred.block_break_count": "Blocks broken",
-  "key.category.fred": "Fred keybinds",
+
+  "key.category.fred": "Fred",
   "key.fred.print_music": "Print music",
+  "key.fred.music_player_screen": "Open Music Player",
   "key.fred.skip_music": "Skip music",
   "key.fred.increase_volume": "Increase music volume",
   "key.fred.decrease_volume": "Decrease music volume",
@@ -56,10 +59,12 @@
   "key.fred.link_item": "Link item in chat",
   "key.fred.zoom": "Zoom",
   "key.fred.auto_walk": "Auto walk",
+
   "music.fred.no_music": "No music playing",
   "music.fred.skipped": "Skipped",
   "music.fred.now_playing": "Playing: %s",
   "music.fred.volume": "Volume: %d%%",
+
   "itemGroup.fred.general": "Fred :)",
   "item.fred.trumpet": "Trumpet",
   "item.fred.trumpet.tooltip": "Doot until it is done.",
@@ -67,6 +72,7 @@
   "block.fred.the_rock_block.tooltip": "Him.",
   "block.fred.rei_fumo_block": "Rei Fumo",
   "block.fred.rei_fumo_block.tooltip": "Tumbling down.",
+
   "minecraft:music.creative": "Creative",
   "minecraft:music.credits": "Credits",
   "minecraft:music.dragon": "Dragon",
