@@ -9,6 +9,15 @@ import net.kyagara.fred.event.LeavingWorldEvent;
 import net.kyagara.fred.keybind.ModKeybinds;
 
 public class FredClient implements ClientModInitializer {
+	@Override
+	public void onInitializeClient() {
+		ModKeybinds.registerModKeybinds();
+		ModCommands.registerClientCommands();
+
+		// Events
+		connectionEvents();
+	}
+
 	private static void connectionEvents() {
 		ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
 			if (!Fred.CONFIG.clearChatOnLeave() && Fred.CONFIG.enableChatSessionSeparator()) {
@@ -19,14 +28,5 @@ public class FredClient implements ClientModInitializer {
 				JoiningWorldEvent.SendJoinMessage(client);
 			}
 		});
-	}
-
-	@Override
-	public void onInitializeClient() {
-		ModKeybinds.registerModKeybinds();
-		ModCommands.registerClientCommands();
-
-		// Events
-		connectionEvents();
 	}
 }
