@@ -1,17 +1,22 @@
 package net.kyagara.fred.keybind;
 
 import net.kyagara.fred.mixin.client.accessor.MusicTrackerAccessor;
+import net.kyagara.fred.mixin.client.accessor.SoundSetAccessor;
 import net.kyagara.fred.screen.MusicPlayerScreen;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.sound.MusicTracker;
+import net.minecraft.client.sound.Sound;
+import net.minecraft.client.sound.SoundContainer;
 import net.minecraft.client.sound.SoundInstance;
 import net.minecraft.sound.MusicSound;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.random.Random;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MusicControlKeybind {
 	private static boolean muted = false;
@@ -21,7 +26,7 @@ public class MusicControlKeybind {
 			return;
 		}
 
-		if (song.toString().equals("meta:missing_sound")) {
+		if (song.getPath().equals("meta:missing_sound")) {
 			client.inGameHud.setOverlayMessage(Text.translatable("music.fred.no_music"), false);
 			return;
 		}
@@ -37,7 +42,7 @@ public class MusicControlKeybind {
 	public static void Print(MinecraftClient client) {
 		SoundInstance current = ((MusicTrackerAccessor) client.getMusicTracker()).getCurrent();
 
-		if (muted || current == null || current.getSound() == null || current.getId().toString().equals("meta:missing_sound")) {
+		if (muted || current == null || current.getSound() == null || current.getId().getPath().equals("meta:missing_sound")) {
 			client.inGameHud.setOverlayMessage(Text.translatable("music.fred.no_music"), false);
 			return;
 		}
@@ -47,26 +52,47 @@ public class MusicControlKeybind {
 	}
 
 	public static void ShowMusicPlayerScreen(MinecraftClient client) {
-		ArrayList<Identifier> musics = new ArrayList<>();
-		ArrayList<Identifier> discs = new ArrayList<>();
+		if (client.player == null) {
+			return;
+		}
+
+		ArrayList<Identifier> songs = new ArrayList<>();
+		ArrayList<Identifier> categories = new ArrayList<>();
+
+		Random random = client.player.getRandom();
 
 		for (Identifier key : client.getSoundManager().getKeys()) {
-			if (key.getPath().contains("music")) {
-				if (key.getPath().contains("music_disc")) {
-					discs.add(key);
+			if (client.getSoundManager().get(key) != null) {
+				String path = key.getPath();
+
+				if (!path.contains("music")) {
 					continue;
 				}
 
-				if (key.toString().equals("meta:missing_sound")) {
+				if (path.contains("music_disc")) {
+					songs.add(key);
 					continue;
 				}
 
-				musics.add(key);
+				if (path.contains("music.") && !categories.contains(key)) {
+					categories.add(key);
+				}
+
+				List<SoundContainer<Sound>> sounds = ((SoundSetAccessor) client.getSoundManager().get(key)).getSounds();
+
+				for (SoundContainer<Sound> soundContainer : sounds) {
+					Identifier song = soundContainer.getSound(random).getIdentifier();
+
+					if (songs.contains(song)) {
+						continue;
+					}
+
+					songs.add(song);
+				}
 			}
 		}
 
-		musics.addAll(discs);
-		client.setScreen(new MusicPlayerScreen(musics));
+		client.setScreen(new MusicPlayerScreen(songs, categories));
 	}
 
 	public static void Skip(MinecraftClient client) {
@@ -80,7 +106,7 @@ public class MusicControlKeybind {
 
 			String song = current.getSound().getIdentifier().toString();
 
-			if (song.startsWith("meta:")) {
+			if (song.equals("meta:missing_sound")) {
 				client.inGameHud.setOverlayMessage(Text.translatable("music.fred.no_music"), false);
 				return;
 			}
