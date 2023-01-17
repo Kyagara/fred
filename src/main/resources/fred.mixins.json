@@ -15,10 +15,12 @@
     "client.MouseMixin",
     "client.MusicSoundMixin",
     "client.ScreenMixin",
+    "client.SoundListMixin",
     "client.ToastManagerMixin",
     "client.accessor.HandledScreenAccessor",
     "client.accessor.KeyBindingAccessor",
-    "client.accessor.MusicTrackerAccessor"
+    "client.accessor.MusicTrackerAccessor",
+    "client.accessor.SoundSetAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

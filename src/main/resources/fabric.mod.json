@@ -17,6 +17,7 @@
         "main": ["net.kyagara.fred.Fred"],
         "client": ["net.kyagara.fred.client.FredClient"]
     },
+    "accessWidener": "fred.accesswidener",
     "depends": {
         "fabricloader": ">=0.14.12",
         "fabric-api": "*",
