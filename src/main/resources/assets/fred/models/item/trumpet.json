@@ -1,7 +1,7 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "fred:items/trumpet"
+        "layer0": "fred:item/trumpet"
     },
     "display": {
         "thirdperson_righthand": {

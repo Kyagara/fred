@@ -31,7 +31,7 @@ public class ReiFumoBlock extends RedstoneBlock {
 
 	public ReiFumoBlock(Settings settings) {
 		super(settings);
-		this.setDefaultState(this.getDefaultState().with(POWERED, false));
+		setDefaultState(getDefaultState().with(POWERED, false));
 	}
 
 	@Override

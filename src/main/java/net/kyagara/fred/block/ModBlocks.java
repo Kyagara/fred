@@ -1,14 +1,16 @@
 package net.kyagara.fred.block;
 
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.kyagara.fred.Fred;
 import net.kyagara.fred.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
 import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 public class ModBlocks {
 	private final static Block THE_ROCK_BLOCK = new TheRockBlock(FabricBlockSettings.of(Material.STONE));
@@ -26,11 +28,15 @@ public class ModBlocks {
 
 	// Registers a Block and its BlockItem
 	private static void registerBlock(String name, Block block) {
-		BlockItem blockItem = new BlockItem(block, new FabricItemSettings().group(ModItems.FRED_GROUP));
+		BlockItem blockItem = new BlockItem(block, new Item.Settings());
 
-		Registry.register(Registry.ITEM, new Identifier(Fred.MOD_ID, name), blockItem);
+		ItemGroupEvents.modifyEntriesEvent(ModItems.FRED_GROUP).register(content -> {
+			content.add(blockItem);
+		});
 
-		Registry.register(Registry.BLOCK, new Identifier(Fred.MOD_ID, name), block);
+		Registry.register(Registries.ITEM, new Identifier(Fred.MOD_ID, name), blockItem);
+
+		Registry.register(Registries.BLOCK, new Identifier(Fred.MOD_ID, name), block);
 	}
 
 	public static void registerModBlocks() {

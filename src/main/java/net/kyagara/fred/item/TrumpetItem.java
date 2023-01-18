@@ -13,6 +13,7 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Rarity;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
@@ -21,6 +22,8 @@ import java.util.List;
 public class TrumpetItem extends Item {
 	public TrumpetItem(Settings settings) {
 		super(settings);
+		settings.rarity(Rarity.UNCOMMON);
+		settings.maxDamage(200);
 	}
 
 	@Override

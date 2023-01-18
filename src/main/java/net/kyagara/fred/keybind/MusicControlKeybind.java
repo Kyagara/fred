@@ -1,5 +1,6 @@
 package net.kyagara.fred.keybind;
 
+import net.kyagara.fred.interfaces.GameOptionsInterface;
 import net.kyagara.fred.mixin.client.accessor.MusicTrackerAccessor;
 import net.kyagara.fred.mixin.client.accessor.SoundSetAccessor;
 import net.kyagara.fred.screen.MusicPlayerScreen;
@@ -8,6 +9,7 @@ import net.minecraft.client.sound.MusicTracker;
 import net.minecraft.client.sound.Sound;
 import net.minecraft.client.sound.SoundContainer;
 import net.minecraft.client.sound.SoundInstance;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.MusicSound;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
@@ -22,10 +24,6 @@ public class MusicControlKeybind {
 	private static boolean muted = false;
 
 	public static void PlayMusic(MinecraftClient client, Identifier song) {
-		if (client == null) {
-			return;
-		}
-
 		if (song.getPath().equals("meta:missing_sound")) {
 			client.inGameHud.setOverlayMessage(Text.translatable("music.fred.no_music"), false);
 			return;
@@ -34,7 +32,7 @@ public class MusicControlKeybind {
 		MusicTracker tracker = client.getMusicTracker();
 
 		tracker.stop();
-		tracker.play(new MusicSound(new SoundEvent(song), 0, 0, true));
+		tracker.play(new MusicSound(RegistryEntry.of(SoundEvent.of(song)), 0, 0, true));
 
 		Print(client);
 	}
@@ -78,7 +76,13 @@ public class MusicControlKeybind {
 					categories.add(key);
 				}
 
-				List<SoundContainer<Sound>> sounds = ((SoundSetAccessor) client.getSoundManager().get(key)).getSounds();
+				SoundSetAccessor soundSet = ((SoundSetAccessor) client.getSoundManager().get(key));
+
+				if (soundSet == null) {
+					return;
+				}
+
+				List<SoundContainer<Sound>> sounds = soundSet.getSounds();
 
 				for (SoundContainer<Sound> soundContainer : sounds) {
 					Identifier song = soundContainer.getSound(random).getIdentifier();
@@ -129,7 +133,7 @@ public class MusicControlKeybind {
 	public static void IncreaseVolume(MinecraftClient client) {
 		float volume = Math.min(client.options.getSoundVolume(SoundCategory.MUSIC) + 0.05F, 1.0F);
 
-		client.options.setSoundVolume(SoundCategory.MUSIC, volume);
+		((GameOptionsInterface) client.options).setSoundCategoryVolume(SoundCategory.MUSIC, volume);
 		client.options.write();
 
 		// Start playing music after unmuting.
@@ -144,7 +148,7 @@ public class MusicControlKeybind {
 	public static void DecreaseVolume(MinecraftClient client) {
 		float volume = Math.max(client.options.getSoundVolume(SoundCategory.MUSIC) - 0.05F, 0.0F);
 
-		client.options.setSoundVolume(SoundCategory.MUSIC, volume);
+		((GameOptionsInterface) client.options).setSoundCategoryVolume(SoundCategory.MUSIC, volume);
 		client.options.write();
 
 		if (volume == 0.00F) {

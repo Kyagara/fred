@@ -43,7 +43,7 @@ public class JoiningWorldEvent {
 			List<Text> playerListSummary = info.playerListSummary;
 
 			String count = Integer.toString(playerListSummary == null ? 0 : playerListSummary.size());
-			String ping = info.ping + "ms";
+			String ping = info.ping == -1 ? "0ms" : info.ping + "ms";
 
 			client.inGameHud.getChatHud().addMessage(getField("Players: ", count).append("  ").append(getField("Ping: ", ping)));
 		}

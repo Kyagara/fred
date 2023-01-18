@@ -42,13 +42,25 @@ public class MusicPlayerScreen extends BaseOwoScreen<FlowLayout> {
 		VerticalFlowLayout songsContainer = Containers.verticalFlow(Sizing.content(), Sizing.content());
 
 		for (Identifier song : songs) {
-			songsContainer.child((Component) Components.button(Text.translatable(song.toString()), button -> MusicControlKeybind.PlayMusic(client, song)));
+			songsContainer.child(Components.button(Text.translatable(song.toString()), button -> {
+				if (client == null) {
+					return;
+				}
+
+				MusicControlKeybind.PlayMusic(client, song);
+			}));
 		}
 
 		VerticalFlowLayout categoriesContainer = Containers.verticalFlow(Sizing.content(), Sizing.content());
 
 		for (Identifier category : categories) {
-			categoriesContainer.child((Component) Components.button(Text.translatable(category.toString()), button -> MusicControlKeybind.PlayMusic(client, category)));
+			categoriesContainer.child(Components.button(Text.translatable(category.toString()), button -> {
+				if (client == null) {
+					return;
+				}
+
+				MusicControlKeybind.PlayMusic(client, category);
+			}));
 		}
 
 		VerticalFlowLayout songsPanel = Containers.verticalFlow(Sizing.content(), Sizing.content());

@@ -11,7 +11,7 @@ public class ShrugCommand {
 	}
 
 	private static int run(FabricClientCommandSource context) {
-		context.getPlayer().sendChatMessage("¯\\_(ツ)_/¯", null);
+		context.getPlayer().networkHandler.sendChatMessage("¯\\_(ツ)_/¯");
 
 		return Command.SINGLE_SUCCESS;
 	}

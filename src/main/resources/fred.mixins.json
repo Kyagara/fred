@@ -11,6 +11,7 @@
     "client.AbstractClientPlayerEntityMixin",
     "client.ChatHudMixin",
     "client.ClientPlayerEntityMixin",
+    "client.GameOptionsMixin",
     "client.MinecraftClientMixin",
     "client.MouseMixin",
     "client.MusicSoundMixin",
