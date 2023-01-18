@@ -22,10 +22,6 @@ public class MusicControlKeybind {
 	private static boolean muted = false;
 
 	public static void PlayMusic(MinecraftClient client, Identifier song) {
-		if (client == null) {
-			return;
-		}
-
 		if (song.getPath().equals("meta:missing_sound")) {
 			client.inGameHud.setOverlayMessage(Text.translatable("music.fred.no_music"), false);
 			return;
@@ -78,7 +74,13 @@ public class MusicControlKeybind {
 					categories.add(key);
 				}
 
-				List<SoundContainer<Sound>> sounds = ((SoundSetAccessor) client.getSoundManager().get(key)).getSounds();
+				SoundSetAccessor soundSet = ((SoundSetAccessor) client.getSoundManager().get(key));
+
+				if (soundSet == null) {
+					return;
+				}
+
+				List<SoundContainer<Sound>> sounds = soundSet.getSounds();
 
 				for (SoundContainer<Sound> soundContainer : sounds) {
 					Identifier song = soundContainer.getSound(random).getIdentifier();
