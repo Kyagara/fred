@@ -12,6 +12,7 @@ import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.ingame.AbstractInventoryScreen;
 import net.minecraft.client.gui.tooltip.TooltipComponent;
+import net.minecraft.client.gui.tooltip.TooltipPositioner;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.HoverEvent;
@@ -62,7 +63,7 @@ public abstract class ScreenMixin {
 	}
 
 	@Inject(method = "renderTooltipFromComponents", at = @At("HEAD"))
-	private void renderTooltipFromComponents(MatrixStack matrices, List<TooltipComponent> components, int x, int y, CallbackInfo ci) {
+	private void renderTooltipFromComponents(MatrixStack matrices, List<TooltipComponent> components, int x, int y, TooltipPositioner positioner, CallbackInfo ci) {
 		if (stackToRender == null || stackToRender.isEmpty() || components.size() == 0) {
 			return;
 		}

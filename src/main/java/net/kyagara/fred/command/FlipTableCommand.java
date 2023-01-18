@@ -11,7 +11,7 @@ public class FlipTableCommand {
 	}
 
 	private static int run(FabricClientCommandSource context) {
-		context.getPlayer().sendChatMessage("(╯°□°)╯︵ ┻━┻", null);
+		context.getPlayer().networkHandler.sendChatMessage("(╯°□°)╯︵ ┻━┻");
 
 		return Command.SINGLE_SUCCESS;
 	}

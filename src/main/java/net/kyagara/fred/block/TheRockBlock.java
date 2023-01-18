@@ -29,7 +29,7 @@ public class TheRockBlock extends RedstoneBlock {
 
 	public TheRockBlock(Settings settings) {
 		super(settings);
-		this.setDefaultState(this.getDefaultState().with(POWERED, false));
+		setDefaultState(getDefaultState().with(POWERED, false));
 	}
 
 	@Override

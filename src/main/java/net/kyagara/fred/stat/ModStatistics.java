@@ -1,10 +1,11 @@
 package net.kyagara.fred.stat;
 
 import net.kyagara.fred.Fred;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.stat.StatFormatter;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 public class ModStatistics {
 	public static final Identifier DOOT_COUNT = registerStatistic("doot_count");
@@ -17,7 +18,7 @@ public class ModStatistics {
 	private static Identifier registerStatistic(String name) {
 		Identifier identifier = new Identifier(Fred.MOD_ID, name);
 
-		Registry.register(Registry.CUSTOM_STAT, name, identifier);
+		Registry.register(Registries.CUSTOM_STAT, name, identifier);
 
 		Stats.CUSTOM.getOrCreateStat(identifier, StatFormatter.DEFAULT);
 
