@@ -1,16 +1,14 @@
 # Fred
 
-Mod developed for a private modpack for some friends. I don't plan on doing backports to any version for now.
-
-The main goal with this mod is to add some quality of life features that would normally need another mod to be installed, things we find
-funny as items/commands and to practice some java along the way.
+The main goal with this mod is to add some quality of life features that would normally need another mod to be installed, things we find funny and to practice some java along the way.
 
 - The name was the first thing a friend said after I asked for a project name.
 - The mod icon is my friend's doggo :), its temporary, no idea of what to actually use.
+- This mod was originally developed for a private modpack.
+- I don't plan on making a Forge version.
+- I plan to keep support for 1.19.2 and newer versions.
 
 > Most features are configurable.
-
-> Check the most recent Github Action artifact for the mod jar.
 
 ## Features
 
@@ -49,14 +47,14 @@ funny as items/commands and to practice some java along the way.
 
 ## Commands
 
-> Server side commands that broadcast() to the server.
+> Server side commands that broadcast() to the server:
 
 - **roll** - Random number from 1 to the number provided as argument.
 - **8ball** - It can answer your every question, as long as your question can be answered with yes or no.
 - **quotes** - Gives a random quote from a config file, defaults to some random stuff about ULTRAKILL for the lack of a better idea for
   default quotes.
 
-> Client side commands.
+> Client side commands:
 
 - **shrug** - Shrugs.
 - **flip** - Flips a table.
@@ -65,7 +63,7 @@ funny as items/commands and to practice some java along the way.
 ## Joke features
 
 > All items/blocks have recipes, have their own statistics and can be disabled.
-
+> 
 - (Item) **Trumpet** - Doot until it is done. Repaired with gold nuggets.
 - (Item) **The Rock Block** - Him.
 - (Item) **Rei Fumo Block** - Tumbling down.

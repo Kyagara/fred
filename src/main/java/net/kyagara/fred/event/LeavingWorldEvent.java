@@ -8,7 +8,7 @@ public class LeavingWorldEvent {
 	public static void SendChatSessionSeparator(MinecraftClient client) {
 		client.inGameHud.getChatHud().addMessage(Text.empty());
 
-		client.inGameHud.getChatHud().addMessage(Text.literal(Fred.CONFIG.chatSessionSeparator()).styled(style -> style.withColor(Integer.decode(Fred.CONFIG.chatSessionSeparatorColor()))));
+		client.inGameHud.getChatHud().addMessage(Text.literal(Fred.CONFIG.chatSessionSeparator()).styled(style -> style.withColor(Fred.CONFIG.chatSessionSeparatorColor().rgb())));
 
 		client.inGameHud.getChatHud().addMessage(Text.empty());
 	}

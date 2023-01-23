@@ -1,6 +1,7 @@
 package net.kyagara.fred;
 
 import io.wispforest.owo.config.annotation.*;
+import io.wispforest.owo.ui.core.Color;
 
 import java.util.List;
 
@@ -41,7 +42,7 @@ public class FredConfigModel {
 
 	public String chatSessionSeparator = "------------------------------------";
 
-	public String chatSessionSeparatorColor = "#55FFFF";
+	public Color chatSessionSeparatorColor = Color.ofRgb(0x55FFFF);
 
 	public boolean enableChatMessageSound = true;
 
