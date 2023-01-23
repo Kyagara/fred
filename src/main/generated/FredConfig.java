@@ -1,5 +1,6 @@
 package net.kyagara.fred;
 
+import blue.endless.jankson.Jankson;
 import io.wispforest.owo.config.ConfigWrapper;
 import io.wispforest.owo.config.Option;
 import io.wispforest.owo.util.Observable;
@@ -23,7 +24,7 @@ public class FredConfig extends ConfigWrapper<net.kyagara.fred.FredConfigModel> 
     private final Option<java.lang.Boolean> clearChatOnLeave = this.optionForKey(new Option.Key("clearChatOnLeave"));
     private final Option<java.lang.Boolean> enableChatSessionSeparator = this.optionForKey(new Option.Key("enableChatSessionSeparator"));
     private final Option<java.lang.String> chatSessionSeparator = this.optionForKey(new Option.Key("chatSessionSeparator"));
-    private final Option<java.lang.String> chatSessionSeparatorColor = this.optionForKey(new Option.Key("chatSessionSeparatorColor"));
+    private final Option<io.wispforest.owo.ui.core.Color> chatSessionSeparatorColor = this.optionForKey(new Option.Key("chatSessionSeparatorColor"));
     private final Option<java.lang.Boolean> enableChatMessageSound = this.optionForKey(new Option.Key("enableChatMessageSound"));
     private final Option<java.lang.Float> chatMessageVolume = this.optionForKey(new Option.Key("chatMessageVolume"));
     private final Option<java.lang.Float> chatMessagePitch = this.optionForKey(new Option.Key("chatMessagePitch"));
@@ -47,8 +48,18 @@ public class FredConfig extends ConfigWrapper<net.kyagara.fred.FredConfigModel> 
         super(net.kyagara.fred.FredConfigModel.class);
     }
 
+    private FredConfig(Consumer<Jankson.Builder> janksonBuilder) {
+        super(net.kyagara.fred.FredConfigModel.class, janksonBuilder);
+    }
+
     public static FredConfig createAndLoad() {
         var wrapper = new FredConfig();
+        wrapper.load();
+        return wrapper;
+    }
+
+    public static FredConfig createAndLoad(Consumer<Jankson.Builder> janksonBuilder) {
+        var wrapper = new FredConfig(janksonBuilder);
         wrapper.load();
         return wrapper;
     }
@@ -157,11 +168,11 @@ public class FredConfig extends ConfigWrapper<net.kyagara.fred.FredConfigModel> 
         chatSessionSeparator.set(value);
     }
 
-    public java.lang.String chatSessionSeparatorColor() {
+    public io.wispforest.owo.ui.core.Color chatSessionSeparatorColor() {
         return chatSessionSeparatorColor.value();
     }
 
-    public void chatSessionSeparatorColor(java.lang.String value) {
+    public void chatSessionSeparatorColor(io.wispforest.owo.ui.core.Color value) {
         chatSessionSeparatorColor.set(value);
     }
 
