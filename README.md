@@ -63,7 +63,7 @@ The main goal with this mod is to add some quality of life features that would n
 ## Joke features
 
 > All items/blocks have recipes, have their own statistics and can be disabled.
-> 
+
 - (Item) **Trumpet** - Doot until it is done. Repaired with gold nuggets.
 - (Item) **The Rock Block** - Him.
 - (Item) **Rei Fumo Block** - Tumbling down.
