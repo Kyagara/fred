@@ -4,8 +4,6 @@ import io.wispforest.owo.ui.base.BaseOwoScreen;
 import io.wispforest.owo.ui.component.Components;
 import io.wispforest.owo.ui.container.Containers;
 import io.wispforest.owo.ui.container.FlowLayout;
-import io.wispforest.owo.ui.container.HorizontalFlowLayout;
-import io.wispforest.owo.ui.container.VerticalFlowLayout;
 import io.wispforest.owo.ui.core.*;
 import net.kyagara.fred.keybind.MusicControlKeybind;
 import net.minecraft.text.Text;
@@ -32,14 +30,14 @@ public class MusicPlayerScreen extends BaseOwoScreen<FlowLayout> {
 	protected void build(FlowLayout rootComponent) {
 		rootComponent.surface(Surface.VANILLA_TRANSLUCENT).horizontalAlignment(HorizontalAlignment.CENTER).verticalAlignment(VerticalAlignment.CENTER);
 
-		VerticalFlowLayout mainPanel = Containers.verticalFlow(Sizing.content(), Sizing.content());
+		FlowLayout mainPanel = Containers.verticalFlow(Sizing.content(), Sizing.content());
 		mainPanel.surface(Surface.DARK_PANEL).padding(Insets.of(5)).horizontalAlignment(HorizontalAlignment.CENTER);
 		mainPanel.child(Components.label(Text.translatable("text.screen.fred.music_player")).shadow(true).margins(Insets.of(5).withBottom(10)));
 
-		HorizontalFlowLayout contentPanel = Containers.horizontalFlow(Sizing.content(), Sizing.content());
+		FlowLayout contentPanel = Containers.horizontalFlow(Sizing.content(), Sizing.content());
 		contentPanel.verticalAlignment(VerticalAlignment.CENTER);
 
-		VerticalFlowLayout songsContainer = Containers.verticalFlow(Sizing.content(), Sizing.content());
+		FlowLayout songsContainer = Containers.verticalFlow(Sizing.content(), Sizing.content());
 
 		for (Identifier song : songs) {
 			songsContainer.child(Components.button(Text.translatable(song.toString()), button -> {
@@ -51,7 +49,7 @@ public class MusicPlayerScreen extends BaseOwoScreen<FlowLayout> {
 			}));
 		}
 
-		VerticalFlowLayout categoriesContainer = Containers.verticalFlow(Sizing.content(), Sizing.content());
+		FlowLayout categoriesContainer = Containers.verticalFlow(Sizing.content(), Sizing.content());
 
 		for (Identifier category : categories) {
 			categoriesContainer.child(Components.button(Text.translatable(category.toString()), button -> {
@@ -63,10 +61,10 @@ public class MusicPlayerScreen extends BaseOwoScreen<FlowLayout> {
 			}));
 		}
 
-		VerticalFlowLayout songsPanel = Containers.verticalFlow(Sizing.content(), Sizing.content());
+		FlowLayout songsPanel = Containers.verticalFlow(Sizing.content(), Sizing.content());
 		songsPanel.child(Containers.verticalScroll(Sizing.fill(40), Sizing.fill(60), songsContainer)).padding(Insets.of(5)).surface(Surface.flat(0x77000000).and(Surface.outline(0x77000000)));
 
-		VerticalFlowLayout categoriesPanel = Containers.verticalFlow(Sizing.content(), Sizing.content());
+		FlowLayout categoriesPanel = Containers.verticalFlow(Sizing.content(), Sizing.content());
 		categoriesPanel.child(Containers.verticalScroll(Sizing.fill(40), Sizing.fill(60), categoriesContainer)).padding(Insets.of(5)).surface(Surface.flat(0x77000000).and(Surface.outline(0x77000000)));
 
 		contentPanel.child(songsPanel);

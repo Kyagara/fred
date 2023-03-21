@@ -1,12 +1,12 @@
 # Fred
 
-The main goal with this mod is to add some quality of life features that would normally need another mod to be installed, things we find funny and to practice some java along the way.
+The main goal with this mod is to add some quality of life features that would normally need another mod to be installed, things my friends and I find funny and to practice some java along the way.
 
 - The name was the first thing a friend said after I asked for a project name.
-- The mod icon is my friend's doggo :), its temporary, no idea of what to actually use.
+- The mod icon is my friend's doggo :), no idea of what to actually use.
 - This mod was originally developed for a private modpack.
 - I don't plan on making a Forge version.
-- I plan to keep support for 1.19.2 and newer versions.
+- I plan to keep support for 1.19.2 and newer versions, some features might be available only on newer versions.
 
 > Most features are configurable.
 
