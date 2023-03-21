@@ -19,10 +19,10 @@
     },
     "accessWidener": "fred.accesswidener",
     "depends": {
-        "fabricloader": ">=0.14.12",
+        "fabricloader": ">=0.14.17",
         "fabric-api": "*",
-        "minecraft": "1.19.3",
+        "minecraft": "1.19.4",
         "java": ">=17",
-        "owo": ">=0.9.3"
+        "owo": ">=0.10.3"
     }
 }
