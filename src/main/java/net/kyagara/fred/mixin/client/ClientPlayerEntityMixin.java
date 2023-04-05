@@ -2,10 +2,8 @@ package net.kyagara.fred.mixin.client;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.kyagara.fred.Fred;
 import net.kyagara.fred.keybind.ModKeybinds;
 import net.kyagara.fred.keybind.ScreenMovementKeybind;
-import net.kyagara.fred.keybind.SpyglassZoomKeybind;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.network.ClientPlayerEntity;
@@ -34,10 +32,6 @@ public abstract class ClientPlayerEntityMixin {
         }
 
         if (client.world != null) {
-            if (Fred.CONFIG.enableZoom() && client.currentScreen == null) {
-                SpyglassZoomKeybind.CheckForZoomKeybind(client);
-            }
-
             if (client.options.forwardKey.wasPressed()) {
                 ModKeybinds.isAutoWalking = false;
             }
