@@ -61,9 +61,14 @@ public class MusicPlayerScreen extends BaseOwoScreen<FlowLayout> {
 
 		// Search function
 		TextBoxComponent searchField = Components.textBox(Sizing.fill(60));
-		searchField.setPlaceholder(Text.translatable("text.screen.fred.music_player.search_field"));
+
+		String searchText = I18n.translate("text.screen.fred.music_player.search_field");
+
+		searchField.setSuggestion(searchText);
 
 		searchField.onChanged().subscribe(search -> {
+			searchField.setSuggestion(search.isEmpty() ? searchText : "");
+
 			// If search is empty, returns to the 'All songs' category
 			if (search.isBlank() || search.isEmpty()) {
 				songsContainer.clearChildren();
