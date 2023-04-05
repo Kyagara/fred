@@ -1,24 +1,30 @@
 package net.kyagara.fred.screen;
 
 import io.wispforest.owo.ui.base.BaseOwoScreen;
+import io.wispforest.owo.ui.component.ButtonComponent;
 import io.wispforest.owo.ui.component.Components;
+import io.wispforest.owo.ui.component.DropdownComponent;
+import io.wispforest.owo.ui.component.TextBoxComponent;
 import io.wispforest.owo.ui.container.Containers;
 import io.wispforest.owo.ui.container.FlowLayout;
 import io.wispforest.owo.ui.core.*;
 import net.kyagara.fred.keybind.MusicControlKeybind;
+import net.minecraft.client.resource.language.I18n;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class MusicPlayerScreen extends BaseOwoScreen<FlowLayout> {
-	private final ArrayList<Identifier> songs;
-	private final ArrayList<Identifier> categories;
+	private final List<Identifier> songs;
+	private final List<Identifier> categories;
+	private final List<Identifier> discs;
 
-	public MusicPlayerScreen(ArrayList<Identifier> songs, ArrayList<Identifier> categories) {
+	public MusicPlayerScreen(List<Identifier> songs, List<Identifier> categories, List<Identifier> discs) {
 		this.songs = songs;
 		this.categories = categories;
+		this.discs = discs;
 	}
 
 	@Override
@@ -30,16 +36,86 @@ public class MusicPlayerScreen extends BaseOwoScreen<FlowLayout> {
 	protected void build(FlowLayout rootComponent) {
 		rootComponent.surface(Surface.VANILLA_TRANSLUCENT).horizontalAlignment(HorizontalAlignment.CENTER).verticalAlignment(VerticalAlignment.CENTER);
 
-		FlowLayout mainPanel = Containers.verticalFlow(Sizing.content(), Sizing.content());
-		mainPanel.surface(Surface.DARK_PANEL).padding(Insets.of(5)).horizontalAlignment(HorizontalAlignment.CENTER);
-		mainPanel.child(Components.label(Text.translatable("text.screen.fred.music_player")).shadow(true).margins(Insets.of(5).withBottom(10)));
+		// Main containers
+		FlowLayout mainPanel = Containers.verticalFlow(Sizing.fill(60), Sizing.content());
+		mainPanel.surface(Surface.DARK_PANEL).padding(Insets.of(8)).horizontalAlignment(HorizontalAlignment.CENTER);
 
-		FlowLayout contentPanel = Containers.horizontalFlow(Sizing.content(), Sizing.content());
-		contentPanel.verticalAlignment(VerticalAlignment.CENTER);
+		// Top of the music player
+		FlowLayout optionsPanel = Containers.horizontalFlow(Sizing.fill(100), Sizing.content());
+		mainPanel.child(optionsPanel.margins(Insets.of(0).withBottom(2)));
 
-		FlowLayout songsContainer = Containers.verticalFlow(Sizing.content(), Sizing.content());
+		// Container for the scrolling
+		FlowLayout songsContainer = Containers.verticalFlow(Sizing.fill(100), Sizing.content());
 
-		for (Identifier song : songs) {
+		// Dropdown with all categories
+		DropdownComponent dropdown = categoriesDropdown(songsContainer);
+
+		ButtonComponent dropdownButton = Components.button(Text.of("Filter"), button -> {
+			if (dropdown.hasParent())
+				return;
+
+			rootComponent.child(dropdown.positioning(Positioning.absolute(button.x(), button.y() + button.height())));
+		});
+
+		dropdown.mouseLeave().subscribe(() -> dropdown.closeWhenNotHovered(true));
+
+		// Search function
+		TextBoxComponent searchField = Components.textBox(Sizing.fill(60));
+		searchField.setPlaceholder(Text.translatable("text.screen.fred.music_player.search_field"));
+
+		searchField.onChanged().subscribe(search -> {
+			// If search is empty, returns to the 'All songs' category
+			if (search.isBlank() || search.isEmpty()) {
+				songsContainer.clearChildren();
+				updateList(songsContainer, songs);
+
+				return;
+			}
+
+			String searchLower = search.toLowerCase();
+
+			List<Identifier> result = songs.stream().filter(item -> I18n.translate(item.toString()).toLowerCase().contains(searchLower)).toList();
+
+			songsContainer.clearChildren();
+			updateList(songsContainer, result);
+		});
+
+		optionsPanel.child(searchField.margins(Insets.of(4)));
+
+		optionsPanel.child(dropdownButton.margins(Insets.of(4)));
+
+		updateList(songsContainer, songs);
+
+		FlowLayout songsPanel = Containers.verticalFlow(Sizing.content(), Sizing.content());
+		songsPanel.child(Containers.verticalScroll(Sizing.content(), Sizing.fill(60), songsContainer)).padding(Insets.of(5)).surface(Surface.flat(0x77000000).and(Surface.outline(0x77000000)));
+
+		mainPanel.child(songsPanel);
+		rootComponent.child(mainPanel);
+	}
+
+	DropdownComponent categoriesDropdown(final FlowLayout songsContainer) {
+		DropdownComponent dropdown = Components.dropdown(Sizing.content());
+
+		dropdown.button(Text.of("All songs"), button -> {
+			songsContainer.clearChildren();
+			updateList(songsContainer, songs);
+		});
+
+		dropdown.button(Text.of("Discs"), button -> {
+			songsContainer.clearChildren();
+			updateList(songsContainer, discs);
+		});
+
+		dropdown.button(Text.of("Categories"), button -> {
+			songsContainer.clearChildren();
+			updateList(songsContainer, categories);
+		});
+
+		return dropdown;
+	}
+
+	void updateList(final FlowLayout songsContainer, final List<Identifier> songsList) {
+		for (Identifier song : songsList) {
 			songsContainer.child(Components.button(Text.translatable(song.toString()), button -> {
 				if (client == null) {
 					return;
@@ -48,29 +124,5 @@ public class MusicPlayerScreen extends BaseOwoScreen<FlowLayout> {
 				MusicControlKeybind.PlayMusic(client, song);
 			}));
 		}
-
-		FlowLayout categoriesContainer = Containers.verticalFlow(Sizing.content(), Sizing.content());
-
-		for (Identifier category : categories) {
-			categoriesContainer.child(Components.button(Text.translatable(category.toString()), button -> {
-				if (client == null) {
-					return;
-				}
-
-				MusicControlKeybind.PlayMusic(client, category);
-			}));
-		}
-
-		FlowLayout songsPanel = Containers.verticalFlow(Sizing.content(), Sizing.content());
-		songsPanel.child(Containers.verticalScroll(Sizing.fill(40), Sizing.fill(60), songsContainer)).padding(Insets.of(5)).surface(Surface.flat(0x77000000).and(Surface.outline(0x77000000)));
-
-		FlowLayout categoriesPanel = Containers.verticalFlow(Sizing.content(), Sizing.content());
-		categoriesPanel.child(Containers.verticalScroll(Sizing.fill(40), Sizing.fill(60), categoriesContainer)).padding(Insets.of(5)).surface(Surface.flat(0x77000000).and(Surface.outline(0x77000000)));
-
-		contentPanel.child(songsPanel);
-		contentPanel.child(categoriesPanel);
-
-		mainPanel.child(contentPanel);
-		rootComponent.child(mainPanel);
 	}
 }

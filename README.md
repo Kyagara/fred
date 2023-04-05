@@ -20,7 +20,7 @@ The main goal with this mod is to add some quality of life features that would n
 - Link items in chat based on [Show Me What You Got](https://github.com/apace100/show-me-what-you-got).
 - Sound on chat message.
 - More control over the Minecraft Music (delay between songs, skip, change volume, show what is playing).
-- A music player screen based on [Music Control](https://github.com/sf-inc/music_control). (Initial implementation, needs a search function)
+- A music player screen based on [Music Control](https://github.com/sf-inc/music_control).
 - Disable any Toasts (tutorial, recipe, advancement).
 - Keep the current session chat history.
 - Show basic world info on chat when joining a world.

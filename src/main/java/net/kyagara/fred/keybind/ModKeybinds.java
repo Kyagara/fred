@@ -37,6 +37,10 @@ public class ModKeybinds {
 		}));
 
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
+			if (Fred.CONFIG.enableZoom()) {
+				SpyglassZoomKeybind.CheckForZoomKeybind(client);
+			}
+
 			if (PRINT_MUSIC_KEYBIND.wasPressed()) {
 				MusicControlKeybind.Print(client);
 			}
