@@ -1,5 +1,6 @@
 {
-  "text.screen.fred.music_player": "Music Player",
+  "text.screen.fred.music_player.search_field": "Search",
+
   "text.config.fred.title": "Fred :)",
   "text.config.fred.section.miscellaneousCategory": "Miscellaneous",
   "text.config.fred.option.enableCustomWindowTitle": "Enable custom window title",
