@@ -52,8 +52,9 @@ public class MusicControlKeybind {
 			return;
 		}
 
-		ArrayList<Identifier> songs = new ArrayList<>();
-		ArrayList<Identifier> categories = new ArrayList<>();
+		List<Identifier> songs = new ArrayList<>();
+		List<Identifier> discs = new ArrayList<>();
+		List<Identifier> categories = new ArrayList<>();
 
 		Random random = client.player.getRandom();
 
@@ -67,6 +68,7 @@ public class MusicControlKeybind {
 
 				if (path.contains("music_disc")) {
 					songs.add(key);
+					discs.add(key);
 					continue;
 				}
 
@@ -94,7 +96,7 @@ public class MusicControlKeybind {
 			}
 		}
 
-		client.setScreen(new MusicPlayerScreen(songs, categories));
+		client.setScreen(new MusicPlayerScreen(songs, categories, discs));
 	}
 
 	public static void Skip(MinecraftClient client) {
