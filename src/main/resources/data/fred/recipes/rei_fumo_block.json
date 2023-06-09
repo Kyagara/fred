@@ -1,15 +1,19 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": ["   ", " WL", "   "],
-    "key": {
-        "W": {
-            "tag": "minecraft:wool"
-        },
-        "L": {
-            "item": "minecraft:lapis_lazuli"
-        }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "W W",
+    " L ",
+    "W W"
+  ],
+  "key": {
+    "W": {
+      "tag": "minecraft:wool"
     },
-    "result": {
-        "item": "fred:rei_fumo_block"
+    "L": {
+      "item": "minecraft:lapis_lazuli"
     }
+  },
+  "result": {
+    "item": "fred:rei_fumo_block"
+  }
 }

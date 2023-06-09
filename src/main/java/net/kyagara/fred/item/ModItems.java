@@ -9,26 +9,17 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class ModItems {
-	private static final Item TRUMPET_ITEM = new TrumpetItem(new FabricItemSettings());
-
-	// Main item group
-	public static final ItemGroup FRED_GROUP = FabricItemGroup.builder(new Identifier("fred", "general"))
-			.displayName(Text.translatable("itemGroup.fred.general"))
-			.icon(() -> new ItemStack(TRUMPET_ITEM))
-			.build();
-
-	private static void registerItems() {
-		if (Fred.CONFIG.enableTrumpet()) {
-			registerItem("trumpet", TRUMPET_ITEM);
-		}
-	}
+	public static final RegistryKey<ItemGroup> FRED_ITEM_GROUP = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier("fred", "items"));
+	public static final RegistryKey<ItemGroup> FRED_BLOCK_GROUP = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier("fred", "blocks"));
 
 	private static void registerItem(String name, Item item) {
-		ItemGroupEvents.modifyEntriesEvent(FRED_GROUP).register(content -> {
+		ItemGroupEvents.modifyEntriesEvent(FRED_ITEM_GROUP).register(content -> {
 			content.add(item);
 		});
 
@@ -37,6 +28,11 @@ public class ModItems {
 
 	public static void registerModItems() {
 		Fred.LOGGER.debug("Registering items from " + Fred.MOD_ID);
-		registerItems();
+
+		if (Fred.CONFIG.enableTrumpet()) {
+			final Item TRUMPET_ITEM = new TrumpetItem(new FabricItemSettings());
+			registerItem("trumpet", TRUMPET_ITEM);
+			Registry.register(Registries.ITEM_GROUP, FRED_ITEM_GROUP, FabricItemGroup.builder().icon(() -> new ItemStack(TRUMPET_ITEM)).displayName(Text.translatable("itemGroup.fred.items")).build());
+		}
 	}
 }

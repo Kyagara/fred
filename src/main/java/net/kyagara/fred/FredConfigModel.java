@@ -54,7 +54,7 @@ public class FredConfigModel {
 
 	@SectionHeader("toastCategory")
 
-	public boolean disableAdvancementToasts = false;
+	public boolean disableAdvancementToasts = true;
 
 	public boolean disableRecipeToasts = true;
 
@@ -65,18 +65,18 @@ public class FredConfigModel {
 	@SectionHeader("itemCategory")
 
 	@RestartRequired
-	public boolean enableTheRockBlock = true;
+	public boolean enableTheRockBlock = false;
 
 	@RestartRequired
-	public boolean enableReiFumoBlock = true;
+	public boolean enableReiFumoBlock = false;
 
 	@RestartRequired
-	public boolean enableTrumpet = true;
+	public boolean enableTrumpet = false;
 
 	@SectionHeader("audioCategory")
 
 	@RestartRequired
-	public boolean enableMyMovieSFX = true;
+	public boolean enableMyMovieSFX = false;
 
 	@RangeConstraint(min = 0.0F, max = 24000)
 	public int musicMinDelay = 7000;
@@ -87,13 +87,13 @@ public class FredConfigModel {
 	@SectionHeader("commandCategory")
 
 	@RestartRequired
-	public boolean enableRollCommand = true;
+	public boolean enableRollCommand = false;
 
 	@RestartRequired
-	public boolean enableQuotesCommand = true;
+	public boolean enableQuotesCommand = false;
 
 	@RestartRequired
-	public boolean enableMagicBallCommand = true;
+	public boolean enableMagicBallCommand = false;
 
 	public List<String> magicBallAnswersList = List.of("It is certain.", "It is decidedly so.", "Without a doubt.", "Yes definitely.", "As I see it, yes.", "Most likely.", "Yes.", "Reply hazy, try again.", "Ask again later.", "I'm gonna leave you with that one.", "Better not tell you now.", "Cannot predict now.", "I guess so?", "Concentrate and ask again.", "Don't count on it.", "Oh hell no.", "lmao no.", "No.", "My reply is no.", "My sources say no.", "Very doubtful.");
 

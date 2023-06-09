@@ -1,15 +1,19 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": ["  D", "DWD", "DDD"],
-    "key": {
-        "W": {
-            "tag": "minecraft:wool"
-        },
-        "D": {
-            "item": "minecraft:diamond"
-        }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  D",
+    "DWD",
+    "DDD"
+  ],
+  "key": {
+    "W": {
+      "tag": "minecraft:wool"
     },
-    "result": {
-        "item": "minecraft:diamond_horse_armor"
+    "D": {
+      "item": "minecraft:diamond"
     }
+  },
+  "result": {
+    "item": "minecraft:diamond_horse_armor"
+  }
 }

@@ -7,12 +7,12 @@ import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.world.World;
 
 public class MyMovieSFXPacket {
 	public static void receive(MinecraftServer ignoredServer, ServerPlayerEntity player, ServerPlayNetworkHandler ignoredHandler, PacketByteBuf ignoredBuf, PacketSender ignoredResponseSender) {
-		ServerWorld world = player.getWorld();
+		World world = player.getWorld();
 
 		world.playSoundFromEntity(null, player, ModSounds.MY_MOVIE_SFX, SoundCategory.PLAYERS, 0.7F, 1F);
 
