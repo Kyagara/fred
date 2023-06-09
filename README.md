@@ -6,7 +6,7 @@ The main goal with this mod is to add some quality of life features that would n
 - The mod icon is my friend's doggo :), no idea of what to actually use.
 - This mod was originally developed for a private modpack.
 - I don't plan on making a Forge version.
-- I plan to keep support for 1.19.2 and newer versions, some features might be available only on newer versions.
+- New features might be available only on newer versions.
 
 > Most features are configurable.
 
@@ -15,8 +15,7 @@ The main goal with this mod is to add some quality of life features that would n
 - Custom window title.
 - Movement with screens open (inventory, crafting table and a lot more).
 - Auto walk.
-- Zoom based on [VanillaZoom](<https://github.com/ricksouth/serilum-mc-mods/tree/master/sources-fabric/Vanilla%20Zoom%20(Fabric)>) and
-  changing zoom distance.
+- Zoom based on [Vanilla Zoom](<https://github.com/ricksouth/serilum-mc-mod-sources/tree/main/sources/Vanilla Zoom>).
 - Link items in chat based on [Show Me What You Got](https://github.com/apace100/show-me-what-you-got).
 - Sound on chat message.
 - More control over the Minecraft Music (delay between songs, skip, change volume, show what is playing).
@@ -26,6 +25,7 @@ The main goal with this mod is to add some quality of life features that would n
 - Show basic world info on chat when joining a world.
 - Use XP to create Experience bottle.
 - Total blocks broken and placed statistic.
+- Joke blocks/items: Trumpet based on [trumpet-skeleton-fabric](https://github.com/JamiesWhiteShirt/trumpet-skeleton-fabric/), The Rock Block, Rei Fumo Block.
 
 ## New recipes
 
@@ -67,7 +67,7 @@ The main goal with this mod is to add some quality of life features that would n
 - (Item) **Trumpet** - Doot until it is done. Repaired with gold nuggets.
 - (Item) **The Rock Block** - Him.
 - (Item) **Rei Fumo Block** - Tumbling down.
-- (Keybind) **Period** - Plays My Movie SFX.
+- (Keybind) **Period** - Plays [My Movie](https://www.youtube.com/watch?v=TFwXbp9bLlY&t=1s) SFX.
 
 ## Setup
 
@@ -79,5 +79,5 @@ using.
 Fred is licensed under the MIT license.
 
 This project contains code
-from [trumpet-skeleton-fabric](https://github.com/JamiesWhiteShirt/trumpet-skeleton-fabric/), [show-me-what-you-got](https://github.com/apace100/show-me-what-you-got), [VanillaZoom](<https://github.com/ricksouth/serilum-mc-mods/tree/master/sources-fabric/Vanilla%20Zoom%20(Fabric)>)
+from [trumpet-skeleton-fabric](https://github.com/JamiesWhiteShirt/trumpet-skeleton-fabric/), [show-me-what-you-got](https://github.com/apace100/show-me-what-you-got), [VanillaZoom](<https://github.com/ricksouth/serilum-mc-mod-sources/tree/main/sources/Vanilla Zoom>), [music-control](https://github.com/sf-inc/music_control)
 and is based on [Kaupenjoe's Fabric Tutorial](https://www.youtube.com/playlist?list=PLKGarocXCE1EeLZggaXPJaARxnAbUD8Y_).

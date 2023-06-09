@@ -61,7 +61,7 @@ public class ModKeybinds {
 				MusicControlKeybind.DecreaseVolume(client);
 			}
 
-			if (MY_MOVIE_SFX_KEYBIND.wasPressed() && Fred.CONFIG.enableMyMovieSFX()) {
+			if (Fred.CONFIG.enableMyMovieSFX() && MY_MOVIE_SFX_KEYBIND.wasPressed()) {
 				ClientPlayNetworking.send(ModPackets.MY_MOVIE_SFX_PACKET, PacketByteBufs.create());
 			}
 

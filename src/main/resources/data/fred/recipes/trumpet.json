@@ -1,12 +1,16 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [" GG", "GGG", "GG "],
-    "key": {
-        "G": {
-            "item": "minecraft:gold_ingot"
-        }
-    },
-    "result": {
-        "item": "fred:trumpet"
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " GG",
+    "GGG",
+    "GG "
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:gold_ingot"
     }
+  },
+  "result": {
+    "item": "fred:trumpet"
+  }
 }

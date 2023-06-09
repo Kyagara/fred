@@ -11,38 +11,40 @@ import java.util.function.Consumer;
 
 public class FredConfig extends ConfigWrapper<net.kyagara.fred.FredConfigModel> {
 
-    private final Option<java.lang.Boolean> enableCustomWindowTitle = this.optionForKey(new Option.Key("enableCustomWindowTitle"));
-    private final Option<java.lang.String> customWindowTitle = this.optionForKey(new Option.Key("customWindowTitle"));
-    private final Option<java.lang.Boolean> enableInventoryMovement = this.optionForKey(new Option.Key("enableInventoryMovement"));
-    private final Option<java.lang.Boolean> disableInventoryBackground = this.optionForKey(new Option.Key("disableInventoryBackground"));
-    private final Option<java.lang.Boolean> enableZoom = this.optionForKey(new Option.Key("enableZoom"));
-    private final Option<java.lang.Boolean> enableChangingSpyglassFOV = this.optionForKey(new Option.Key("enableChangingSpyglassFOV"));
-    private final Option<java.lang.Boolean> enableXPBottleMechanic = this.optionForKey(new Option.Key("enableXPBottleMechanic"));
-    private final Option<java.lang.Integer> xpForXPBottle = this.optionForKey(new Option.Key("xpForXPBottle"));
-    private final Option<java.lang.Boolean> enableLinkItemInChat = this.optionForKey(new Option.Key("enableLinkItemInChat"));
-    private final Option<java.lang.Boolean> enableJoinChatMessage = this.optionForKey(new Option.Key("enableJoinChatMessage"));
-    private final Option<java.lang.Boolean> clearChatOnLeave = this.optionForKey(new Option.Key("clearChatOnLeave"));
-    private final Option<java.lang.Boolean> enableChatSessionSeparator = this.optionForKey(new Option.Key("enableChatSessionSeparator"));
-    private final Option<java.lang.String> chatSessionSeparator = this.optionForKey(new Option.Key("chatSessionSeparator"));
-    private final Option<io.wispforest.owo.ui.core.Color> chatSessionSeparatorColor = this.optionForKey(new Option.Key("chatSessionSeparatorColor"));
-    private final Option<java.lang.Boolean> enableChatMessageSound = this.optionForKey(new Option.Key("enableChatMessageSound"));
-    private final Option<java.lang.Float> chatMessageVolume = this.optionForKey(new Option.Key("chatMessageVolume"));
-    private final Option<java.lang.Float> chatMessagePitch = this.optionForKey(new Option.Key("chatMessagePitch"));
-    private final Option<java.lang.Boolean> disableAdvancementToasts = this.optionForKey(new Option.Key("disableAdvancementToasts"));
-    private final Option<java.lang.Boolean> disableRecipeToasts = this.optionForKey(new Option.Key("disableRecipeToasts"));
-    private final Option<java.lang.Boolean> disableTutorialToasts = this.optionForKey(new Option.Key("disableTutorialToasts"));
-    private final Option<java.lang.Boolean> disableSystemToasts = this.optionForKey(new Option.Key("disableSystemToasts"));
-    private final Option<java.lang.Boolean> enableTheRockBlock = this.optionForKey(new Option.Key("enableTheRockBlock"));
-    private final Option<java.lang.Boolean> enableReiFumoBlock = this.optionForKey(new Option.Key("enableReiFumoBlock"));
-    private final Option<java.lang.Boolean> enableTrumpet = this.optionForKey(new Option.Key("enableTrumpet"));
-    private final Option<java.lang.Boolean> enableMyMovieSFX = this.optionForKey(new Option.Key("enableMyMovieSFX"));
-    private final Option<java.lang.Integer> musicMinDelay = this.optionForKey(new Option.Key("musicMinDelay"));
-    private final Option<java.lang.Integer> musicMaxDelay = this.optionForKey(new Option.Key("musicMaxDelay"));
-    private final Option<java.lang.Boolean> enableRollCommand = this.optionForKey(new Option.Key("enableRollCommand"));
-    private final Option<java.lang.Boolean> enableQuotesCommand = this.optionForKey(new Option.Key("enableQuotesCommand"));
-    private final Option<java.lang.Boolean> enableMagicBallCommand = this.optionForKey(new Option.Key("enableMagicBallCommand"));
-    private final Option<java.util.List<java.lang.String>> magicBallAnswersList = this.optionForKey(new Option.Key("magicBallAnswersList"));
-    private final Option<java.util.List<java.lang.String>> quotesList = this.optionForKey(new Option.Key("quotesList"));
+    public final Keys keys = new Keys();
+
+    private final Option<java.lang.Boolean> enableCustomWindowTitle = this.optionForKey(this.keys.enableCustomWindowTitle);
+    private final Option<java.lang.String> customWindowTitle = this.optionForKey(this.keys.customWindowTitle);
+    private final Option<java.lang.Boolean> enableInventoryMovement = this.optionForKey(this.keys.enableInventoryMovement);
+    private final Option<java.lang.Boolean> disableInventoryBackground = this.optionForKey(this.keys.disableInventoryBackground);
+    private final Option<java.lang.Boolean> enableZoom = this.optionForKey(this.keys.enableZoom);
+    private final Option<java.lang.Boolean> enableChangingSpyglassFOV = this.optionForKey(this.keys.enableChangingSpyglassFOV);
+    private final Option<java.lang.Boolean> enableXPBottleMechanic = this.optionForKey(this.keys.enableXPBottleMechanic);
+    private final Option<java.lang.Integer> xpForXPBottle = this.optionForKey(this.keys.xpForXPBottle);
+    private final Option<java.lang.Boolean> enableLinkItemInChat = this.optionForKey(this.keys.enableLinkItemInChat);
+    private final Option<java.lang.Boolean> enableJoinChatMessage = this.optionForKey(this.keys.enableJoinChatMessage);
+    private final Option<java.lang.Boolean> clearChatOnLeave = this.optionForKey(this.keys.clearChatOnLeave);
+    private final Option<java.lang.Boolean> enableChatSessionSeparator = this.optionForKey(this.keys.enableChatSessionSeparator);
+    private final Option<java.lang.String> chatSessionSeparator = this.optionForKey(this.keys.chatSessionSeparator);
+    private final Option<io.wispforest.owo.ui.core.Color> chatSessionSeparatorColor = this.optionForKey(this.keys.chatSessionSeparatorColor);
+    private final Option<java.lang.Boolean> enableChatMessageSound = this.optionForKey(this.keys.enableChatMessageSound);
+    private final Option<java.lang.Float> chatMessageVolume = this.optionForKey(this.keys.chatMessageVolume);
+    private final Option<java.lang.Float> chatMessagePitch = this.optionForKey(this.keys.chatMessagePitch);
+    private final Option<java.lang.Boolean> disableAdvancementToasts = this.optionForKey(this.keys.disableAdvancementToasts);
+    private final Option<java.lang.Boolean> disableRecipeToasts = this.optionForKey(this.keys.disableRecipeToasts);
+    private final Option<java.lang.Boolean> disableTutorialToasts = this.optionForKey(this.keys.disableTutorialToasts);
+    private final Option<java.lang.Boolean> disableSystemToasts = this.optionForKey(this.keys.disableSystemToasts);
+    private final Option<java.lang.Boolean> enableTheRockBlock = this.optionForKey(this.keys.enableTheRockBlock);
+    private final Option<java.lang.Boolean> enableReiFumoBlock = this.optionForKey(this.keys.enableReiFumoBlock);
+    private final Option<java.lang.Boolean> enableTrumpet = this.optionForKey(this.keys.enableTrumpet);
+    private final Option<java.lang.Boolean> enableMyMovieSFX = this.optionForKey(this.keys.enableMyMovieSFX);
+    private final Option<java.lang.Integer> musicMinDelay = this.optionForKey(this.keys.musicMinDelay);
+    private final Option<java.lang.Integer> musicMaxDelay = this.optionForKey(this.keys.musicMaxDelay);
+    private final Option<java.lang.Boolean> enableRollCommand = this.optionForKey(this.keys.enableRollCommand);
+    private final Option<java.lang.Boolean> enableQuotesCommand = this.optionForKey(this.keys.enableQuotesCommand);
+    private final Option<java.lang.Boolean> enableMagicBallCommand = this.optionForKey(this.keys.enableMagicBallCommand);
+    private final Option<java.util.List<java.lang.String>> magicBallAnswersList = this.optionForKey(this.keys.magicBallAnswersList);
+    private final Option<java.util.List<java.lang.String>> quotesList = this.optionForKey(this.keys.quotesList);
 
     private FredConfig() {
         super(net.kyagara.fred.FredConfigModel.class);
@@ -321,7 +323,39 @@ public class FredConfig extends ConfigWrapper<net.kyagara.fred.FredConfigModel> 
     }
 
 
-
-
+    public static class Keys {
+        public final Option.Key enableCustomWindowTitle = new Option.Key("enableCustomWindowTitle");
+        public final Option.Key customWindowTitle = new Option.Key("customWindowTitle");
+        public final Option.Key enableInventoryMovement = new Option.Key("enableInventoryMovement");
+        public final Option.Key disableInventoryBackground = new Option.Key("disableInventoryBackground");
+        public final Option.Key enableZoom = new Option.Key("enableZoom");
+        public final Option.Key enableChangingSpyglassFOV = new Option.Key("enableChangingSpyglassFOV");
+        public final Option.Key enableXPBottleMechanic = new Option.Key("enableXPBottleMechanic");
+        public final Option.Key xpForXPBottle = new Option.Key("xpForXPBottle");
+        public final Option.Key enableLinkItemInChat = new Option.Key("enableLinkItemInChat");
+        public final Option.Key enableJoinChatMessage = new Option.Key("enableJoinChatMessage");
+        public final Option.Key clearChatOnLeave = new Option.Key("clearChatOnLeave");
+        public final Option.Key enableChatSessionSeparator = new Option.Key("enableChatSessionSeparator");
+        public final Option.Key chatSessionSeparator = new Option.Key("chatSessionSeparator");
+        public final Option.Key chatSessionSeparatorColor = new Option.Key("chatSessionSeparatorColor");
+        public final Option.Key enableChatMessageSound = new Option.Key("enableChatMessageSound");
+        public final Option.Key chatMessageVolume = new Option.Key("chatMessageVolume");
+        public final Option.Key chatMessagePitch = new Option.Key("chatMessagePitch");
+        public final Option.Key disableAdvancementToasts = new Option.Key("disableAdvancementToasts");
+        public final Option.Key disableRecipeToasts = new Option.Key("disableRecipeToasts");
+        public final Option.Key disableTutorialToasts = new Option.Key("disableTutorialToasts");
+        public final Option.Key disableSystemToasts = new Option.Key("disableSystemToasts");
+        public final Option.Key enableTheRockBlock = new Option.Key("enableTheRockBlock");
+        public final Option.Key enableReiFumoBlock = new Option.Key("enableReiFumoBlock");
+        public final Option.Key enableTrumpet = new Option.Key("enableTrumpet");
+        public final Option.Key enableMyMovieSFX = new Option.Key("enableMyMovieSFX");
+        public final Option.Key musicMinDelay = new Option.Key("musicMinDelay");
+        public final Option.Key musicMaxDelay = new Option.Key("musicMaxDelay");
+        public final Option.Key enableRollCommand = new Option.Key("enableRollCommand");
+        public final Option.Key enableQuotesCommand = new Option.Key("enableQuotesCommand");
+        public final Option.Key enableMagicBallCommand = new Option.Key("enableMagicBallCommand");
+        public final Option.Key magicBallAnswersList = new Option.Key("magicBallAnswersList");
+        public final Option.Key quotesList = new Option.Key("quotesList");
+    }
 }
 
