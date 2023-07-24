@@ -10,8 +10,6 @@ import net.minecraft.util.Identifier;
 public class ModStatistics {
 	public static final Identifier DOOT_COUNT = registerStatistic("doot_count");
 	public static final Identifier ROCK_COUNT = registerStatistic("rock_count");
-	public static final Identifier QUASO_COUNT = registerStatistic("quaso_count");
-	public static final Identifier MY_MOVIE_COUNT = registerStatistic("my_movie_count");
 	public static final Identifier BLOCK_BREAK_COUNT = registerStatistic("block_break_count");
 	public static final Identifier BLOCK_PLACED_COUNT = registerStatistic("block_placed_count");
 

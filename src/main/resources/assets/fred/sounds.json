@@ -8,15 +8,5 @@
         "category": "players",
         "subtitle": "The Rock",
         "sounds": ["fred:blocks/the_rock_block"]
-    },
-    "block.rei_fumo_block": {
-        "category": "players",
-        "subtitle": "Quaso",
-        "sounds": ["fred:blocks/rei_fumo_block"]
-    },
-    "sfx.my_movie": {
-        "category": "players",
-        "subtitle": "My Movie",
-        "sounds": ["fred:sfx/my_movie"]
     }
 }

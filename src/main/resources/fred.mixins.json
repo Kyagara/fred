@@ -10,6 +10,7 @@
   "client": [
     "client.AbstractClientPlayerEntityMixin",
     "client.ChatHudMixin",
+    "client.ChatScreenMixin",
     "client.ClientPlayerEntityMixin",
     "client.GameOptionsMixin",
     "client.MinecraftClientMixin",
@@ -17,7 +18,6 @@
     "client.MusicSoundMixin",
     "client.ScreenMixin",
     "client.SoundListMixin",
-    "client.ToastManagerMixin",
     "client.accessor.HandledScreenAccessor",
     "client.accessor.KeyBindingAccessor",
     "client.accessor.MusicTrackerAccessor",
