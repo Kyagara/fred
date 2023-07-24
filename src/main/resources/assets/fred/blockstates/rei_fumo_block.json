@@ -1,6 +1,0 @@
-{
-    "variants": {
-        "powered=false": { "model": "fred:block/rei_fumo_block" },
-        "powered=true": { "model": "fred:block/rei_fumo_quaso_block" }
-    }
-}

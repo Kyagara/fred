@@ -5,14 +5,9 @@ import net.kyagara.fred.Fred;
 import net.minecraft.util.Identifier;
 
 public class ModPackets {
-    public static final Identifier MY_MOVIE_SFX_PACKET = new Identifier(Fred.MOD_ID, "my_movie_packet");
     public static final Identifier LINK_ITEM_PACKET = new Identifier(Fred.MOD_ID, "link_item_packet");
 
     public static void registerC2SPackets() {
-        if (Fred.CONFIG.enableMyMovieSFX()) {
-            ServerPlayNetworking.registerGlobalReceiver(MY_MOVIE_SFX_PACKET, MyMovieSFXPacket::receive);
-        }
-
         if (Fred.CONFIG.enableLinkItemInChat()) {
             ServerPlayNetworking.registerGlobalReceiver(LINK_ITEM_PACKET, LinkItemPacket::receive);
         }

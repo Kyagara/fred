@@ -17,15 +17,13 @@ The main goal with this mod is to add some quality of life features that would n
 - Auto walk.
 - Zoom based on [Vanilla Zoom](<https://github.com/ricksouth/serilum-mc-mod-sources/tree/main/sources/Vanilla Zoom>).
 - Link items in chat based on [Show Me What You Got](https://github.com/apace100/show-me-what-you-got).
-- Sound on chat message.
+- Sound on new chat message and when typing.
 - More control over the Minecraft Music (delay between songs, skip, change volume, show what is playing).
 - A music player screen based on [Music Control](https://github.com/sf-inc/music_control).
-- Disable any Toasts (tutorial, recipe, advancement).
 - Keep the current session chat history.
-- Show basic world info on chat when joining a world.
 - Use XP to create Experience bottle.
 - Total blocks broken and placed statistic.
-- Joke blocks/items: Trumpet based on [trumpet-skeleton-fabric](https://github.com/JamiesWhiteShirt/trumpet-skeleton-fabric/), The Rock Block, Rei Fumo Block.
+- Joke blocks/items: Trumpet based on [trumpet-skeleton-fabric](https://github.com/JamiesWhiteShirt/trumpet-skeleton-fabric/), The Rock Block.
 
 ## New recipes
 
@@ -55,7 +53,8 @@ The main goal with this mod is to add some quality of life features that would n
   default quotes.
 
 > Client side commands:
-
+> 
+- **coords** - Sends your current coordinates.
 - **shrug** - Shrugs.
 - **flip** - Flips a table.
 - **unflip** - Unflips said table.
@@ -66,8 +65,6 @@ The main goal with this mod is to add some quality of life features that would n
 
 - (Item) **Trumpet** - Doot until it is done. Repaired with gold nuggets.
 - (Item) **The Rock Block** - Him.
-- (Item) **Rei Fumo Block** - Tumbling down.
-- (Keybind) **Period** - Plays [My Movie](https://www.youtube.com/watch?v=TFwXbp9bLlY&t=1s) SFX.
 
 ## Setup
 
