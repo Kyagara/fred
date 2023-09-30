@@ -13,6 +13,7 @@
     "client.ChatScreenMixin",
     "client.ClientPlayerEntityMixin",
     "client.GameOptionsMixin",
+    "client.GameRendererMixin",
     "client.MinecraftClientMixin",
     "client.MouseMixin",
     "client.MusicSoundMixin",

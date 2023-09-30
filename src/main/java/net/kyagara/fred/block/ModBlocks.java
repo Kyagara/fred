@@ -16,26 +16,20 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class ModBlocks {
-    // Registers a Block and its BlockItem
-    private static void registerBlock(String name, Block block) {
-        BlockItem blockItem = new BlockItem(block, new Item.Settings());
+	private static void registerBlocks() {
+		if (Fred.CONFIG.enableTheRockBlock()) {
+			final Block THE_ROCK_BLOCK = new TheRockBlock(FabricBlockSettings.copy(Blocks.STONE));
+			BlockItem blockItem = new BlockItem(THE_ROCK_BLOCK, new Item.Settings());
+			ItemGroupEvents.modifyEntriesEvent(ModItems.FRED_BLOCK_GROUP).register(content -> content.add(blockItem));
 
-        ItemGroupEvents.modifyEntriesEvent(ModItems.FRED_BLOCK_GROUP).register(content -> {
-            content.add(blockItem);
-        });
+			Registry.register(Registries.ITEM, new Identifier(Fred.MOD_ID, "the_rock_block"), blockItem);
+			Registry.register(Registries.BLOCK, new Identifier(Fred.MOD_ID, "the_rock_block"), THE_ROCK_BLOCK);
+			Registry.register(Registries.ITEM_GROUP, ModItems.FRED_BLOCK_GROUP, FabricItemGroup.builder().icon(() -> new ItemStack(THE_ROCK_BLOCK)).displayName(Text.translatable("itemGroup.fred.blocks")).build());
+		}
+	}
 
-        Registry.register(Registries.ITEM, new Identifier(Fred.MOD_ID, name), blockItem);
-
-        Registry.register(Registries.BLOCK, new Identifier(Fred.MOD_ID, name), block);
-    }
-
-    public static void registerModBlocks() {
-        Fred.LOGGER.debug("Registering blocks for " + Fred.MOD_ID);
-
-        if (Fred.CONFIG.enableTheRockBlock()) {
-            final Block THE_ROCK_BLOCK = new TheRockBlock(FabricBlockSettings.copy(Blocks.STONE));
-            registerBlock("the_rock_block", THE_ROCK_BLOCK);
-            Registry.register(Registries.ITEM_GROUP, ModItems.FRED_BLOCK_GROUP, FabricItemGroup.builder().icon(() -> new ItemStack(THE_ROCK_BLOCK)).displayName(Text.translatable("itemGroup.fred.blocks")).build());
-        }
-    }
+	public static void registerModBlocks() {
+		Fred.LOGGER.debug("Registering blocks from " + Fred.MOD_ID);
+		registerBlocks();
+	}
 }

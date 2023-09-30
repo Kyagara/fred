@@ -14,11 +14,8 @@ public class RollCommand {
 
 	private static int run(ServerCommandSource context, int number) {
 		int random = Random.create().nextBetween(1, number);
-
 		String message = context.getDisplayName().getString() + " rolls " + random;
-
 		context.getServer().getPlayerManager().broadcast(ModCommands.CreateCommandText(message), false);
-
 		return Command.SINGLE_SUCCESS;
 	}
 }

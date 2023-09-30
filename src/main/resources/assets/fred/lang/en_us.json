@@ -16,8 +16,6 @@
   "text.config.fred.option.enableLinkItemInChat": "Enable linking item in chat",
   "text.config.fred.option.clearChatOnLeave": "Clear chat when leaving world",
   "text.config.fred.option.enableChatSessionSeparator": "Enable chat session separator",
-  "text.config.fred.option.chatSessionSeparator": "Chat session separator",
-  "text.config.fred.option.chatSessionSeparatorColor": "Chat session separator color",
   "text.config.fred.option.enableChatMessageSound": "Enable chat message sound",
   "text.config.fred.option.chatMessageVolume": "Player message volume",
   "text.config.fred.option.chatMessagePitch": "Player message pitch",
@@ -50,7 +48,7 @@
   "stat.fred.block_break_count": "Blocks broken",
 
   "key.category.fred": "Fred",
-  "key.fred.print_music": "Print music",
+  "key.fred.display_music": "Display music",
   "key.fred.music_player_screen": "Open Music Player",
   "key.fred.skip_music": "Skip music",
   "key.fred.increase_volume": "Increase music volume",

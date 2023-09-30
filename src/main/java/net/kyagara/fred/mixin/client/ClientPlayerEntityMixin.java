@@ -5,6 +5,7 @@ import net.fabricmc.api.Environment;
 import net.kyagara.fred.keybind.ModKeybinds;
 import net.kyagara.fred.keybind.ScreenMovementKeybind;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.screen.ingame.AnvilScreen;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.network.ClientPlayerEntity;
 import org.spongepowered.asm.mixin.Final;
@@ -17,28 +18,28 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Environment(EnvType.CLIENT)
 @Mixin(ClientPlayerEntity.class)
 public abstract class ClientPlayerEntityMixin {
-    @Shadow
-    @Final
-    protected MinecraftClient client;
+	@Shadow
+	@Final
+	protected MinecraftClient client;
 
-    @Inject(method = "tickMovement", at = @At("HEAD"))
-    public void tickMovement(CallbackInfo ci) {
-        if (client.currentScreen instanceof HandledScreen) {
-            if (ModKeybinds.isAutoWalking) {
-                client.options.forwardKey.setPressed(true);
-            }
+	@Inject(method = "tickMovement", at = @At("HEAD"))
+	public void tickMovement(CallbackInfo ci) {
+		if (client.currentScreen instanceof HandledScreen && !(client.currentScreen instanceof AnvilScreen)) {
+			if (ModKeybinds.isAutoWalking) {
+				client.options.forwardKey.setPressed(true);
+			}
 
-            ScreenMovementKeybind.CheckForMovementKeybind(client);
-        }
+			ScreenMovementKeybind.CheckForMovementKeybind(client);
+		}
 
-        if (client.world != null) {
-            if (client.options.forwardKey.wasPressed()) {
-                ModKeybinds.isAutoWalking = false;
-            }
+		if (client.world != null) {
+			if (client.options.forwardKey.wasPressed()) {
+				ModKeybinds.isAutoWalking = false;
+			}
 
-            if (ModKeybinds.isAutoWalking) {
-                client.options.forwardKey.setPressed(true);
-            }
-        }
-    }
+			if (ModKeybinds.isAutoWalking) {
+				client.options.forwardKey.setPressed(true);
+			}
+		}
+	}
 }

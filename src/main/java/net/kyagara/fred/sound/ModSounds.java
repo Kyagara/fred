@@ -12,7 +12,6 @@ public class ModSounds {
 
 	private static SoundEvent registerSound(String name) {
 		Identifier identifier = new Identifier(Fred.MOD_ID, name);
-
 		return Registry.register(Registries.SOUND_EVENT, identifier, SoundEvent.of(identifier));
 	}
 

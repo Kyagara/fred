@@ -15,11 +15,8 @@ public class ModStatistics {
 
 	private static Identifier registerStatistic(String name) {
 		Identifier identifier = new Identifier(Fred.MOD_ID, name);
-
 		Registry.register(Registries.CUSTOM_STAT, name, identifier);
-
 		Stats.CUSTOM.getOrCreateStat(identifier, StatFormatter.DEFAULT);
-
 		return identifier;
 	}
 
