@@ -14,11 +14,8 @@ public class MagicBallCommand {
 
 	private static int run(ServerCommandSource context) {
 		int random = Random.create().nextBetween(0, Fred.CONFIG.magicBallAnswersList().size() - 1);
-
 		String answer = "The Magic 8 Ball has decided: " + Fred.CONFIG.magicBallAnswersList().get(random);
-
 		context.getServer().getPlayerManager().broadcast(ModCommands.CreateCommandText(answer), false);
-
 		return Command.SINGLE_SUCCESS;
 	}
 }

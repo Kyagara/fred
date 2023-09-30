@@ -12,7 +12,6 @@ public class UnflipTableCommand {
 
 	private static int run(FabricClientCommandSource context) {
 		context.getPlayer().networkHandler.sendChatMessage("┬─┬ノ( º _ ºノ)");
-
 		return Command.SINGLE_SUCCESS;
 	}
 }

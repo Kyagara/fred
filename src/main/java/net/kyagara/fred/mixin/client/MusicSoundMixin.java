@@ -12,13 +12,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Environment(EnvType.CLIENT)
 @Mixin(MusicSound.class)
 public abstract class MusicSoundMixin {
-    @Inject(method = "getMinDelay", at = @At("HEAD"), cancellable = true)
-    public void getMinDelay(CallbackInfoReturnable<Integer> ci) {
-        ci.setReturnValue(Fred.CONFIG.musicMinDelay());
-    }
+	@Inject(method = "getMinDelay", at = @At("HEAD"), cancellable = true)
+	public void getMinDelay(CallbackInfoReturnable<Integer> ci) {
+		ci.setReturnValue(Fred.CONFIG.musicMinDelay());
+	}
 
-    @Inject(method = "getMaxDelay", at = @At("HEAD"), cancellable = true)
-    public void getMaxDelay(CallbackInfoReturnable<Integer> ci) {
-        ci.setReturnValue(Fred.CONFIG.musicMaxDelay());
-    }
+	@Inject(method = "getMaxDelay", at = @At("HEAD"), cancellable = true)
+	public void getMaxDelay(CallbackInfoReturnable<Integer> ci) {
+		ci.setReturnValue(Fred.CONFIG.musicMaxDelay());
+	}
 }

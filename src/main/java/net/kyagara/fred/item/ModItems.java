@@ -18,21 +18,18 @@ public class ModItems {
 	public static final RegistryKey<ItemGroup> FRED_ITEM_GROUP = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier("fred", "items"));
 	public static final RegistryKey<ItemGroup> FRED_BLOCK_GROUP = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier("fred", "blocks"));
 
-	private static void registerItem(String name, Item item) {
-		ItemGroupEvents.modifyEntriesEvent(FRED_ITEM_GROUP).register(content -> {
-			content.add(item);
-		});
+	private static void registerItems() {
+		if (Fred.CONFIG.enableTrumpet()) {
+			final Item TRUMPET_ITEM = new TrumpetItem(new FabricItemSettings());
+			ItemGroupEvents.modifyEntriesEvent(FRED_ITEM_GROUP).register(content -> content.add(TRUMPET_ITEM));
 
-		Registry.register(Registries.ITEM, new Identifier(Fred.MOD_ID, name), item);
+			Registry.register(Registries.ITEM, new Identifier(Fred.MOD_ID, "trumpet"), TRUMPET_ITEM);
+			Registry.register(Registries.ITEM_GROUP, FRED_ITEM_GROUP, FabricItemGroup.builder().icon(() -> new ItemStack(TRUMPET_ITEM)).displayName(Text.translatable("itemGroup.fred.items")).build());
+		}
 	}
 
 	public static void registerModItems() {
 		Fred.LOGGER.debug("Registering items from " + Fred.MOD_ID);
-
-		if (Fred.CONFIG.enableTrumpet()) {
-			final Item TRUMPET_ITEM = new TrumpetItem(new FabricItemSettings());
-			registerItem("trumpet", TRUMPET_ITEM);
-			Registry.register(Registries.ITEM_GROUP, FRED_ITEM_GROUP, FabricItemGroup.builder().icon(() -> new ItemStack(TRUMPET_ITEM)).displayName(Text.translatable("itemGroup.fred.items")).build());
-		}
+		registerItems();
 	}
 }

@@ -14,9 +14,7 @@ public class QuotesCommand {
 
 	private static int run(ServerCommandSource context) {
 		int random = Random.create().nextBetween(0, Fred.CONFIG.quotesList().size() - 1);
-
 		context.getServer().getPlayerManager().broadcast(ModCommands.CreateCommandText(Fred.CONFIG.quotesList().get(random)), false);
-
 		return Command.SINGLE_SUCCESS;
 	}
 }

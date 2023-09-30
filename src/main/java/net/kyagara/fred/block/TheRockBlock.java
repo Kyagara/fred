@@ -35,7 +35,6 @@ public class TheRockBlock extends RedstoneBlock {
 	@Override
 	public void appendTooltip(ItemStack stack, BlockView world, List<Text> tooltip, TooltipContext options) {
 		tooltip.add(Text.translatable("block.fred.the_rock_block.tooltip").formatted(Formatting.AQUA));
-
 		super.appendTooltip(stack, world, tooltip, options);
 	}
 

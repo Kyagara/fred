@@ -20,7 +20,6 @@ public class LinkItemKeybind {
 		if (focusedSlot != null && focusedSlot.hasStack()) {
 			PacketByteBuf buf = PacketByteBufs.create();
 			buf.writeText(focusedSlot.getStack().toHoverableText());
-
 			ClientPlayNetworking.send(ModPackets.LINK_ITEM_PACKET, buf);
 		}
 	}

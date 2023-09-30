@@ -15,7 +15,7 @@ The main goal with this mod is to add some quality of life features that would n
 - Custom window title.
 - Movement with screens open (inventory, crafting table and a lot more).
 - Auto walk.
-- Zoom based on [Vanilla Zoom](<https://github.com/ricksouth/serilum-mc-mod-sources/tree/main/sources/Vanilla Zoom>).
+- Zoom with configurable FOV by using the mouse wheel, spyglass also has a configurable zoom.
 - Link items in chat based on [Show Me What You Got](https://github.com/apace100/show-me-what-you-got).
 - Sound on new chat message and when typing.
 - More control over the Minecraft Music (delay between songs, skip, change volume, show what is playing).
@@ -38,7 +38,7 @@ The main goal with this mod is to add some quality of life features that would n
 - **Down Arrow** - Decreases music volume.
 - **Left Arrow** - Music player screen.
 - **Right Arrow** - Skip music.
-- **Right Control** - Shows the name of the current music playing.
+- **Right Control** - Displays the current music playing.
 - **Left Alt** - Press while hovering an item to link it in chat.
 - **C** - Zoom (conflicts with a creative mode keybind, you can change this).
 - **G** - Auto walk.

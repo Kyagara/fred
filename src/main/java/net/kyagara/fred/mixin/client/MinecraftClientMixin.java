@@ -12,10 +12,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Environment(EnvType.CLIENT)
 @Mixin(MinecraftClient.class)
 public abstract class MinecraftClientMixin {
-    @Inject(method = "getWindowTitle", at = @At("HEAD"), cancellable = true)
-    private void getWindowTitle(CallbackInfoReturnable<String> ci) {
-        if (Fred.CONFIG.enableCustomWindowTitle()) {
-            ci.setReturnValue(Fred.CONFIG.customWindowTitle());
-        }
-    }
+	@Inject(method = "getWindowTitle", at = @At("HEAD"), cancellable = true)
+	private void getWindowTitle(CallbackInfoReturnable<String> ci) {
+		if (Fred.CONFIG.enableCustomWindowTitle()) {
+			ci.setReturnValue(Fred.CONFIG.customWindowTitle());
+		}
+	}
 }

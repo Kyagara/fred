@@ -2,15 +2,15 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "C C",
-    " S ",
-    "C C"
+    " C ",
+    "CRC"
   ],
   "key": {
-    "S": {
-      "item": "minecraft:stone"
-    },
     "C": {
       "item": "minecraft:cobblestone"
+    },
+    "R": {
+      "item": "minecraft:redstone"
     }
   },
   "result": {

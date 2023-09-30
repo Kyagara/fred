@@ -51,8 +51,7 @@ public class MusicPlayerScreen extends BaseOwoScreen<FlowLayout> {
 		DropdownComponent dropdown = categoriesDropdown(songsContainer);
 
 		ButtonComponent dropdownButton = Components.button(Text.of("Filter"), button -> {
-			if (dropdown.hasParent())
-				return;
+			if (dropdown.hasParent()) return;
 
 			rootComponent.child(dropdown.positioning(Positioning.absolute(button.x(), button.y() + button.height())));
 		});
@@ -86,7 +85,6 @@ public class MusicPlayerScreen extends BaseOwoScreen<FlowLayout> {
 		});
 
 		optionsPanel.child(searchField.margins(Insets.of(4)));
-
 		optionsPanel.child(dropdownButton.margins(Insets.of(4)));
 
 		updateList(songsContainer, songs);
