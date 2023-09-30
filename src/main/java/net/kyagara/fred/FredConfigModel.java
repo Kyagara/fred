@@ -1,7 +1,6 @@
 package net.kyagara.fred;
 
 import io.wispforest.owo.config.annotation.*;
-import io.wispforest.owo.ui.core.Color;
 
 import java.util.List;
 
