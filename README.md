@@ -76,5 +76,4 @@ using.
 Fred is licensed under the MIT license.
 
 This project contains code
-from [trumpet-skeleton-fabric](https://github.com/JamiesWhiteShirt/trumpet-skeleton-fabric/), [show-me-what-you-got](https://github.com/apace100/show-me-what-you-got), [VanillaZoom](<https://github.com/ricksouth/serilum-mc-mod-sources/tree/main/sources/Vanilla Zoom>), [music-control](https://github.com/sf-inc/music_control)
-and is based on [Kaupenjoe's Fabric Tutorial](https://www.youtube.com/playlist?list=PLKGarocXCE1EeLZggaXPJaARxnAbUD8Y_).
+from [trumpet-skeleton-fabric](https://github.com/JamiesWhiteShirt/trumpet-skeleton-fabric/), [music-control](https://github.com/sf-inc/music_control) and is based on [Kaupenjoe's Fabric Tutorial](https://www.youtube.com/playlist?list=PLKGarocXCE1EeLZggaXPJaARxnAbUD8Y_).
