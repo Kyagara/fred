@@ -19,7 +19,7 @@ public class ModBlocks {
 	private final static Block THE_ROCK_BLOCK = new TheRockBlock(FabricBlockSettings.of(Material.STONE));
 
 	public static final ItemGroup FRED_BLOCK_GROUP = FabricItemGroup.builder(new Identifier("fred", "blocks"))
-			.displayName(Text.translatable("itemGroup.fred.general"))
+			.displayName(Text.translatable("itemGroup.fred.blocks"))
 			.icon(() -> new ItemStack(THE_ROCK_BLOCK))
 			.build();
 
