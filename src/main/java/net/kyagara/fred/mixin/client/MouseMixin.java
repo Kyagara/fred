@@ -32,14 +32,20 @@ public abstract class MouseMixin {
 
 				if (ZoomKeybind.spyglassFOV != newValue) {
 					client.player.playSound(SoundEvents.ITEM_SPYGLASS_STOP_USING, 1.0F, 1.0F + ZoomKeybind.spyglassFOV);
+					ZoomKeybind.spyglassFOV = newValue;
 				}
 
-				ZoomKeybind.spyglassFOV = newValue;
 				ci.cancel();
 			}
 
 			if (ZoomKeybind.isZooming) {
-				ZoomKeybind.FOV = MathHelper.clamp(ZoomKeybind.FOV - vertical, 1.0, client.options.getFov().getValue());
+				double newValue = MathHelper.clamp(ZoomKeybind.FOV - vertical, 1.0, client.options.getFov().getValue());
+
+				if (ZoomKeybind.FOV != newValue) {
+					client.player.playSound(SoundEvents.ITEM_SPYGLASS_STOP_USING, 1.0F, 2.0F);
+					ZoomKeybind.FOV = newValue;
+				}
+
 				ci.cancel();
 			}
 		}
