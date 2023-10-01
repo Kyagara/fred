@@ -15,16 +15,20 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class ModItems {
-	public static final RegistryKey<ItemGroup> FRED_ITEM_GROUP = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier("fred", "items"));
-	public static final RegistryKey<ItemGroup> FRED_BLOCK_GROUP = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier("fred", "blocks"));
+	private static final Item TRUMPET_ITEM = new TrumpetItem(new FabricItemSettings());
+
+	public static final ItemGroup FRED_ITEM_GROUP = FabricItemGroup.builder(new Identifier("fred", "items"))
+			.displayName(Text.translatable("itemGroup.fred.items"))
+			.icon(() -> new ItemStack(TRUMPET_ITEM))
+			.build();
 
 	private static void registerItems() {
 		if (Fred.CONFIG.enableTrumpet()) {
-			final Item TRUMPET_ITEM = new TrumpetItem(new FabricItemSettings());
-			ItemGroupEvents.modifyEntriesEvent(FRED_ITEM_GROUP).register(content -> content.add(TRUMPET_ITEM));
+			ItemGroupEvents.modifyEntriesEvent(FRED_ITEM_GROUP).register(content -> {
+				content.add(TRUMPET_ITEM);
+			});
 
 			Registry.register(Registries.ITEM, new Identifier(Fred.MOD_ID, "trumpet"), TRUMPET_ITEM);
-			Registry.register(Registries.ITEM_GROUP, FRED_ITEM_GROUP, FabricItemGroup.builder().icon(() -> new ItemStack(TRUMPET_ITEM)).displayName(Text.translatable("itemGroup.fred.items")).build());
 		}
 	}
 
