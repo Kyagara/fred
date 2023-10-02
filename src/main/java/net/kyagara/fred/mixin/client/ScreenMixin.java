@@ -22,7 +22,7 @@ public abstract class ScreenMixin {
 	protected MinecraftClient client;
 
 	@Inject(method = "renderBackground*", at = @At("HEAD"), cancellable = true)
-	public void renderBackground(DrawContext context, CallbackInfo ci) {
+	public void renderBackground(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
 		if (Fred.CONFIG.disableInventoryBackground()) {
 			if (client != null && client.currentScreen != null && client.currentScreen instanceof AbstractInventoryScreen) {
 				ci.cancel();
