@@ -1,28 +1,36 @@
 {
-    "schemaVersion": 1,
-    "id": "fred",
-    "version": "${version}",
-    "name": "Fred",
-    "description": ":)",
-    "authors": ["Kyagara"],
-    "contact": {
-        "homepage": "https://github.com/Kyagara/fred",
-        "sources": "https://github.com/Kyagara/fred"
-    },
-    "mixins": ["fred.mixins.json"],
-    "license": "MIT",
-    "icon": "assets/fred/icon.png",
-    "environment": "*",
-    "entrypoints": {
-        "main": ["net.kyagara.fred.Fred"],
-        "client": ["net.kyagara.fred.client.FredClient"]
-    },
-    "accessWidener": "fred.accesswidener",
-    "depends": {
-        "fabricloader": ">=0.14.21",
-        "fabric-api": "*",
-        "minecraft": "1.20.2",
-        "java": ">=17",
-        "owo": ">=0.11.3"
-    }
+  "schemaVersion": 1,
+  "id": "fred",
+  "version": "${version}",
+  "name": "Fred",
+  "description": ":)",
+  "authors": [
+    "Kyagara"
+  ],
+  "contact": {
+    "homepage": "https://github.com/Kyagara/fred",
+    "sources": "https://github.com/Kyagara/fred"
+  },
+  "mixins": [
+    "fred.mixins.json"
+  ],
+  "license": "MIT",
+  "icon": "assets/fred/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.fred.loaders.fabric.FabricMain"
+    ],
+    "client": [
+      "com.fred.loaders.fabric.FabricClient"
+    ]
+  },
+  "accessWidener": "fred.accesswidener",
+  "depends": {
+    "fabricloader": ">=0.16.5",
+    "fabric-api": "*",
+    "minecraft": "${minecraft}",
+    "java": ">=21",
+    "owo": ">=0.12.15"
+  }
 }

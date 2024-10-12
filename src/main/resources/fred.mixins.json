@@ -1,8 +1,8 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "net.kyagara.fred.mixin",
-  "compatibilityLevel": "JAVA_17",
+  "package": "com.fred.mixins",
+  "compatibilityLevel": "JAVA_21",
   "mixins": [
     "BlockMixin",
     "XPBottleItemMixin"
@@ -19,7 +19,6 @@
     "client.MusicSoundMixin",
     "client.ScreenMixin",
     "client.SoundListMixin",
-    "client.accessor.HandledScreenAccessor",
     "client.accessor.KeyBindingAccessor",
     "client.accessor.MusicTrackerAccessor",
     "client.accessor.SoundSetAccessor"
