@@ -15,7 +15,6 @@
     "client.MinecraftClientMixin",
     "client.MouseMixin",
     "client.MusicSoundMixin",
-    "client.ScreenMixin",
     "client.SoundListMixin",
     "client.accessor.KeyBindingAccessor",
     "client.accessor.MusicTrackerAccessor",

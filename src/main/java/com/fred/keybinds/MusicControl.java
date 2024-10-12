@@ -141,7 +141,7 @@ public class MusicControl {
 	public static void IncreaseVolume(MinecraftClient client) {
 		float volume = Math.min(client.options.getSoundVolume(SoundCategory.MUSIC) + 0.05F, 1.0F);
 
-		((GameOptionsInterface) client.options).setSoundCategoryVolume(SoundCategory.MUSIC, volume);
+		((GameOptionsInterface) client.options).fred$setSoundCategoryVolume(SoundCategory.MUSIC, volume);
 		client.options.write();
 
 		// Start playing music after unmuting.
@@ -156,7 +156,7 @@ public class MusicControl {
 	public static void DecreaseVolume(MinecraftClient client) {
 		float volume = Math.max(client.options.getSoundVolume(SoundCategory.MUSIC) - 0.05F, 0.0F);
 
-		((GameOptionsInterface) client.options).setSoundCategoryVolume(SoundCategory.MUSIC, volume);
+		((GameOptionsInterface) client.options).fred$setSoundCategoryVolume(SoundCategory.MUSIC, volume);
 		client.options.write();
 
 		if (volume == 0.00F) {

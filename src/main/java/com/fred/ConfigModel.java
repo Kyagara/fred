@@ -8,8 +8,6 @@ import io.wispforest.owo.config.annotation.*;
 public class ConfigModel {
 	@SectionHeader("miscellaneousCategory")
 
-	public boolean enableCustomWindowTitle = true;
-
 	public String customWindowTitle = "Minecraft";
 
 	@SectionHeader("mechanicCategory")
@@ -30,8 +28,6 @@ public class ConfigModel {
 	@SectionHeader("chatCategory")
 
 	public boolean clearChatOnLeave = false;
-
-	public boolean enableChatSessionSeparator = true;
 
 	public boolean enableChatMessageSound = true;
 
