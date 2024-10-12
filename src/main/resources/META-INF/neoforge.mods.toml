@@ -1,0 +1,41 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+issueTrackerURL = "https://github.com/Kyagara/fred/issues"
+license = "MIT"
+
+[[mods]]
+modId = "fred"
+version = "${version}"
+displayName = "Fred"
+authors = "Kyagara"
+description = '''
+:)
+'''
+#logoFile = ""
+
+[[mixins]]
+config = "fred.mixins.json"
+
+[[accessTransformers]]
+file="META-INF/accesstransformer.cfg"
+
+[[dependencies.fred]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1.61,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.fred]]
+modId = "minecraft"
+type = "required"
+versionRange = "${minecraft}"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.fred]]
+modId = "owo"
+type = "required"
+versionRange = "[0.12.15,)"
+ordering = "AFTER"
+side = "BOTH"

@@ -5,10 +5,8 @@ The main goal with this mod is to add some quality of life features that would n
 - The name was the first thing a friend said after I asked for a project name.
 - The mod icon is my friend's doggo :), no idea of what to actually use.
 - This mod was originally developed for a private modpack.
-- I don't plan on making a Forge version.
-- New features might be available only on newer versions.
 
-> Most features are configurable.
+> Most features are toggleable.
 
 ## Features
 
@@ -25,7 +23,7 @@ The main goal with this mod is to add some quality of life features that would n
 - Total blocks broken and placed statistic.
 - Joke blocks/items: Trumpet based on [trumpet-skeleton-fabric](https://github.com/JamiesWhiteShirt/trumpet-skeleton-fabric/), The Rock Block.
 
-## New recipes
+## Recipes
 
 - Name Tag
 - Rotten Flesh to Leather
@@ -39,8 +37,7 @@ The main goal with this mod is to add some quality of life features that would n
 - **Left Arrow** - Music player screen.
 - **Right Arrow** - Skip music.
 - **Right Control** - Displays the current music playing.
-- **Left Alt** - Press while hovering an item to link it in chat.
-- **C** - Zoom (conflicts with a creative mode keybind, you can change this).
+- **C** - Zoom (conflicts with a creative mode keybind).
 - **G** - Auto walk.
 
 ## Commands
