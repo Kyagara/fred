@@ -1,9 +1,9 @@
 package com.fred.keybinds;
 
 import com.fred.interfaces.GameOptionsInterface;
-import com.fred.screens.MusicPlayerScreen;
 import com.fred.mixins.client.accessor.MusicTrackerAccessor;
 import com.fred.mixins.client.accessor.SoundSetAccessor;
+import com.fred.screens.MusicPlayerScreen;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.sound.MusicTracker;
 import net.minecraft.client.sound.Sound;

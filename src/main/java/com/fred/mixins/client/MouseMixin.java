@@ -23,6 +23,7 @@ public abstract class MouseMixin {
 		if (client.player == null) {
 			return;
 		}
+
 		if (client.options.getPerspective().isFirstPerson()) {
 			if (client.player.isUsingSpyglass()) {
 				float newValue = MathHelper.clamp(Zoom.spyglassFOV - ((float) vertical * 0.1F), 0.2F, 1.0F);

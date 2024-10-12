@@ -1,36 +1,28 @@
 # Fred
 
-The main goal with this mod is to add some quality of life features that would normally need another mod to be installed, things my friends and I find funny and to practice some java along the way.
+The main goal with this mod is to add some quality of life features that would normally need another mod to be installed, things my friends and I find funny.
 
 - The name was the first thing a friend said after I asked for a project name.
 - The mod icon is my friend's doggo :), no idea of what to actually use.
 - This mod was originally developed for a private modpack.
+- Some features have been moved to [CoopTweaks](https://github.com/Kyagara/CoopTweaks).
 
 > Most features are toggleable.
 
 ## Features
 
+### Client
+
 - Custom window title.
 - Movement with screens open (inventory, crafting table and a lot more).
 - Auto walk.
 - Zoom with configurable FOV by using the mouse wheel, spyglass also has a configurable zoom.
-- Link items in chat based on [Show Me What You Got](https://github.com/apace100/show-me-what-you-got).
 - Sound on new chat message and when typing.
 - More control over the Minecraft Music (delay between songs, skip, change volume, show what is playing).
 - A music player screen based on [Music Control](https://github.com/sf-inc/music_control).
 - Keep the current session chat history.
-- Use XP to create Experience bottle.
-- Total blocks broken and placed statistic.
-- Joke blocks/items: Trumpet based on [trumpet-skeleton-fabric](https://github.com/JamiesWhiteShirt/trumpet-skeleton-fabric/), The Rock Block.
 
-## Recipes
-
-- Name Tag
-- Rotten Flesh to Leather
-- Horse Armor (diamond, gold, iron)
-- Saddle
-
-## Keybinds
+### Keybinds
 
 - **Up Arrow** - Increases music volume.
 - **Down Arrow** - Decreases music volume.
@@ -40,33 +32,25 @@ The main goal with this mod is to add some quality of life features that would n
 - **C** - Zoom (conflicts with a creative mode keybind).
 - **G** - Auto walk.
 
-## Commands
+### Server
 
-> Server side commands that broadcast() to the server:
+- Use XP to create Experience bottle.
+- Total blocks broken and placed statistic.
+- Joke blocks/items: Trumpet based on [trumpet-skeleton-fabric](https://github.com/JamiesWhiteShirt/trumpet-skeleton-fabric/), The Rock Block.
 
-- **roll** - Random number from 1 to the number provided as argument.
-- **8ball** - It can answer your every question, as long as your question can be answered with yes or no.
-- **quotes** - Gives a random quote from a config file, defaults to some random stuff about ULTRAKILL for the lack of a better idea for
-  default quotes.
+### Recipes
 
-> Client side commands:
-> 
-- **coords** - Sends your current coordinates.
-- **shrug** - Shrugs.
-- **flip** - Flips a table.
-- **unflip** - Unflips said table.
+- Name Tag
+- Rotten Flesh to Leather using furnace.
+- Horse Armor (diamond, gold, iron)
+- Saddle
 
-## Joke features
+### Items/Blocks
 
 > All items/blocks have recipes, have their own statistics and can be disabled.
 
-- (Item) **Trumpet** - Doot until it is done. Repaired with gold nuggets.
-- (Item) **The Rock Block** - Him.
-
-## Setup
-
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are
-using.
+- **Trumpet** - Doot until it is done. Repaired with gold nuggets.
+- **The Rock Block** - Him.
 
 ## License
 

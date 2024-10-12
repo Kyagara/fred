@@ -2,17 +2,25 @@ package com.fred;
 
 import com.fred.blocks.TheRockBlock;
 import com.fred.items.Trumpet;
+import dev.architectury.event.EventResult;
+import dev.architectury.event.events.common.BlockEvent;
+import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.stat.StatFormatter;
 import net.minecraft.stat.Stats;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
 
 public class Main {
 	public static final String MOD_ID = "fred";
@@ -27,17 +35,44 @@ public class Main {
 	public static final Identifier BLOCK_PLACED_COUNT = registerStatistic("block_placed_count");
 
 	public static void init() {
+		BlockEvent.PLACE.register((level, pos, state, placer) -> {
+			if (placer != null && placer.isPlayer()) {
+				((PlayerEntity) placer).incrementStat(Main.BLOCK_PLACED_COUNT);
+			}
+
+			return EventResult.pass();
+		});
+
+		BlockEvent.BREAK.register((level, pos, state, breaker, xp) -> {
+			breaker.incrementStat(Main.BLOCK_BREAK_COUNT);
+			return EventResult.pass();
+		});
+
 		if (Main.CONFIG.enableTheRockBlock()) {
 			final Block THE_ROCK_BLOCK = new TheRockBlock(AbstractBlock.Settings.copy(Blocks.STONE));
 			BlockItem blockItem = new BlockItem(THE_ROCK_BLOCK, new Item.Settings());
 
 			Registry.register(Registries.ITEM, Identifier.of(Main.MOD_ID, "the_rock_block"), blockItem);
 			Registry.register(Registries.BLOCK, Identifier.of(Main.MOD_ID, "the_rock_block"), THE_ROCK_BLOCK);
+
+			UseBlockCallback.EVENT.register((player, world, hand, hitResult) -> {
+				if (!world.isClient()) {
+					BlockPos pos = hitResult.getBlockPos();
+					BlockState state = world.getBlockState(pos);
+					world.setBlockState(pos, state.cycle(TheRockBlock.POWERED));
+
+					if (!state.get(TheRockBlock.POWERED)) {
+						world.playSound(null, pos, Main.THE_ROCK_BLOCK_SCARE, SoundCategory.PLAYERS, 0.7F, 1F);
+						player.incrementStat(Main.ROCK_COUNT);
+					}
+				}
+
+				return ActionResult.SUCCESS;
+			});
 		}
 
 		if (Main.CONFIG.enableTrumpet()) {
 			final Item TRUMPET_ITEM = new Trumpet(new Item.Settings());
-
 			Registry.register(Registries.ITEM, Identifier.of(Main.MOD_ID, "trumpet"), TRUMPET_ITEM);
 		}
 	}
