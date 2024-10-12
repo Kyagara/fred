@@ -22,7 +22,7 @@ The main goal with this mod is to add some quality of life features that would n
 - More control over the Minecraft Music (delay between songs, skip, change volume, show what is playing).
 - Keep the current session chat history.
 
-### Keybinds
+#### Keybinds
 
 - **Up Arrow** - Increases music volume.
 - **Down Arrow** - Decreases music volume.
@@ -38,7 +38,7 @@ The main goal with this mod is to add some quality of life features that would n
 - Total blocks broken and placed statistic.
 - Joke blocks/items: Trumpet based on [trumpet-skeleton-fabric](https://github.com/JamiesWhiteShirt/trumpet-skeleton-fabric/), The Rock Block.
 
-### Recipes
+#### Recipes
 
 - Name Tag
 - Rotten Flesh to Leather using furnace.

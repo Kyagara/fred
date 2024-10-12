@@ -14,6 +14,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
+
 import java.util.List;
 
 public class Trumpet extends Item {
