@@ -1,6 +1,7 @@
 package com.fred.mixins.client;
 
 import com.fred.Client;
+import com.fred.Main;
 import com.fred.keybinds.ScreenMovement;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.InventoryScreen;
@@ -20,22 +21,12 @@ public abstract class ClientPlayerEntityMixin {
 
 	@Inject(method = "tickMovement", at = @At("HEAD"))
 	public void tickMovement(CallbackInfo ci) {
-		if (client.currentScreen instanceof InventoryScreen) {
-			if (Client.isAutoWalking) {
-				client.options.forwardKey.setPressed(true);
-			}
-
+		if (Main.CONFIG.enableInventoryMovement() && client.currentScreen instanceof InventoryScreen) {
 			ScreenMovement.CheckForMovementKeybind(client);
 		}
 
-		if (client.world != null) {
-			if (client.options.forwardKey.wasPressed() || client.options.backKey.wasPressed()) {
-				Client.isAutoWalking = false;
-			}
-
-			if (Client.isAutoWalking) {
-				client.options.forwardKey.setPressed(true);
-			}
+		if (Client.isAutoWalking) {
+			client.options.forwardKey.setPressed(true);
 		}
 	}
 }
