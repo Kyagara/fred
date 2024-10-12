@@ -14,7 +14,6 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
-
 import java.util.List;
 
 public class Trumpet extends Item {
@@ -34,7 +33,7 @@ public class Trumpet extends Item {
 
 		// Pushing entities - from trumpet-skeleton-fabric
 		if (!world.isClient) {
-			world.playSoundFromEntity(player, player, Main.TRUMPET_USE, SoundCategory.PLAYERS, 0.8F, 0.9F + world.random.nextFloat() * 0.2F);
+			world.playSoundFromEntity(null, player, Main.TRUMPET_USE, SoundCategory.PLAYERS, 0.8F, 0.9F + world.random.nextFloat() * 0.2F);
 
 			List<LivingEntity> entities = world.getEntitiesByClass(LivingEntity.class, player.getBoundingBox().expand(5.0D), EntityPredicates.VALID_ENTITY);
 

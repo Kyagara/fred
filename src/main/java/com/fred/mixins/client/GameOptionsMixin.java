@@ -17,7 +17,7 @@ public abstract class GameOptionsMixin implements GameOptionsInterface {
 	private Map<SoundCategory, SimpleOption<Double>> soundVolumeLevels;
 
 	@Override
-	public void setSoundCategoryVolume(SoundCategory soundCategory, double volume) {
+	public void fred$setSoundCategoryVolume(SoundCategory soundCategory, double volume) {
 		SimpleOption<Double> simpleOption = soundVolumeLevels.get(soundCategory);
 
 		if (simpleOption != null) {

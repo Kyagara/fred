@@ -4,35 +4,30 @@ import com.fred.blocks.TheRockBlock;
 import com.fred.items.Trumpet;
 import dev.architectury.event.EventResult;
 import dev.architectury.event.events.common.BlockEvent;
-import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.stat.StatFormatter;
 import net.minecraft.stat.Stats;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.BlockPos;
 
 public class Main {
 	public static final String MOD_ID = "fred";
 	public static final com.fred.FredConfig CONFIG = com.fred.FredConfig.createAndLoad();
 
-	public static final SoundEvent TRUMPET_USE = registerSound("item.trumpet.use");
-	public static final SoundEvent THE_ROCK_BLOCK_SCARE = registerSound("block.the_rock_block");
-
 	public static final Identifier DOOT_COUNT = registerStatistic("doot_count");
 	public static final Identifier ROCK_COUNT = registerStatistic("rock_count");
 	public static final Identifier BLOCK_BREAK_COUNT = registerStatistic("block_break_count");
 	public static final Identifier BLOCK_PLACED_COUNT = registerStatistic("block_placed_count");
+
+	public static final SoundEvent TRUMPET_USE = registerSound("item.trumpet.use");
+	public static final SoundEvent THE_ROCK_BLOCK_SCARE = registerSound("block.the_rock_block");
 
 	public static void init() {
 		BlockEvent.PLACE.register((level, pos, state, placer) -> {
@@ -54,21 +49,6 @@ public class Main {
 
 			Registry.register(Registries.ITEM, Identifier.of(Main.MOD_ID, "the_rock_block"), blockItem);
 			Registry.register(Registries.BLOCK, Identifier.of(Main.MOD_ID, "the_rock_block"), THE_ROCK_BLOCK);
-
-			UseBlockCallback.EVENT.register((player, world, hand, hitResult) -> {
-				if (!world.isClient()) {
-					BlockPos pos = hitResult.getBlockPos();
-					BlockState state = world.getBlockState(pos);
-					world.setBlockState(pos, state.cycle(TheRockBlock.POWERED));
-
-					if (!state.get(TheRockBlock.POWERED)) {
-						world.playSound(null, pos, Main.THE_ROCK_BLOCK_SCARE, SoundCategory.PLAYERS, 0.7F, 1F);
-						player.incrementStat(Main.ROCK_COUNT);
-					}
-				}
-
-				return ActionResult.SUCCESS;
-			});
 		}
 
 		if (Main.CONFIG.enableTrumpet()) {
