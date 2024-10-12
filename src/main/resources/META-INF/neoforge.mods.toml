@@ -17,7 +17,7 @@ description = '''
 config = "fred.mixins.json"
 
 [[accessTransformers]]
-file="META-INF/accesstransformer.cfg"
+file = "META-INF/accesstransformer.cfg"
 
 [[dependencies.fred]]
 modId = "neoforge"
