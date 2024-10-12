@@ -18,15 +18,17 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class XPBottleItemMixin {
 	@Inject(method = "use", at = @At("HEAD"))
 	public void use(World world, PlayerEntity player, Hand hand, CallbackInfoReturnable<TypedActionResult<ItemStack>> ci) {
-		ItemStack stack = player.getStackInHand(hand);
+		if (!Main.CONFIG.enableXPBottleMechanic()) {
+			return;
+		}
 
-		if (!world.isClient && Main.CONFIG.enableXPBottleMechanic()) {
-			if (player.isSneaking() && Experience.CanCreateXPBottle(player)) {
-				player.addExperience(-Main.CONFIG.xpForXPBottle());
+		if (!world.isClient && Experience.CanCreateXPBottle(player) && player.isSneaking()) {
+			ItemStack stack = player.getStackInHand(hand);
 
-				stack.decrement(1);
-				player.giveItemStack(new ItemStack(Items.EXPERIENCE_BOTTLE, 1));
-			}
+			player.addExperience(-Main.CONFIG.xpForXPBottle());
+
+			stack.decrement(1);
+			player.giveItemStack(new ItemStack(Items.EXPERIENCE_BOTTLE, 1));
 		}
 	}
 }

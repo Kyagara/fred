@@ -38,7 +38,7 @@ public class Main {
 			return EventResult.pass();
 		});
 
-		BlockEvent.BREAK.register((level, pos, state, breaker, xp) -> {
+		BlockEvent.BREAK.register((level, blockPos, state, breaker, xp) -> {
 			breaker.incrementStat(Main.BLOCK_BREAK_COUNT);
 			return EventResult.pass();
 		});
