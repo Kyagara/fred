@@ -1,9 +1,9 @@
 package com.fred.mixins.client;
 
 import com.fred.Client;
+import com.fred.keybinds.ScreenMovement;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.screen.ingame.AnvilScreen;
-import net.minecraft.client.gui.screen.ingame.HandledScreen;
+import net.minecraft.client.gui.screen.ingame.InventoryScreen;
 import net.minecraft.client.network.ClientPlayerEntity;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -20,14 +20,16 @@ public abstract class ClientPlayerEntityMixin {
 
 	@Inject(method = "tickMovement", at = @At("HEAD"))
 	public void tickMovement(CallbackInfo ci) {
-		if (client.currentScreen instanceof HandledScreen && !(client.currentScreen instanceof AnvilScreen)) {
+		if (client.currentScreen instanceof InventoryScreen) {
 			if (Client.isAutoWalking) {
 				client.options.forwardKey.setPressed(true);
 			}
+
+			ScreenMovement.CheckForMovementKeybind(client);
 		}
 
 		if (client.world != null) {
-			if (client.options.forwardKey.wasPressed()) {
+			if (client.options.forwardKey.wasPressed() || client.options.backKey.wasPressed()) {
 				Client.isAutoWalking = false;
 			}
 

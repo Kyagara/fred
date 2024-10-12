@@ -1,5 +1,6 @@
 package com.fred.screens;
 
+import com.fred.keybinds.MusicControl;
 import io.wispforest.owo.ui.base.BaseOwoScreen;
 import io.wispforest.owo.ui.component.ButtonComponent;
 import io.wispforest.owo.ui.component.Components;
@@ -8,7 +9,6 @@ import io.wispforest.owo.ui.component.TextBoxComponent;
 import io.wispforest.owo.ui.container.Containers;
 import io.wispforest.owo.ui.container.FlowLayout;
 import io.wispforest.owo.ui.core.*;
-import com.fred.keybinds.MusicControl;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -117,13 +117,9 @@ public class MusicPlayerScreen extends BaseOwoScreen<FlowLayout> {
 		return dropdown;
 	}
 
-	void updateList(final FlowLayout songsContainer, final List<Identifier> songsList) {
+	private void updateList(final FlowLayout songsContainer, final List<Identifier> songsList) {
 		for (Identifier song : songsList) {
 			songsContainer.child(Components.button(Text.translatable(song.toString()), button -> {
-				if (client == null) {
-					return;
-				}
-
 				MusicControl.PlayMusic(client, song);
 			}));
 		}

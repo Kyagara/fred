@@ -4,13 +4,11 @@
   "package": "com.fred.mixins",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "BlockMixin",
     "XPBottleItemMixin"
   ],
   "client": [
     "client.AbstractClientPlayerEntityMixin",
     "client.ChatHudMixin",
-    "client.ChatScreenMixin",
     "client.ClientPlayerEntityMixin",
     "client.GameOptionsMixin",
     "client.GameRendererMixin",

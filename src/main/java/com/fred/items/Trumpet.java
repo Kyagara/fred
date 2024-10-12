@@ -5,8 +5,11 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.TypedActionResult;
@@ -17,7 +20,12 @@ import java.util.List;
 public class Trumpet extends Item {
 	public Trumpet(Settings settings) {
 		super(settings);
-		settings.rarity(Rarity.UNCOMMON);
+		settings.rarity(Rarity.RARE);
+	}
+
+	@Override
+	public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+		tooltip.add(Text.translatable("item.fred.trumpet.tooltip").formatted(Formatting.RED));
 	}
 
 	@Override
@@ -26,7 +34,7 @@ public class Trumpet extends Item {
 
 		// Pushing entities - from trumpet-skeleton-fabric
 		if (!world.isClient) {
-			world.playSoundFromEntity(null, player, Main.TRUMPET_USE, SoundCategory.PLAYERS, 0.8F, 0.9F + world.random.nextFloat() * 0.2F);
+			world.playSoundFromEntity(player, player, Main.TRUMPET_USE, SoundCategory.PLAYERS, 0.8F, 0.9F + world.random.nextFloat() * 0.2F);
 
 			List<LivingEntity> entities = world.getEntitiesByClass(LivingEntity.class, player.getBoundingBox().expand(5.0D), EntityPredicates.VALID_ENTITY);
 
@@ -46,6 +54,6 @@ public class Trumpet extends Item {
 			player.incrementStat(Main.DOOT_COUNT);
 		}
 
-		return super.use(world, player, hand);
+		return TypedActionResult.pass(player.getStackInHand(hand));
 	}
 }

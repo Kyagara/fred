@@ -1,19 +1,16 @@
 package com.fred;
 
-import com.fred.commands.Coordinates;
-import com.fred.commands.FlipTable;
-import com.fred.commands.Shrug;
-import com.fred.commands.UnflipTable;
 import com.fred.keybinds.MusicControl;
 import com.fred.keybinds.Zoom;
 import dev.architectury.event.EventResult;
-import dev.architectury.event.events.client.ClientCommandRegistrationEvent;
+import dev.architectury.event.events.client.ClientRawInputEvent;
 import dev.architectury.event.events.client.ClientScreenInputEvent;
 import dev.architectury.platform.Platform;
 import dev.architectury.registry.client.keymappings.KeyMappingRegistry;
 import dev.architectury.utils.Env;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
+import net.minecraft.sound.SoundEvents;
 import org.lwjgl.glfw.GLFW;
 
 public class Client {
@@ -32,54 +29,44 @@ public class Client {
 			return;
 		}
 
-		ClientScreenInputEvent.KEY_PRESSED_PRE.register((client, screen, keyCode, scanCode, modifiers) -> {
-			Zoom.isZooming = ZOOM_KEYBIND.isPressed();
-			client.options.smoothCameraEnabled = Zoom.isZooming;
-
-			if (DISPLAY_MUSIC_KEYBIND.wasPressed()) {
-				MusicControl.Display(client);
-			}
-
-			if (MUSIC_PLAYER_SCREEN_KEYBIND.wasPressed()) {
-				MusicControl.ShowMusicPlayerScreen(client);
-			}
-
-			if (SKIP_KEYBIND.wasPressed()) {
-				MusicControl.Skip(client);
-			}
-
-			if (INCREASE_VOLUME_KEYBIND.wasPressed()) {
-				MusicControl.IncreaseVolume(client);
-			}
-
-			if (DECREASE_VOLUME_KEYBIND.wasPressed()) {
-				MusicControl.DecreaseVolume(client);
-			}
-
-			if (AUTO_WALK_KEYBIND.wasPressed()) {
-				isAutoWalking = !isAutoWalking;
-				client.options.forwardKey.setPressed(isAutoWalking);
+		ClientScreenInputEvent.CHAR_TYPED_PRE.register((client, screen, character, keycode) -> {
+			if (Main.CONFIG.enableChatTypingSound() && client.player != null) {
+				client.player.playSound(SoundEvents.BLOCK_STONE_PLACE, Main.CONFIG.chatTypingVolume(), Main.CONFIG.chatTypingPitch());
 			}
 
 			return EventResult.pass();
 		});
 
-		ClientCommandRegistrationEvent.EVENT.register((dispatcher, context) -> {
-			if (Main.CONFIG.enableShrugCommand()) {
-				new Shrug().register(dispatcher, context);
+		ClientRawInputEvent.KEY_PRESSED.register((client, screen, keyCode, scanCode, modifiers) -> {
+			Zoom.isZooming = ZOOM_KEYBIND.isPressed();
+			client.options.smoothCameraEnabled = Zoom.isZooming;
+
+			if (DISPLAY_MUSIC_KEYBIND.isPressed()) {
+				MusicControl.Display(client);
 			}
 
-			if (Main.CONFIG.enableFlipTableCommand()) {
-				new FlipTable().register(dispatcher, context);
+			if (MUSIC_PLAYER_SCREEN_KEYBIND.isPressed()) {
+				MusicControl.ShowMusicPlayerScreen(client);
 			}
 
-			if (Main.CONFIG.enableUnflipTableCommand()) {
-				new UnflipTable().register(dispatcher, context);
+			if (SKIP_KEYBIND.isPressed()) {
+				MusicControl.Skip(client);
 			}
 
-			if (Main.CONFIG.enableCoordsCommand()) {
-				new Coordinates().register(dispatcher, context);
+			if (INCREASE_VOLUME_KEYBIND.isPressed()) {
+				MusicControl.IncreaseVolume(client);
 			}
+
+			if (DECREASE_VOLUME_KEYBIND.isPressed()) {
+				MusicControl.DecreaseVolume(client);
+			}
+
+			if (AUTO_WALK_KEYBIND.isPressed()) {
+				isAutoWalking = !isAutoWalking;
+				client.options.forwardKey.setPressed(isAutoWalking);
+			}
+
+			return EventResult.pass();
 		});
 	}
 
