@@ -14,8 +14,6 @@ public class ConfigModel {
 
 	public boolean enableInventoryMovement = true;
 
-	public boolean disableInventoryBackground = false;
-
 	public boolean enableZoom = true;
 
 	public boolean enableChangingSpyglassFOV = true;

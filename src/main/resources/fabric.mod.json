@@ -3,7 +3,7 @@
   "id": "fred",
   "version": "${version}",
   "name": "Fred",
-  "description": ":)",
+  "description": "Utility mod with quality of life features and joke features.",
   "authors": [
     "Kyagara"
   ],
@@ -28,7 +28,6 @@
   "accessWidener": "fred.accesswidener",
   "depends": {
     "fabricloader": ">=0.16.5",
-    "fabric-api": "*",
     "minecraft": "${minecraft}",
     "java": ">=21",
     "owo": ">=0.12.15"

@@ -14,12 +14,12 @@ The main goal with this mod is to add some quality of life features that would n
 ### Client
 
 - Custom window title.
-- Movement with screens open (inventory, crafting table and a lot more).
+- Movement with inventory open.
 - Auto walk.
 - Zoom with configurable FOV by using the mouse wheel, spyglass also has a configurable zoom.
 - Sound on new chat message and when typing.
-- More control over the Minecraft Music (delay between songs, skip, change volume, show what is playing).
 - A music player screen based on [Music Control](https://github.com/sf-inc/music_control).
+- More control over the Minecraft Music (delay between songs, skip, change volume, show what is playing).
 - Keep the current session chat history.
 
 ### Keybinds
@@ -44,13 +44,6 @@ The main goal with this mod is to add some quality of life features that would n
 - Rotten Flesh to Leather using furnace.
 - Horse Armor (diamond, gold, iron)
 - Saddle
-
-### Items/Blocks
-
-> All items/blocks have recipes, have their own statistics and can be disabled.
-
-- **Trumpet** - Doot until it is done.
-- **The Rock Block** - Him.
 
 ## License
 

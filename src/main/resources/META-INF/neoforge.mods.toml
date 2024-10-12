@@ -9,9 +9,9 @@ version = "${version}"
 displayName = "Fred"
 authors = "Kyagara"
 description = '''
-:)
+Utility mod with quality of life features and joke features.
 '''
-#logoFile = ""
+logoFile = "assets/fred/icon.png"
 
 [[mixins]]
 config = "fred.mixins.json"

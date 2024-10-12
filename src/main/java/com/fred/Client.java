@@ -4,10 +4,10 @@ import com.fred.keybinds.MusicControl;
 import com.fred.keybinds.Zoom;
 import dev.architectury.event.EventResult;
 import dev.architectury.event.events.client.ClientRawInputEvent;
-import dev.architectury.event.events.client.ClientScreenInputEvent;
 import dev.architectury.platform.Platform;
 import dev.architectury.registry.client.keymappings.KeyMappingRegistry;
 import dev.architectury.utils.Env;
+import net.minecraft.client.gui.screen.ChatScreen;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.sound.SoundEvents;
@@ -29,15 +29,11 @@ public class Client {
 			return;
 		}
 
-		ClientScreenInputEvent.CHAR_TYPED_PRE.register((client, screen, character, keycode) -> {
-			if (Main.CONFIG.enableChatTypingSound() && client.player != null) {
+		ClientRawInputEvent.KEY_PRESSED.register((client, screen, keyCode, scanCode, modifiers) -> {
+			if (Main.CONFIG.enableChatTypingSound() && client.player != null && client.currentScreen instanceof ChatScreen) {
 				client.player.playSound(SoundEvents.BLOCK_STONE_PLACE, Main.CONFIG.chatTypingVolume(), Main.CONFIG.chatTypingPitch());
 			}
 
-			return EventResult.pass();
-		});
-
-		ClientRawInputEvent.KEY_PRESSED.register((client, screen, keyCode, scanCode, modifiers) -> {
 			Zoom.isZooming = ZOOM_KEYBIND.isPressed();
 			client.options.smoothCameraEnabled = Zoom.isZooming;
 

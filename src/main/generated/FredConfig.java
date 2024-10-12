@@ -15,7 +15,6 @@ public class FredConfig extends ConfigWrapper<net.kyagara.fred.FredConfigModel> 
 
     private final Option<java.lang.String> customWindowTitle = this.optionForKey(this.keys.customWindowTitle);
     private final Option<java.lang.Boolean> enableInventoryMovement = this.optionForKey(this.keys.enableInventoryMovement);
-    private final Option<java.lang.Boolean> disableInventoryBackground = this.optionForKey(this.keys.disableInventoryBackground);
     private final Option<java.lang.Boolean> enableZoom = this.optionForKey(this.keys.enableZoom);
     private final Option<java.lang.Boolean> enableChangingSpyglassFOV = this.optionForKey(this.keys.enableChangingSpyglassFOV);
     private final Option<java.lang.Boolean> enableXPBottleMechanic = this.optionForKey(this.keys.enableXPBottleMechanic);
