@@ -6,10 +6,11 @@ The main goal with this mod is to add some quality of life features that would n
 - The mod icon is my friend's doggo :), no idea of what to actually use.
 - This mod was originally developed for a private modpack.
 - Some features have been moved to [CoopTweaks](https://github.com/Kyagara/CoopTweaks).
-
-> Most features are toggleable.
+- NeoForge version is not ready yet.
 
 ## Features
+
+> Most features are toggleable.
 
 ### Client
 
@@ -36,7 +37,7 @@ The main goal with this mod is to add some quality of life features that would n
 
 - Use XP to create Experience bottle.
 - Total blocks broken and placed statistic.
-- Joke blocks/items: Trumpet based on [trumpet-skeleton-fabric](https://github.com/JamiesWhiteShirt/trumpet-skeleton-fabric/), The Rock Block.
+- Joke blocks/items: Trumpet from [trumpet-skeleton-fabric](https://github.com/JamiesWhiteShirt/trumpet-skeleton-fabric/), The Rock Block.
 
 #### Recipes
 
@@ -50,4 +51,4 @@ The main goal with this mod is to add some quality of life features that would n
 
 Fred is licensed under the MIT license.
 
-This project contains code from [trumpet-skeleton-fabric](https://github.com/JamiesWhiteShirt/trumpet-skeleton-fabric/), [music-control](https://github.com/sf-inc/music_control).
+This project contains code from [trumpet-skeleton-fabric](https://github.com/JamiesWhiteShirt/trumpet-skeleton-fabric/) and [music-control](https://github.com/sf-inc/music_control).
