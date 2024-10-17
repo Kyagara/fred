@@ -7,6 +7,7 @@ The main goal with this mod is to add some quality of life features that would n
 - This mod was originally developed for a private modpack.
 - Some features have been moved to [CoopTweaks](https://github.com/Kyagara/CoopTweaks).
 - NeoForge version is not ready yet.
+- Some features are not 1:1 since the rework to Architectury and Stonecutter.
 
 ## Features
 
