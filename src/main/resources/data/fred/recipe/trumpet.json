@@ -11,6 +11,7 @@
     }
   },
   "result": {
-    "item": "fred:trumpet"
+    "id": "fred:trumpet",
+    "count": 1
   }
 }

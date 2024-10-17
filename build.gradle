@@ -44,8 +44,8 @@ dependencies {
 
     if (isFabric) {
         modImplementation("net.fabricmc:fabric-loader:${property("deps.fabric_loader")}")
-        modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric_api")}")
 
+        modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric_api")}")
         annotationProcessor(modImplementation("io.wispforest:owo-lib:${property("deps.owo")}"))
     } else {
         neoForge("net.neoforged:neoforge:${property("deps.neoforge")}")
