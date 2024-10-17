@@ -43,6 +43,6 @@ side = "BOTH"
 [[dependencies.fred]]
 modId = "owo"
 type = "required"
-versionRange = "[0.12.15,)"
+versionRange = "[0.12.15-beta,)"
 ordering = "AFTER"
 side = "BOTH"

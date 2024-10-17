@@ -40,14 +40,14 @@ The main goal with this mod is to add some quality of life features that would n
 
 #### Recipes
 
-- Name Tag
-- Rotten Flesh to Leather using furnace.
+- Rotten Flesh to Leather using furnace
 - Horse Armor (diamond, gold, iron)
+- Name Tag
+- Bell
 - Saddle
 
 ## License
 
 Fred is licensed under the MIT license.
 
-This project contains code
-from [trumpet-skeleton-fabric](https://github.com/JamiesWhiteShirt/trumpet-skeleton-fabric/), [music-control](https://github.com/sf-inc/music_control) and is based on [Kaupenjoe's Fabric Tutorial](https://www.youtube.com/playlist?list=PLKGarocXCE1EeLZggaXPJaARxnAbUD8Y_).
+This project contains code from [trumpet-skeleton-fabric](https://github.com/JamiesWhiteShirt/trumpet-skeleton-fabric/), [music-control](https://github.com/sf-inc/music_control).

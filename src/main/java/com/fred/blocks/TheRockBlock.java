@@ -24,7 +24,7 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class TheRockBlock extends RedstoneBlock {
-	public static final BooleanProperty POWERED = Properties.POWERED;
+	private static final BooleanProperty POWERED = Properties.POWERED;
 
 	public TheRockBlock(Settings settings) {
 		super(settings);
