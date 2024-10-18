@@ -1,6 +1,6 @@
 package com.fred.mixins.client;
 
-import com.fred.Main;
+import com.fred.Configuration;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.hud.ChatHud;
 import net.minecraft.client.gui.hud.ChatHudLine;
@@ -21,7 +21,7 @@ public abstract class ChatHudMixin {
 	@Inject(method = "clear", at = @At("HEAD"), cancellable = true)
 	public void clear(boolean clearHistory, CallbackInfo ci) {
 		// If clearChat is set to false
-		if (!Main.CONFIG.clearChatOnLeave()) {
+		if (!Configuration.clearChatOnLeave()) {
 			// Cancel this method, which will stop Minecraft from clearing the chat
 			ci.cancel();
 		}
@@ -29,8 +29,8 @@ public abstract class ChatHudMixin {
 
 	@Inject(method = "addMessage(Lnet/minecraft/client/gui/hud/ChatHudLine;)V", at = @At("HEAD"))
 	private void addMessage(ChatHudLine message, CallbackInfo ci) {
-		if (Main.CONFIG.enableChatMessageSound() && client.player != null) {
-			client.player.playSound(SoundEvents.ITEM_FLINTANDSTEEL_USE, Main.CONFIG.chatMessageVolume(), Main.CONFIG.chatMessagePitch());
+		if (Configuration.enableChatMessageSound() && client.player != null) {
+			client.player.playSound(SoundEvents.ITEM_FLINTANDSTEEL_USE, Configuration.chatMessageVolume(), Configuration.chatMessagePitch());
 		}
 	}
 }

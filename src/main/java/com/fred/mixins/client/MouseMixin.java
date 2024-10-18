@@ -1,6 +1,6 @@
 package com.fred.mixins.client;
 
-import com.fred.Main;
+import com.fred.Configuration;
 import com.fred.keybinds.Zoom;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.Mouse;
@@ -26,7 +26,7 @@ public abstract class MouseMixin {
 		}
 
 		if (client.options.getPerspective().isFirstPerson()) {
-			if (Main.CONFIG.enableChangingSpyglassFOV() && client.player.isUsingSpyglass()) {
+			if (Configuration.enableChangingSpyglassFOV() && client.player.isUsingSpyglass()) {
 				float newValue = MathHelper.clamp(Zoom.spyglassFOV - ((float) vertical * 0.1F), 0.2F, 1.0F);
 
 				if (Zoom.spyglassFOV != newValue) {
@@ -37,7 +37,7 @@ public abstract class MouseMixin {
 				ci.cancel();
 			}
 
-			if (Main.CONFIG.enableZoom() && Zoom.isZooming) {
+			if (Zoom.isZooming) {
 				double newValue = MathHelper.clamp(Zoom.FOV - vertical, 1.0, client.options.getFov().getValue());
 
 				if (Zoom.FOV != newValue) {

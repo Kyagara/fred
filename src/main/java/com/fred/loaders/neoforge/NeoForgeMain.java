@@ -3,12 +3,17 @@
 
 import com.fred.Client;
 import com.fred.Main;
+import dev.architectury.platform.Platform;
+import dev.architectury.utils.Env;
 import net.neoforged.fml.common.Mod;
 
 @Mod(Main.MOD_ID)
 public final class NeoForgeMain {
 	public NeoForgeMain() {
-		Client.init();
+		if (Platform.getEnvironment() == Env.CLIENT) {
+			Client.init();
+		}
+
 		Main.init();
 	}
 }
