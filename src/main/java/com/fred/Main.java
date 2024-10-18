@@ -4,6 +4,7 @@ import com.fred.blocks.TheRockBlock;
 import com.fred.items.Trumpet;
 import dev.architectury.event.EventResult;
 import dev.architectury.event.events.common.BlockEvent;
+import dev.architectury.platform.Platform;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -19,7 +20,6 @@ import net.minecraft.util.Identifier;
 
 public class Main {
 	public static final String MOD_ID = "fred";
-	public static final com.fred.FredConfig CONFIG = com.fred.FredConfig.createAndLoad();
 
 	public static final Identifier DOOT_COUNT = registerStatistic("doot_count");
 	public static final Identifier ROCK_COUNT = registerStatistic("rock_count");
@@ -30,6 +30,8 @@ public class Main {
 	public static final SoundEvent THE_ROCK_BLOCK_SCARE = registerSound("block.the_rock_block");
 
 	public static void init() {
+		Configuration.load(Platform.getConfigFolder().toString() + "/fred.json");
+
 		BlockEvent.PLACE.register((level, pos, state, placer) -> {
 			if (placer != null && placer.isPlayer()) {
 				((PlayerEntity) placer).incrementStat(Main.BLOCK_PLACED_COUNT);
@@ -43,7 +45,7 @@ public class Main {
 			return EventResult.pass();
 		});
 
-		if (Main.CONFIG.enableTheRockBlock()) {
+		if (Configuration.enableTheRockBlock()) {
 			final Block THE_ROCK_BLOCK = new TheRockBlock(AbstractBlock.Settings.copy(Blocks.STONE));
 			BlockItem blockItem = new BlockItem(THE_ROCK_BLOCK, new Item.Settings());
 
@@ -51,7 +53,7 @@ public class Main {
 			Registry.register(Registries.BLOCK, Identifier.of(Main.MOD_ID, "the_rock_block"), THE_ROCK_BLOCK);
 		}
 
-		if (Main.CONFIG.enableTrumpet()) {
+		if (Configuration.enableTrumpet()) {
 			final Item TRUMPET_ITEM = new Trumpet(new Item.Settings());
 			Registry.register(Registries.ITEM, Identifier.of(Main.MOD_ID, "trumpet"), TRUMPET_ITEM);
 		}

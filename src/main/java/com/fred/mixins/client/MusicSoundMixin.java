@@ -1,6 +1,6 @@
 package com.fred.mixins.client;
 
-import com.fred.Main;
+import com.fred.Configuration;
 import net.minecraft.sound.MusicSound;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -11,11 +11,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class MusicSoundMixin {
 	@Inject(method = "getMinDelay", at = @At("HEAD"), cancellable = true)
 	public void getMinDelay(CallbackInfoReturnable<Integer> ci) {
-		ci.setReturnValue(Main.CONFIG.musicMinDelay());
+		ci.setReturnValue(Configuration.musicMinDelay());
 	}
 
 	@Inject(method = "getMaxDelay", at = @At("HEAD"), cancellable = true)
 	public void getMaxDelay(CallbackInfoReturnable<Integer> ci) {
-		ci.setReturnValue(Main.CONFIG.musicMaxDelay());
+		ci.setReturnValue(Configuration.musicMaxDelay());
 	}
 }

@@ -1,7 +1,7 @@
 package com.fred.mixins.client;
 
 import com.fred.Client;
-import com.fred.Main;
+import com.fred.Configuration;
 import com.fred.keybinds.ScreenMovement;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.InventoryScreen;
@@ -21,7 +21,7 @@ public abstract class ClientPlayerEntityMixin {
 
 	@Inject(method = "tickMovement", at = @At("HEAD"))
 	public void tickMovement(CallbackInfo ci) {
-		if (Main.CONFIG.enableInventoryMovement() && client.currentScreen instanceof InventoryScreen) {
+		if (Configuration.enableInventoryMovement() && client.currentScreen instanceof InventoryScreen) {
 			ScreenMovement.CheckForMovementKeybind(client);
 		}
 

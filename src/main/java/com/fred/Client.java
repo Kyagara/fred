@@ -4,9 +4,7 @@ import com.fred.keybinds.MusicControl;
 import com.fred.keybinds.Zoom;
 import dev.architectury.event.EventResult;
 import dev.architectury.event.events.client.ClientRawInputEvent;
-import dev.architectury.platform.Platform;
 import dev.architectury.registry.client.keymappings.KeyMappingRegistry;
-import dev.architectury.utils.Env;
 import net.minecraft.client.gui.screen.ChatScreen;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
@@ -28,19 +26,13 @@ public class Client {
 	public static boolean isAutoWalking = false;
 
 	public static void init() {
-		if (Platform.getEnvironment() == Env.SERVER) {
-			return;
-		}
-
 		ClientRawInputEvent.KEY_PRESSED.register((client, keyCode, scanCode, action, modifiers) -> {
-			if (Main.CONFIG.enableChatTypingSound() && client.player != null && client.currentScreen instanceof ChatScreen) {
-				client.player.playSound(SoundEvents.BLOCK_STONE_PLACE, Main.CONFIG.chatTypingVolume(), Main.CONFIG.chatTypingPitch());
+			if (Configuration.enableChatTypingSound() && client.player != null && client.currentScreen instanceof ChatScreen) {
+				client.player.playSound(SoundEvents.BLOCK_STONE_PLACE, Configuration.chatTypingVolume(), Configuration.chatTypingPitch());
 			}
 
-			if (Main.CONFIG.enableZoom()) {
-				Zoom.isZooming = ZOOM_KEYBIND.isPressed();
-				client.options.smoothCameraEnabled = Zoom.isZooming;
-			}
+			Zoom.isZooming = ZOOM_KEYBIND.isPressed();
+			client.options.smoothCameraEnabled = Zoom.isZooming;
 
 			if (AUTO_WALK_KEYBIND.isPressed()) {
 				isAutoWalking = !isAutoWalking;

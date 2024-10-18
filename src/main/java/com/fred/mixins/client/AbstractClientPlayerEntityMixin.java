@@ -1,6 +1,6 @@
 package com.fred.mixins.client;
 
-import com.fred.Main;
+import com.fred.Configuration;
 import com.fred.keybinds.Zoom;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
@@ -17,7 +17,7 @@ public abstract class AbstractClientPlayerEntityMixin {
 
 	@Inject(method = "getFovMultiplier", at = @At("HEAD"), cancellable = true)
 	public void getFovMultiplier(CallbackInfoReturnable<Float> ci) {
-		if (Main.CONFIG.enableChangingSpyglassFOV() && client.player != null && client.options.getPerspective().isFirstPerson() && client.player.isUsingSpyglass()) {
+		if (Configuration.enableChangingSpyglassFOV() && client.player != null && client.options.getPerspective().isFirstPerson() && client.player.isUsingSpyglass()) {
 			ci.setReturnValue(Zoom.spyglassFOV);
 		}
 	}
