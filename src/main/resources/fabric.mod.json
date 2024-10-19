@@ -27,10 +27,9 @@
   },
   "accessWidener": "fred.accesswidener",
   "depends": {
-    "fabricloader": ">=0.16.5",
+    "fabricloader": ">=0.16.7",
     "minecraft": "${minecraft}",
     "java": ">=21",
-    "architectury": ">=13.0.6",
-    "owo": ">=0.12.15"
+    "architectury": ">=13.0.8"
   }
 }

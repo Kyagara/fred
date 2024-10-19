@@ -3,7 +3,7 @@ package com.fred.keybinds;
 import com.fred.interfaces.GameOptionsInterface;
 import com.fred.mixins.client.accessor.MusicTrackerAccessor;
 import com.fred.mixins.client.accessor.SoundSetAccessor;
-import com.fred.screens.MusicPlayerScreen;
+import com.fred.screens.MusicPlayer;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.sound.MusicTracker;
 import net.minecraft.client.sound.Sound;
@@ -55,8 +55,6 @@ public class MusicControl {
 		}
 
 		List<Identifier> songs = new ArrayList<>();
-		List<Identifier> discs = new ArrayList<>();
-		List<Identifier> categories = new ArrayList<>();
 
 		Random random = client.player.getRandom();
 
@@ -70,12 +68,7 @@ public class MusicControl {
 
 				if (path.contains("music_disc")) {
 					songs.add(key);
-					discs.add(key);
 					continue;
-				}
-
-				if (path.contains("music.") && !categories.contains(key)) {
-					categories.add(key);
 				}
 
 				SoundSetAccessor soundSet = ((SoundSetAccessor) client.getSoundManager().get(key));
@@ -98,7 +91,7 @@ public class MusicControl {
 			}
 		}
 
-		client.setScreen(new MusicPlayerScreen(songs, categories, discs));
+		client.setScreen(new MusicPlayer(songs));
 	}
 
 	public static void Skip(MinecraftClient client) {

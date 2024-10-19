@@ -20,13 +20,6 @@ config = "fred.mixins.json"
 file = "META-INF/accesstransformer.cfg"
 
 [[dependencies.fred]]
-modId = "neoforge"
-type = "required"
-versionRange = "[21.1.61,)"
-ordering = "NONE"
-side = "BOTH"
-
-[[dependencies.fred]]
 modId = "minecraft"
 type = "required"
 versionRange = "${minecraft}"
@@ -34,15 +27,15 @@ ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.fred]]
-modId = "architectury"
+modId = "neoforge"
 type = "required"
-versionRange = "[13.0.6,)"
-ordering = "AFTER"
+versionRange = "[21.1.72,)"
+ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.fred]]
-modId = "owo"
+modId = "architectury"
 type = "required"
-versionRange = "[0.12.15-beta,)"
+versionRange = "[13.0.8,)"
 ordering = "AFTER"
 side = "BOTH"
