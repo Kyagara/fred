@@ -1,7 +1,6 @@
 package com.fred;
 
 import com.fred.keybinds.MusicControl;
-import com.fred.keybinds.Zoom;
 import dev.architectury.event.EventResult;
 import dev.architectury.event.events.client.ClientRawInputEvent;
 import dev.architectury.registry.client.keymappings.KeyMappingRegistry;
@@ -23,7 +22,11 @@ public class Client {
 	public static final KeyBinding ZOOM_KEYBIND = register(GLFW.GLFW_KEY_C, "key.fred.zoom");
 	public static final KeyBinding AUTO_WALK_KEYBIND = register(GLFW.GLFW_KEY_G, "key.fred.auto_walk");
 
-	public static boolean isAutoWalking = false;
+	public static boolean IS_AUTO_WALKING = false;
+
+	public static double FOV = 20.0;
+	public static float SPYGLASS_FOV = 0.2F;
+	public static boolean IS_ZOOMING = false;
 
 	public static void init() {
 		ClientRawInputEvent.KEY_PRESSED.register((client, keyCode, scanCode, action, modifiers) -> {
@@ -31,12 +34,12 @@ public class Client {
 				client.player.playSound(SoundEvents.BLOCK_STONE_PLACE, Configuration.chatTypingVolume(), Configuration.chatTypingPitch());
 			}
 
-			Zoom.isZooming = ZOOM_KEYBIND.isPressed();
-			client.options.smoothCameraEnabled = Zoom.isZooming;
+			IS_ZOOMING = ZOOM_KEYBIND.isPressed();
+			client.options.smoothCameraEnabled = IS_ZOOMING;
 
 			if (AUTO_WALK_KEYBIND.isPressed()) {
-				isAutoWalking = !isAutoWalking;
-				client.options.forwardKey.setPressed(isAutoWalking);
+				IS_AUTO_WALKING = !IS_AUTO_WALKING;
+				client.options.forwardKey.setPressed(IS_AUTO_WALKING);
 			}
 
 			// Music keybinds

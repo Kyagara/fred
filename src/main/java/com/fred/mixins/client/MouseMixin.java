@@ -1,7 +1,7 @@
 package com.fred.mixins.client;
 
+import com.fred.Client;
 import com.fred.Configuration;
-import com.fred.keybinds.Zoom;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.Mouse;
 import net.minecraft.sound.SoundEvents;
@@ -27,22 +27,22 @@ public abstract class MouseMixin {
 
 		if (client.options.getPerspective().isFirstPerson()) {
 			if (Configuration.enableChangingSpyglassFOV() && client.player.isUsingSpyglass()) {
-				float newValue = MathHelper.clamp(Zoom.spyglassFOV - ((float) vertical * 0.1F), 0.2F, 1.0F);
+				float newValue = MathHelper.clamp(Client.SPYGLASS_FOV - ((float) vertical * 0.1F), 0.2F, 1.0F);
 
-				if (Zoom.spyglassFOV != newValue) {
-					client.player.playSound(SoundEvents.ITEM_SPYGLASS_STOP_USING, 1.0F, 1.0F + Zoom.spyglassFOV);
-					Zoom.spyglassFOV = newValue;
+				if (Client.SPYGLASS_FOV != newValue) {
+					client.player.playSound(SoundEvents.ITEM_SPYGLASS_STOP_USING, 1.0F, 1.0F + Client.SPYGLASS_FOV);
+					Client.SPYGLASS_FOV = newValue;
 				}
 
 				ci.cancel();
 			}
 
-			if (Zoom.isZooming) {
-				double newValue = MathHelper.clamp(Zoom.FOV - vertical, 1.0, client.options.getFov().getValue());
+			if (Client.IS_ZOOMING) {
+				double newValue = MathHelper.clamp(Client.FOV - ((float) vertical * 0.1F), 0.2F, 1.0F);
 
-				if (Zoom.FOV != newValue) {
+				if (Client.FOV != newValue) {
 					client.player.playSound(SoundEvents.ITEM_SPYGLASS_STOP_USING, 1.0F, 2.0F);
-					Zoom.FOV = newValue;
+					Client.FOV = newValue;
 				}
 
 				ci.cancel();

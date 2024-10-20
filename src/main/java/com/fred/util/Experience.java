@@ -4,18 +4,18 @@ import com.fred.Configuration;
 import net.minecraft.entity.player.PlayerEntity;
 
 public class Experience {
-	public static boolean CanCreateXPBottle(PlayerEntity player) {
+	public static boolean canCreateXPBottle(PlayerEntity player) {
 		if (player.isCreative() || Configuration.xpForXPBottle() <= 0) {
 			return true;
 		}
 
-		int currentXP = (int) (GetTotalExperienceForLevel(player.experienceLevel)
+		int currentXP = (int) (getTotalExperienceForLevel(player.experienceLevel)
 							   + player.experienceProgress * player.getNextLevelExperience());
 
 		return currentXP >= Configuration.xpForXPBottle();
 	}
 
-	public static double GetTotalExperienceForLevel(int level) {
+	public static double getTotalExperienceForLevel(int level) {
 		if (level == 0) {
 			return 0;
 		}
