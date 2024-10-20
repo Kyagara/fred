@@ -22,7 +22,7 @@ public abstract class XPBottleItemMixin {
 			return;
 		}
 
-		if (!world.isClient && Experience.CanCreateXPBottle(player) && player.isSneaking()) {
+		if (!world.isClient && Experience.canCreateXPBottle(player) && player.isSneaking()) {
 			ItemStack stack = player.getStackInHand(hand);
 
 			player.addExperience(-Configuration.xpForXPBottle());
