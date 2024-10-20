@@ -13,6 +13,7 @@ import net.minecraft.util.Identifier;
 
 import java.util.Collections;
 import java.util.List;
+
 public class MusicPlayer extends Screen {
 	private final List<Identifier> songs;
 

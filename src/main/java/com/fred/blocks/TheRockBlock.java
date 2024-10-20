@@ -61,8 +61,8 @@ public class TheRockBlock extends RedstoneBlock {
 			world.setBlockState(pos, state.cycle(POWERED));
 
 			if (!state.get(POWERED)) {
-				world.playSound(null, pos, Main.THE_ROCK_BLOCK_SCARE, SoundCategory.PLAYERS, 0.7F, 1F);
-				player.incrementStat(Main.ROCK_COUNT);
+				world.playSound(null, pos, Main.THE_ROCK_BLOCK_SCARE.get(), SoundCategory.PLAYERS, 0.7F, 1F);
+				player.incrementStat(Main.ROCK_COUNT.get());
 			}
 		}
 

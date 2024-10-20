@@ -34,7 +34,7 @@ public class Trumpet extends Item {
 
 		// Pushing entities - from trumpet-skeleton-fabric
 		if (!world.isClient) {
-			world.playSoundFromEntity(null, player, Main.TRUMPET_USE, SoundCategory.PLAYERS, 0.8F, 0.9F + world.random.nextFloat() * 0.2F);
+			world.playSoundFromEntity(null, player, Main.TRUMPET_USE.get(), SoundCategory.PLAYERS, 0.8F, 0.9F + world.random.nextFloat() * 0.2F);
 
 			List<LivingEntity> entities = world.getEntitiesByClass(LivingEntity.class, player.getBoundingBox().expand(5.0D), EntityPredicates.VALID_ENTITY);
 
@@ -51,7 +51,7 @@ public class Trumpet extends Item {
 				spookedEntity.addVelocity(deltaX / (10.0D + distance), 5.0D / (10.0D + distance), deltaZ / (10.0D + distance));
 			}
 
-			player.incrementStat(Main.DOOT_COUNT);
+			player.incrementStat(Main.DOOT_COUNT.get());
 		}
 
 		return TypedActionResult.pass(player.getStackInHand(hand));
