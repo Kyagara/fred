@@ -27,7 +27,7 @@ public class Client {
 
 	public static void init() {
 		ClientRawInputEvent.KEY_PRESSED.register((client, keyCode, scanCode, action, modifiers) -> {
-			if (Configuration.enableChatTypingSound() && client.player != null && client.currentScreen instanceof ChatScreen) {
+			if (Configuration.enableChatTypingSound() && action == GLFW.GLFW_PRESS && client.player != null && client.currentScreen instanceof ChatScreen) {
 				client.player.playSound(SoundEvents.BLOCK_STONE_PLACE, Configuration.chatTypingVolume(), Configuration.chatTypingPitch());
 			}
 
