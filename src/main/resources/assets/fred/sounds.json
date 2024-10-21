@@ -1,12 +1,16 @@
 {
-    "item.trumpet.use": {
-        "category": "players",
-        "subtitle": "Trumpet",
-        "sounds": ["fred:items/trumpet"]
-    },
-    "block.the_rock_block": {
-        "category": "players",
-        "subtitle": "The Rock",
-        "sounds": ["fred:blocks/the_rock_block"]
-    }
+  "item.trumpet.use": {
+    "category": "players",
+    "subtitle": "Trumpet",
+    "sounds": [
+      "fred:items/trumpet"
+    ]
+  },
+  "block.the_rock_block": {
+    "category": "players",
+    "subtitle": "The Rock",
+    "sounds": [
+      "fred:blocks/the_rock_block"
+    ]
+  }
 }

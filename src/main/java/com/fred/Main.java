@@ -66,9 +66,11 @@ public class Main {
 			ITEMS.register("trumpet", () -> new Trumpet(new Item.Settings()));
 		}
 
-		STATS.register();
+		//? if neoforge {
+		/*STATS.register();
 		SOUNDS.register();
 		ITEMS.register();
 		BLOCKS.register();
+		*///?}
 	}
 }

@@ -44,7 +44,7 @@ public class MusicPlayer extends Screen {
 		// Search field
 		searchField = new TextFieldWidget(this.textRenderer, 0, 0, widgetWidth, searchFieldHeight, Text.of(""));
 		searchField.setChangedListener(this::onSearchChanged);
-		searchField.setSuggestion("Search");
+		searchField.setSuggestion(Text.translatable("text.screen.fred.music_player.search_field").getString());
 
 		this.setFocused(searchField);
 
@@ -72,10 +72,15 @@ public class MusicPlayer extends Screen {
 		});
 	}
 
+	@Override
+	public boolean shouldPause() {
+		return false;
+	}
+
 	private void onSearchChanged(String searchText) {
 		if (searchText.isEmpty()) {
 			songList.setEntries(songs);
-			searchField.setSuggestion("Search");
+			searchField.setSuggestion(Text.translatable("text.screen.fred.music_player.search_field").getString());
 			return;
 		}
 
